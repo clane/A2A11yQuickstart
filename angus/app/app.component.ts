@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 @Component({
     selector: 'my-tooltip-component',
     template: `
@@ -38,13 +37,9 @@ If nested widgets use the same keys, e.g., Escape, then they should be handled i
 
       </div>
 
-
-         
-
 `
 })
 export class AppComponent {
-
 
     show: bool = false;
     ariaHidden: bool = !this.show;
@@ -64,10 +59,50 @@ export class AppComponent {
         this.ariaHidden = !this.show;
     }
 
-
-
-
 }
 
 
+@Component({
+  selector: "my-accordion",
+  template: `
+    <style>
+      #accordion { width:500px; margin:50px auto; } 
+      #accLink { text-decoration:none; display:block; } 
+      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
+      .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
+    </style>
+    <div id="accordion">
+      <h2>Angular 2 Accordion</h2>
+      <a id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Link</a>
+      <div id="insertionPoint" *ngIf="show">
+      <p>From Whatsock.com ...</p>
+      <p> Accordions are a fairly simple control type that are easy to make accessible.</p>
+      <p> Though similar in both concept and execution to Tab Controls, they are not the same.</p>
+      <p> A Tab Control has a series of grouped triggering elements that expand and collapse, the rendered content 
+       of which is inserted directly after the triggering element group when opened.
+       The container element insertion point for all Tab Control triggering elements is shared between them.
+       Also, the group of triggering elements in a Tab Control has only one tab stop. The arrow keys are then used 
+       to switch focus between each Tab, and the <kbd>Enter</kbd> or <kbd>Space</kbd> key is used to expand the desired Tab content panel.</p>
+       <p> In contrast, an Accordion has a series of triggering elements that expand and collapse, the rendered content 
+       of which is inserted directly after the triggering element when opened.
+       The container element insertion points for Accordions are not shared.
+       Also, all Accordion links appear in the tab order.
+       The reason why ARIA attributes such as <code>role="tablist"</code> and <code>role="tab"</code> are not included within accordions, is 
+       because the insertion of inline content would place dynamic content sections within the same Tablist container, 
+       making it impossible to determine the order of nested Tab controls when present within the inserted content.</p>
+     </div>
+  ` 
+})
+
+export class AccordionComponent {
+
+  show: bool = false;
+  expanded: bool = false;
+
+  toggle() {
+    this.show = !this.show;
+    this.expanded = !this.expanded;
+  }
+ 
+}
 
