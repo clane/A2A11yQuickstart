@@ -106,3 +106,46 @@ export class AccordionComponent {
  
 }
 
+
+@Component({
+  selector: "my-alert",
+  template: `
+    <style>
+      #alert { width:500px; margin:50px auto; } 
+      #alertButton { text-decoration:none; display:block; } 
+      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
+      .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
+    </style>
+    <div id="alert">
+      <h1>Angular 2 Alert</h1>
+
+      <p>
+From https://www.w3.org/TR/wai-aria-1.1/ ...
+</p>
+
+     <h2> alert (role)§</h2>
+<p>
+A type of live region with important, and usually time-sensitive, information. See related alertdialog and status.
+
+Alerts are used to convey messages to alert the user. In the case of audio warnings this is an accessible alternative for a hearing-impaired user. The alert role goes on the node containing the alert message. Alerts are specialized forms of the status role, which will be processed as an atomic live region.
+
+Alerts are assertive live regions and will be processed as such by assistive technologies. Neither authors nor user agents are required to set or manage focus to them in order for them to be processed. Since alerts are not required to receive focus, content authors should not require users to close an alert. If the operating system allows, the user agent should fire a system alert event through the accessibility API when the WAI-ARIA alert is created. If an alert requires focus to close the alert, then content authors should use alertdialog instead.
+
+Elements with the role alert have an implicit aria-live value of assertive, and an implicit aria-atomic value of true.
+
+</p>
+      <button id="alertButton" href="#" (click)="toggle()" aria-controls="insertionPoint">Trigger an alert</button>
+      <div id="insertionPoint" *ngIf="show" role="alert">Don't forget to save your work!</div>
+  ` 
+})
+
+export class AlertComponent {
+
+  show: bool = false;
+
+  toggle() {
+    this.show = !this.show;
+  }
+ 
+}
+
