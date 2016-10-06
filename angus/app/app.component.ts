@@ -29,8 +29,8 @@ If nested widgets use the same keys, e.g., Escape, then they should be handled i
 })
 export class AppComponent {
 
-    show: bool = false;
-    ariaHidden: bool = !this.show;
+    show: boolean = false;
+    ariaHidden: boolean = !this.show;
 
     open() {
         this.show = true;
@@ -83,8 +83,8 @@ export class AppComponent {
 
 export class AccordionComponent {
 
-  show: bool = false;
-  expanded: bool = false;
+  show: boolean = false;
+  expanded: boolean = false;
 
   toggle() {
     this.show = !this.show;
@@ -123,7 +123,7 @@ Elements with the role alert have an implicit aria-live value of assertive, and 
 
 export class AlertComponent {
 
-  show: bool = false;
+  show: boolean = false;
 
   toggle() {
     this.show = !this.show;
