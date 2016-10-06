@@ -24,14 +24,14 @@ describe('AppComponent with TCB', function () {
     expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');
   });
 
-  it('should have expected <h1> text', () => {
+  it('should have expected <h2> text', () => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
-    let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
+    let h2 = fixture.debugElement.query(el => el.name === 'h2').nativeElement;  // it works
 
-        h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
+        h2 = fixture.debugElement.query(By.css('h2')).nativeElement;            // preferred
 
-    expect(h1.innerText).toMatch(/widget/i, '<h1> should say something about "Widgets"');
+        expect(h2.innerText).toMatch(/widget/i, '<h2> should say something about "Widgets"');
   });
 });
