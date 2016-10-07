@@ -1,7 +1,7 @@
 
 describe('QuickStart E2E Tests', function () {
 
-  let expectedMsg = 'My First Angular App';
+  let expectedMsg = 'Angular 2 Tooltip Widget';
 
 
   beforeEach(function () {
@@ -9,7 +9,7 @@ describe('QuickStart E2E Tests', function () {
   });
 
   it('should display: ' + expectedMsg, function () {
-    expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
+    expect(element(by.css('h2')).getText()).toEqual(expectedMsg);
   });
 
 });
