@@ -19,10 +19,14 @@ exports.config = {
   directConnect: true,
 
 
+//OSX
+//chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
+//seleniumServerJar: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
 
-chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
+//Windows
+chromeDriver: '.\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe',
 
-seleniumServerJar: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
+
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
