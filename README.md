@@ -8,7 +8,6 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
 
  * As an administrator install node.js and npm
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running "node -v" and "npm -v" in a from the command prompt
- 
  * As an administrator install the latest version of chromedriver (2.25 at the time of this writing 12/7/2016)
  
  * Download or clone this project
