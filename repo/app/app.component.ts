@@ -80,17 +80,17 @@ export class AccordionComponent {
     </style>
     <h2>Alert</h2>
       <p>Use the following button to dynamically populate the alert's live region</p>
-      <button id="alertButton" href="#" (click)="toggle()" aria-controls="insertionPoint">Trigger an alert</button>
-      <div id="insertionPoint" role="alert">{{text}}</div>
+      <button id="alertButton" href="#" (click)="alert()" aria-controls="alertLiveRegion">Trigger an alert</button>
+      <div id="alertLiveRegion" role="alert">{{alertText}}</div>
   ` 
 })
 
 export class AlertComponent {
 
-  text: string = "";
+  alertText: string = "This is a live region, the alert text will appear here dynamically";
 
-  toggle() {
-    this.text = "Oh no!"
+  alert() {
+    this.alertText = "Oh no!"
   }
 
 }
@@ -102,8 +102,13 @@ export class AlertComponent {
     <p>Use the following button to show a modal dialog</p>
     <button id="modalButton"(click)="modal()">Open Modal</button>
     <div *ngIf="show">
-        <p>Beginning of dialog</p>
-        <p>End of dialog</p>
+      <p>Beginning of dialog</p>
+      <ul *ngIf="show">
+          <li>focus me or my first active child</li>
+          <li>constrain focus within</li>
+          <li>hide everything else from everyone</li>
+      </ul>
+      <p>End of dialog</p>
     </div>
   `,
 })
