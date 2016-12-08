@@ -6,7 +6,7 @@ This is a quickstart that demonstrates some ARIA widgets in Angular 2. The Angul
 
 ##Windows Installation
 
- * As an administrator install node.js and npm. 
+ * As an administrator install node.js and npm
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running node -v and npm -v in a from the command prompt
  * As an administrator install the latest version of chromedriver (2.25 at the time of this writing)
  * Download or clone this project
@@ -18,6 +18,7 @@ This is a quickstart that demonstrates some ARIA widgets in Angular 2. The Angul
 
 ##OSX Installation
 
+ * As an administrator install node.js and npm
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running node -v and npm -v in a from the command prompt
  * Install the latest version of chromedriver (2.25 at the time of this writing)
  * Download or clone this project
