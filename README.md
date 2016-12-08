@@ -17,7 +17,6 @@ This is a quickstart that demonstrates some ARIA widgets in Angular 2. The Angul
  * To run a Protractor test, type "npm run e2e"
 
 ##OSX Installation
-
  * Install node.js and npm
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running node -v and npm -v in a from the command prompt
  * Install the latest version of chromedriver (2.25 at the time of this writing)
