@@ -97,8 +97,8 @@ export class AlertComponent {
   selector: "aria-modal-dialog",
   template: `
     <h2>Modal Dialog</h2>
-    <button id="modalButton"(click)="focusDialog()">Open Modal</button>
-    <div>
+    <button id="modalButton"(click)="modal()">Open Modal</button>
+    <div *ngIf="show">
         <p>Beginning of dialog</p>
         <p>End of dialog</p>
     </div>
@@ -109,6 +109,8 @@ export class ModalDialogComponent {
 
   show: boolean = false;
 
-  focusDialog(){}
+  modal(){
+    this.show = true; 
+  }
 
 }
