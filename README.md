@@ -6,7 +6,7 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
 
 ##Windows instructions
 
- * As an administrator install node.js and npm
+ * As an administrator install node.js and npm (https://docs.npmjs.com/getting-started/installing-node)
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running "node -v" and "npm -v" from the command prompt
  * As an administrator install the latest version of chromedriver (2.25 at the time of this writing 12/7/2016)
  * Download or clone this project from https://github.com/clane/A2A11yQuickstart
@@ -18,7 +18,7 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
 
 ##OSX instructions
 
- * Install node.js and npm (not necessary to use the adminstrator account)
+ * Install node.js and npm (not necessary to use the adminstrator account, see https://docs.npmjs.com/getting-started/installing-node)
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running "node -v" and "npm -v" in the terminal
  * Install the latest version of chromedriver (2.25 at the time of this writing 12/7/2016)
  * Download or clone this project from https://github.com/clane/A2A11yQuickstart
