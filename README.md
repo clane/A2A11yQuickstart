@@ -2,7 +2,7 @@
 
 About
 -----
-This is a quickstart that demonstrates some ARIA widgets in Angular 2. The Angular 2 Quickstart (https://github.com/angular/quickstart) was the starting point of this project. This projects intends demonstrate how ARIA widgets can be built in Angular 2
+This is a quickstart that demonstrates some ARIA widgets in Angular 2. The Angular 2 Quickstart (https://github.com/angular/quickstart) was the starting point of this project. This project demonstrates how ARIA widgets can be built in Angular 2
 
 Windows Installation
 ----------------------------------
