@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
           #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
      </style>
       
-        <h2>Tooltip Widget</h2>
-        <a id="link" (click)="toggle()" (focus)="open()" (blur)="close()" (mouseover)="open()" (mouseout)="close()" href="#" aria-describedby="tooltip" (keyup.escape)="close()">Go somewhere -&gt;</a>
+        <h2>Tooltip</h2>
+        <p>Focus the following link to see the tooltip</p>
+        <a id="link" (click)="toggle()" (focus)="open()" (blur)="close()" (mouseover)="open()" (mouseout)="close()" href="#" aria-describedby="tooltip" (keyup.escape)="close()">link with tooltip</a>
         <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar this is my tooltip</div>
 
 
@@ -47,6 +48,7 @@ export class TooltipComponent {
       .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Accordion</h2>
+    <p>Use the following link to toggle the appearance of the accordion's content</p>
     <a id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Link</a>
     <div id="insertionPoint" *ngIf="show">
         <p>Lorem impsum ...</p>
@@ -77,7 +79,7 @@ export class AccordionComponent {
       .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Alert</h2>
-
+      <p>Use the following button to dynamically populate the alert's live region</p>
       <button id="alertButton" href="#" (click)="toggle()" aria-controls="insertionPoint">Trigger an alert</button>
       <div id="insertionPoint" role="alert">{{text}}</div>
   ` 
@@ -97,6 +99,7 @@ export class AlertComponent {
   selector: "aria-modal-dialog",
   template: `
     <h2>Modal Dialog</h2>
+    <p>Use the following button to show a modal dialog</p>
     <button id="modalButton"(click)="modal()">Open Modal</button>
     <div *ngIf="show">
         <p>Beginning of dialog</p>
