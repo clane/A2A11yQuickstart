@@ -93,16 +93,16 @@ export class AccordionComponent {
     <h2>Alert</h2>
 
       <button id="alertButton" href="#" (click)="toggle()" aria-controls="insertionPoint">Trigger an alert</button>
-      <div id="insertionPoint" *ngIf="show" role="alert">Don't forget to save your work!</div>
+      <div id="insertionPoint" role="alert">{{text}}</div>
   ` 
 })
 
 export class AlertComponent {
 
-  show: boolean = false;
+  text: string = "";
 
   toggle() {
-    this.show = !this.show;
+    this.text = "Oh no!"
   }
 
 }
