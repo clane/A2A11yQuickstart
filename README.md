@@ -4,7 +4,7 @@
 
 This project demonstrates how ARIA widgets can be built in Angular 2. The Angular 2 Quickstart (https://github.com/angular/quickstart) was the starting point of this project.
 
-##Windows Installation
+##Windows instructions
 
  * As an administrator install node.js and npm
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running "node -v" and "npm -v" in a from the command prompt
@@ -16,7 +16,7 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
  * To run a Karma test, if the application is running in the browser, close the browser and kill the lite-server. Then run "npm test" in .\ using the command prompt
  * To run a Protractor test, run "npm run e2e" from .\ using the command prompt
 
-##OSX Installation
+##OSX instructions
 
  * Install node.js and npm (not necessary to use the adminstrator account)
  * Verify that you are running at least node v4.x.x and npm 3.x.x by running "node -v" and "npm -v" in a from the terminal
