@@ -12,7 +12,7 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
  * Download or clone this project
  * Set the location of the chromedriver file in .\protractor.config.js as follows:
   chromeDriver: '.\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe',
- * Open the command prompt .\ and run "npm run"
+ * To run the application, open the command prompt .\ and run "npm run"
  * To run a Karma test, if the application is running in the browser, close the browser and kill the lite-server. Then run "npm test" in .\ using the command prompt
  * To run a Protractor test, run "npm run e2e" from .\ using the command prompt
 
@@ -24,7 +24,7 @@ This project demonstrates how ARIA widgets can be built in Angular 2. The Angula
  * Download or clone this project
  * Set the location of the chromedriver file in ./protractor.config.js as follows:    
  chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
- * Open the terminal in ./ and run "npm run" 
+ * To run the application, open the terminal in ./ and run "npm run" 
  * To run a Karma test, if the application is running in the browser, close the browser and kill the lite-server. Then run "npm test" in ./ using the terminal
  * To run a Protractor test, run "npm run e2e" in ./ using the terminal
 
