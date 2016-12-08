@@ -75,7 +75,7 @@ export class AccordionComponent {
     <style>
       #alert { width:500px; margin:50px auto; } 
       #alertButton { display:block; } 
-      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
+      #alertLiveRegion { background-color:beige; padding:10px; margin-top:10px; } 
       .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Alert</h2>
