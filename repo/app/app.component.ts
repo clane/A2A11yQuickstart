@@ -27,7 +27,7 @@ If nested widgets use the same keys, e.g., Escape, then they should be handled i
 
 `
 })
-export class AppComponent {
+export class TooltipComponent {
 
     show: boolean = false;
     ariaHidden: boolean = !this.show;
