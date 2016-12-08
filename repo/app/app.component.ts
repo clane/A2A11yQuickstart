@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'my-tooltip-component',
+    selector: 'aria-tooltip',
     template: `
         <style>
           #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
@@ -51,7 +51,7 @@ export class TooltipComponent {
 
 
 @Component({
-  selector: "my-accordion",
+  selector: "aria-accordion",
   template: `
     <style>
       #accordion { width:500px; margin:50px auto; } 
@@ -95,7 +95,7 @@ export class AccordionComponent {
 
 
 @Component({
-  selector: "my-alert",
+  selector: "aria-alert",
   template: `
     <style>
       #alert { width:500px; margin:50px auto; } 
@@ -131,3 +131,21 @@ export class AlertComponent {
 
 }
 
+@Component({
+  selector: "aria-modal-dialog",
+  template: `
+    <button id="modalButton"(click)="focusDialog()">Open Modal</button>
+    <div>
+        <p>Beginning of dialog</p>
+        <p>End of dialog</p>
+    </div>
+  `,
+})
+
+export class ModalDialogComponent {
+
+  show: boolean = false;
+
+  focusDialog(){}
+
+}
