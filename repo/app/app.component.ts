@@ -122,3 +122,22 @@ export class ModalDialogComponent {
   }
 
 }
+
+
+@Component({
+  selector: "widget-demo",
+  template: `
+  <h1>ARIA Widgets in Angular 2</h1>
+      <aria-tooltip>Loading...</aria-tooltip>
+      <hr/>
+      <aria-accordion>Loading...</aria-accordion>
+      <hr/>
+      <aria-alert>Loading...</aria-alert>
+      <hr/>
+      <aria-modal-dialog>Loading...</aria-modal-dialog>
+  `,
+})
+
+export class WidgetDemoComponent {
+
+}
