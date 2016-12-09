@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { TooltipComponent, AccordionComponent, AlertComponent, ModalDialogComponent, WidgetDemoComponent }  from './app.component';
 

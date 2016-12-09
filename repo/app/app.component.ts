@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title }     from '@angular/platform-browser';
 
 @Component({
     selector: 'aria-tooltip',
@@ -135,9 +136,19 @@ export class ModalDialogComponent {
       <aria-alert>Loading...</aria-alert>
       <hr/>
       <aria-modal-dialog>Loading...</aria-modal-dialog>
+      <a (click)="setTitle( 'Good evening!' )">Set title to Good evening</a>
   `,
 })
 
 export class WidgetDemoComponent {
+
+   public constructor(private titleService: Title ) { }
+ 
+   public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
+  
+
+
 
 }
