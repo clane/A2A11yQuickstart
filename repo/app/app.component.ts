@@ -146,22 +146,6 @@ export class ModalDialogComponent {
 
 
 
-@Component({
-  selector: 'focus-set-example',
-  template: `
-    <input #myInput type="text" />
-    <div> Some other content </div>
-  `
-})
-export class FocusSetExample implements AfterViewInit {
-  @ViewChild('myInput') focusTarget: ElementRef;
-  constructor(private renderer: Renderer) {}
-  ngAfterViewInit() {
-    //this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
-  }
-}
-
-
 
 
 @Component({
@@ -176,8 +160,7 @@ export class FocusSetExample implements AfterViewInit {
       <hr/>
       <aria-modal-dialog>Loading...</aria-modal-dialog>
       <hr/>
-      <focus-set-example>Loading...</focus-set-example>
-      <a (click)="setTitle( 'Good evening!' )">Set title to Good evening</a>
+  
   `,
 })
 
