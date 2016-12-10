@@ -96,22 +96,44 @@ export class AlertComponent {
 
 }
 
+
+@Component({
+  selector: "just-the-dialog",
+  template: `
+  
+      <p>Beginning of dialog</p>
+      <ul>
+          <button #modalClose>close</button>
+          <li>focus me or my first active child</li>
+          <li>constrain focus within</li>
+          <li>hide everything else from everyone</li>
+      </ul>
+      <p>End of dialog</p>
+
+  `,
+})
+
+export class JustTheDialog implements AfterViewInit {
+
+  @ViewChild('modalClose') focusTarget: ElementRef;
+
+   constructor(private renderer: Renderer) {}
+
+  ngAfterViewInit() {
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
+  }
+
+}
+
 @Component({
   selector: "aria-modal-dialog",
   template: `
     <h2 #modalClose tabindex="-1">Modal Dialog</h2>
     <p>Use the following button to show a modal dialog</p>
     <button (click)="modal()">Open Modal</button>
-    <div #dialog *ngIf="show">
-      <p>Beginning of dialog</p>
-      <ul>
-          <button>close</button>
-          <li>focus me or my first active child</li>
-          <li>constrain focus within</li>
-          <li>hide everything else from everyone</li>
-      </ul>
-      <p>End of dialog</p>
-    </div>
+ 
+    <just-the-dialog>Loading...</just-the-dialog>
+   
   `,
 })
 
@@ -119,15 +141,8 @@ export class ModalDialogComponent {
 
   show: boolean = false;
 
-  @ViewChild('modalClose') focusTarget: ElementRef;
- 
-  constructor(private renderer: Renderer) {}
-
   modal(){
-
     this.show = true; 
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
-    
   }
 
 }
