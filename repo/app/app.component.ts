@@ -126,13 +126,13 @@ export class ModalDialogComponent {
 
 
 @Component({
-  selector: 'my-comp',
+  selector: 'focus-set-example',
   template: `
     <input #myInput type="text" />
     <div> Some other content </div>
   `
 })
-export class MyComp implements AfterViewInit {
+export class FocusSetExample implements AfterViewInit {
   @ViewChild('myInput') input: ElementRef;
   constructor(private renderer: Renderer) {}
   ngAfterViewInit() {
@@ -156,7 +156,7 @@ export class MyComp implements AfterViewInit {
       <hr/>
       <aria-modal-dialog>Loading...</aria-modal-dialog>
       <hr/>
-      <my-comp>Loading...</my-comp>
+      <focus-set-example>Loading...</focus-set-example>
       <a (click)="setTitle( 'Good evening!' )">Set title to Good evening</a>
   `,
 })
