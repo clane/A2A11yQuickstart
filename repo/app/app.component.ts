@@ -133,10 +133,10 @@ export class ModalDialogComponent {
   `
 })
 export class FocusSetExample implements AfterViewInit {
-  @ViewChild('myInput') input: ElementRef;
+  @ViewChild('myInput') focusTarget: ElementRef;
   constructor(private renderer: Renderer) {}
   ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.input.nativeElement,    
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement,    
     'focus');
   }
 }
