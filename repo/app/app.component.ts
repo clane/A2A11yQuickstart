@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 
 @Component({
@@ -126,6 +126,30 @@ export class ModalDialogComponent {
 
 
 @Component({
+  selector: 'my-comp',
+  template: `
+    <input #myInput type="text" />
+    <div> Some other content </div>
+  `
+})
+export class MyComp implements AfterViewInit {
+  @ViewChild('myInput') input: ElementRef;
+
+/*
+  constructor(private renderer: Renderer) {}
+
+  ngAfterViewInit() {
+    this.renderer.invokeElementMethod(this.input.nativeElement,    
+    'focus');
+  }
+
+*/
+}
+
+
+
+
+@Component({
   selector: "widget-demo",
   template: `
   <h1>ARIA Widgets in Angular 2</h1>
@@ -136,6 +160,8 @@ export class ModalDialogComponent {
       <aria-alert>Loading...</aria-alert>
       <hr/>
       <aria-modal-dialog>Loading...</aria-modal-dialog>
+      <hr/>
+      <my-comp>Loading...</my-comp>
       <a (click)="setTitle( 'Good evening!' )">Set title to Good evening</a>
   `,
 })
@@ -148,7 +174,4 @@ export class WidgetDemoComponent {
     this.titleService.setTitle( newTitle );
   }
   
-
-
-
 }
