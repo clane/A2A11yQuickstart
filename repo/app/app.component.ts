@@ -131,12 +131,9 @@ export class JustTheDialog implements AfterViewInit {
     <h2 #modalClose tabindex="-1">Modal Dialog</h2>
     <p>Use the following button to show a modal dialog</p>
     <button (click)="modal()">Open Modal</button>
- 
-    <just-the-dialog>Loading...</just-the-dialog>
-   
+    <just-the-dialog *ngIf="show">Loading...</just-the-dialog>
   `,
 })
-
 export class ModalDialogComponent {
 
   show: boolean = false;
