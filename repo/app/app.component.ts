@@ -101,10 +101,11 @@ export class AlertComponent {
   template: `
     <h2>Modal Dialog</h2>
     <p>Use the following button to show a modal dialog</p>
-    <button id="modalButton"(click)="modal()">Open Modal</button>
+    <button (click)="modal()">Open Modal</button>
     <div *ngIf="show">
       <p>Beginning of dialog</p>
       <ul *ngIf="show">
+          <button #modalClose>close</button>
           <li>focus me or my first active child</li>
           <li>constrain focus within</li>
           <li>hide everything else from everyone</li>
@@ -117,9 +118,13 @@ export class AlertComponent {
 export class ModalDialogComponent {
 
   show: boolean = false;
+  @ViewChild('modalClose') focusTarget: ElementRef;
+  constructor(private renderer: Renderer) {}
 
   modal(){
     this.show = true; 
+    
+   
   }
 
 }
@@ -136,8 +141,7 @@ export class FocusSetExample implements AfterViewInit {
   @ViewChild('myInput') focusTarget: ElementRef;
   constructor(private renderer: Renderer) {}
   ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement,    
-    'focus');
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
 }
 
