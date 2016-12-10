@@ -164,9 +164,15 @@ export class FocusSetExample implements AfterViewInit {
 export class WidgetDemoComponent {
 
    public constructor(private titleService: Title ) { }
- 
+
+   constructor(private renderer: Renderer) {}
+
    public setTitle( newTitle: string) {
-    this.titleService.setTitle( newTitle );
+    this.titleService.setTitle(newTitle);
   }
+
+  ngAfterViewInit() {
+       this.setTitle('ARIA Widgets in Angular 2');
+   }
   
 }
