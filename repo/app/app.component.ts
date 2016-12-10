@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Renderer } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 
 @Component({
@@ -134,16 +134,11 @@ export class ModalDialogComponent {
 })
 export class MyComp implements AfterViewInit {
   @ViewChild('myInput') input: ElementRef;
-
-/*
   constructor(private renderer: Renderer) {}
-
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.input.nativeElement,    
     'focus');
   }
-
-*/
 }
 
 
