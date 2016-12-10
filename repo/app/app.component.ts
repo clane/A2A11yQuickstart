@@ -99,13 +99,13 @@ export class AlertComponent {
 @Component({
   selector: "aria-modal-dialog",
   template: `
-    <h2>Modal Dialog</h2>
+    <h2 #modalClose tabindex="-1">Modal Dialog</h2>
     <p>Use the following button to show a modal dialog</p>
     <button (click)="modal()">Open Modal</button>
-    <div *ngIf="show">
+    <div #dialog *ngIf="show">
       <p>Beginning of dialog</p>
-      <ul *ngIf="show">
-          <button #modalClose>close</button>
+      <ul>
+          <button>close</button>
           <li>focus me or my first active child</li>
           <li>constrain focus within</li>
           <li>hide everything else from everyone</li>
@@ -118,16 +118,20 @@ export class AlertComponent {
 export class ModalDialogComponent {
 
   show: boolean = false;
+
   @ViewChild('modalClose') focusTarget: ElementRef;
+ 
   constructor(private renderer: Renderer) {}
 
   modal(){
+
     this.show = true; 
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
     
-   
   }
 
 }
+
 
 
 @Component({
@@ -141,7 +145,7 @@ export class FocusSetExample implements AfterViewInit {
   @ViewChild('myInput') focusTarget: ElementRef;
   constructor(private renderer: Renderer) {}
   ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
+    //this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
 }
 
