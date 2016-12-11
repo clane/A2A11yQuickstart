@@ -1,19 +1,16 @@
-import { Component, ViewChild, Renderer } from '@angular/core';
-import { Title }     from '@angular/platform-browser';
+import { Component, ViewChild, Renderer. EventEmitter, Output } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'aria-tooltip',
     template: `
         <style>
           #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
-     </style>
-      
+        </style>
         <h2>Tooltip</h2>
         <p>Focus the following link to see the tooltip</p>
         <a id="link" (click)="toggle()" (focus)="open()" (blur)="close()" (mouseover)="open()" (mouseout)="close()" href="#" aria-describedby="tooltip" (keyup.escape)="close()">link with tooltip</a>
         <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar this is my tooltip</div>
-
-
 `
 })
 export class TooltipComponent {
@@ -80,9 +77,9 @@ export class AccordionComponent {
       .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Alert</h2>
-      <p>Use the following button to dynamically populate the alert's live region</p>
-      <button id="alertButton" href="#" (click)="alert()" aria-controls="alertLiveRegion">Trigger an alert</button>
-      <div id="alertLiveRegion" role="alert">{{alertText}}</div>
+    <p>Use the following button to dynamically populate the alert's live region</p>
+    <button id="alertButton" href="#" (click)="alert()" aria-controls="alertLiveRegion">Trigger an alert</button>
+    <div id="alertLiveRegion" role="alert">{{alertText}}</div>
   ` 
 })
 
@@ -96,11 +93,9 @@ export class AlertComponent {
 
 }
 
-
 @Component({
   selector: "just-the-dialog",
   template: `
-  
       <p>Beginning of dialog</p>
       <ul>
           <button #modalClose>close</button>
@@ -109,10 +104,8 @@ export class AlertComponent {
           <li>hide everything else from everyone</li>
       </ul>
       <p>End of dialog</p>
-
   `,
 })
-
 export class JustTheDialog implements AfterViewInit {
 
   @ViewChild('modalClose') focusTarget: ElementRef;
@@ -122,6 +115,8 @@ export class JustTheDialog implements AfterViewInit {
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
+
+  @Output() onCloseButtonActivate = new EventEmitter<boolean>();
 
 }
 
