@@ -125,26 +125,6 @@ export class JustTheDialog implements AfterViewInit {
 
 }
 
-@Component({
-  selector: "modal-button",
-  template: `
-    <h2>Modal Dialog</h2>
-    <p>Use the following button to show a modal dialog</p>
-    <button (click)="enterModalContext()">Open Modal</button>
-   
-  `,
-})
-export class ModalButton {
-
-  enterModalContext(){
-    super.notModal = false; 
-  }
-
-}
-
-
-
-
 
 @Component({
   selector: "widget-demo",
@@ -152,10 +132,10 @@ export class ModalButton {
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <modal-button *ngIf="notModal">Loading...</modal-button>
+   
+      <button (click)="enterModalContext()">Open Modal</button>
+      
       <just-the-dialog *ngIf="modal">Loading...</just-the-dialog>
-     
-  
   `,
 })
 
@@ -164,16 +144,21 @@ export class WidgetDemoComponent {
   public notModal:boolean = true;
   //public notModal:boolean = false;
 
-   public constructor(private titleService: Title ) { }
+  public constructor(private titleService: Title ) { }
 
-   constructor(private renderer: Renderer) {}
+  constructor(private renderer: Renderer) {}
 
-   public setTitle( newTitle: string) {
+  public setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
   ngAfterViewInit() {
-       this.setTitle('ARIA Widgets in Angular 2');
-   }
-  
+    this.setTitle('ARIA Widgets in Angular 2');
+  }
+
+  enterModalContext(){
+    this.modal = true;
+    this.notModal = false; 
+  }
+   
 }
