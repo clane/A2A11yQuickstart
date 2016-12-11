@@ -63,11 +63,10 @@ export class AccordionComponent {
     this.show = !this.show;
     this.expanded = !this.expanded;
   }
- 
 }
 
-
 @Component({
+
   selector: "aria-alert",
   template: `
     <style>
@@ -86,7 +85,6 @@ export class AccordionComponent {
 export class AlertComponent {
 
   alertText: string = "This is a live region, the alert text will appear here dynamically";
-
   alert() {
     this.alertText = "Oh no!"
   }
@@ -94,6 +92,7 @@ export class AlertComponent {
 }
 
 @Component({
+
   selector: "just-the-dialog",
   template: `
       <p>Beginning of dialog</p>
@@ -109,14 +108,12 @@ export class AlertComponent {
 export class JustTheDialog implements AfterViewInit {
 
   @ViewChild('modalClose') focusTarget: ElementRef;
-
   constructor(private renderer: Renderer) {}
+  @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
-
-  @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
   close(){
       this.onCloseButtonActivated.emit(true);
@@ -126,25 +123,22 @@ export class JustTheDialog implements AfterViewInit {
 
 
 @Component({
+
   selector: "widget-demo",
   template: `
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-   
       <button  *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
-      
       <just-the-dialog *ngIf="modal"  (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `,
 })
 
 export class WidgetDemoComponent {
+  
   public modal:boolean = false;
   public notModal:boolean = true;
-  //public notModal:boolean = false;
-
-  public constructor(private titleService: Title ) { }
-
+  public constructor(private titleService: Title ) {}
   constructor(private renderer: Renderer) {}
 
   public setTitle( newTitle: string) {
@@ -165,6 +159,4 @@ export class WidgetDemoComponent {
      this.notModal = true; 
   }
 
-
-   
 }
