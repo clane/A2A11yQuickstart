@@ -85,6 +85,7 @@ export class AccordionComponent {
 export class AlertComponent {
 
   alertText: string = "This is a live region, the alert text will appear here dynamically";
+
   alert() {
     this.alertText = "Oh no!"
   }
@@ -95,14 +96,19 @@ export class AlertComponent {
 
   selector: "just-the-dialog",
   template: `
-      <p>Beginning of dialog</p>
-      <ul>
-          <button #modalClose (click)="close()" [disabled]="closeButtonActivated">close</button>
-          <li>focus me or my first active child</li>
-          <li>constrain focus within</li>
-          <li>hide everything else from everyone</li>
-      </ul>
-      <p>End of dialog</p>
+      <style>
+        #lightBox { background-color:#000; width:100%; min-height:2000px; opacity:0.3; } 
+        #dialog { background-color:yellow; width:500px; position:fixed; top:40%; left:30%; }
+      </style>
+      <div id="lightBox"></div>
+      <div id="dialog">
+        <p class="offscreenText">Beginning of dialog</p>
+        <ul>
+            <button #modalClose (click)="close()" [disabled]="closeButtonActivated">close</button>
+            lorem ipsum...
+        </ul>
+        <p class="offscreenText">End of dialog</p>
+      </div>
   `,
 })
 export class JustTheDialog implements AfterViewInit {
@@ -129,16 +135,16 @@ export class JustTheDialog implements AfterViewInit {
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <button  *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
-      <just-the-dialog *ngIf="modal"  (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
+      <button *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
+      <just-the-dialog *ngIf="modal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `,
 })
 
 export class WidgetDemoComponent {
-  
+
   public modal:boolean = false;
   public notModal:boolean = true;
-  public constructor(private titleService: Title ) {}
+  public constructor(private titleService: Title) {}
   constructor(private renderer: Renderer) {}
 
   public setTitle( newTitle: string) {

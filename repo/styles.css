@@ -1,4 +1,14 @@
 /* Master Styles */
 *:focus { outline:3px solid blue; }
-html { width:800px; margin:auto; }
-
+.offscreenText {
+position: absolute;
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+clip: rect(1px, 1px, 1px, 1px);
+clip-path: inset(50%);
+padding: 0;
+border: 0;
+height: 1px; 
+width: 1px; 
+overflow: hidden;
+white-space: nowrap;
+}
