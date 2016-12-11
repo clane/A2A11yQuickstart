@@ -133,7 +133,7 @@ export class JustTheDialog implements AfterViewInit {
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
    
-      <button (click)="enterModalContext()">Open Modal</button>
+      <button  *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
       
       <just-the-dialog *ngIf="modal">Loading...</just-the-dialog>
   `,
