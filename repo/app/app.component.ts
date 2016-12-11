@@ -151,14 +151,10 @@ export class ModalButton {
 @Component({
   selector: "widget-demo",
   template: `
-  <h1>ARIA Widgets in Angular 2</h1>
-      <aria-tooltip>Loading...</aria-tooltip>
-      <hr/>
-      <aria-accordion>Loading...</aria-accordion>
-      <hr/>
-      <aria-alert>Loading...</aria-alert>
-      <hr/>
-      <modal-button>Loading...</modal-button>
+      <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
+      <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
+      <aria-alert *ngIf="notModal">Loading...</aria-alert>
+      <modal-button *ngIf="notModal">Loading...</modal-button>
       <just-the-dialog>Loading...</just-the-dialog>
      
   
@@ -167,7 +163,8 @@ export class ModalButton {
 
 export class WidgetDemoComponent {
 
-  public notModal:boolean = true;
+  //public notModal:boolean = true;
+  public notModal:boolean = false;
 
    public constructor(private titleService: Title ) { }
 
