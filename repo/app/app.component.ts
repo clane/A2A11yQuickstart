@@ -53,7 +53,7 @@ export class TooltipComponent {
     <a id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Link</a>
     <div id="insertionPoint" *ngIf="show">
         <p>Lorem impsum ...</p>
-      
+    </div>
   ` 
 })
 
