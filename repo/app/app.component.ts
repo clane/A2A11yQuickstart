@@ -130,16 +130,14 @@ export class JustTheDialog implements AfterViewInit {
   template: `
     <h2>Modal Dialog</h2>
     <p>Use the following button to show a modal dialog</p>
-    <button (click)="modal()">Open Modal</button>
+    <button (click)="enterModalContext()">Open Modal</button>
    
   `,
 })
 export class ModalButton {
 
-  show: boolean = false;
-
-  modal(){
-    this.show = true; 
+  enterModalContext(){
+    super.notModal = false; 
   }
 
 }
@@ -155,16 +153,16 @@ export class ModalButton {
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <modal-button *ngIf="notModal">Loading...</modal-button>
-      <just-the-dialog>Loading...</just-the-dialog>
+      <just-the-dialog *ngIf="modal">Loading...</just-the-dialog>
      
   
   `,
 })
 
 export class WidgetDemoComponent {
-
-  //public notModal:boolean = true;
-  public notModal:boolean = false;
+  public modal:boolean = false;
+  public notModal:boolean = true;
+  //public notModal:boolean = false;
 
    public constructor(private titleService: Title ) { }
 
