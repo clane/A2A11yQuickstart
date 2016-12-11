@@ -98,7 +98,7 @@ export class AlertComponent {
   template: `
       <p>Beginning of dialog</p>
       <ul>
-          <button #modalClose>close</button>
+          <button #modalClose (click)="close()" [disabled]="closeButtonActivated">close</button>
           <li>focus me or my first active child</li>
           <li>constrain focus within</li>
           <li>hide everything else from everyone</li>
@@ -110,13 +110,17 @@ export class JustTheDialog implements AfterViewInit {
 
   @ViewChild('modalClose') focusTarget: ElementRef;
 
-   constructor(private renderer: Renderer) {}
+  constructor(private renderer: Renderer) {}
 
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
 
-  @Output() onCloseButtonActivate = new EventEmitter<boolean>();
+  @Output() onCloseButtonActivated = new EventEmitter<boolean>();
+
+  close(){
+      this.onCloseButtonActivated.emit(true);
+  }
 
 }
 
@@ -130,7 +134,7 @@ export class JustTheDialog implements AfterViewInit {
    
       <button  *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
       
-      <just-the-dialog *ngIf="modal">Loading...</just-the-dialog>
+      <just-the-dialog *ngIf="modal"  (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `,
 })
 
@@ -155,5 +159,12 @@ export class WidgetDemoComponent {
     this.modal = true;
     this.notModal = false; 
   }
+
+  onCloseButtonActivated(){
+     this.modal = false;
+     this.notModal = true; 
+  }
+
+
    
 }
