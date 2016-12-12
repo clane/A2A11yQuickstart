@@ -157,7 +157,6 @@ export class JustTheDialog implements AfterViewInit {
 
 export class WidgetDemoComponent implements AfterViewInit {
 
-
   public notModal:boolean = true;
   public constructor(private titleService: Title) {}
 
@@ -182,10 +181,7 @@ export class WidgetDemoComponent implements AfterViewInit {
 
   onCloseButtonActivated(){
      //Toggle the loading of the modal and the other components
-     this.modal = false;
      this.notModal = true; 
-  
-    
   
   }
 
