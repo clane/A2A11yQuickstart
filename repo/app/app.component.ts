@@ -103,9 +103,6 @@ export class AlertComponent {
 
 export class ModalOpenButton {
 
-  @ViewChild('modalOpen') focusTarget: ElementRef;
-  constructor(private renderer: Renderer) {}
-  
 }
 
 @Component({
@@ -188,7 +185,7 @@ export class WidgetDemoComponent {
      //Toggle the loading of the modal and the other components
      this.modal = false;
      this.notModal = true; 
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
+  
     
   
   }

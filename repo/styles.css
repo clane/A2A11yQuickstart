@@ -12,3 +12,5 @@ width: 1px;
 overflow: hidden;
 white-space: nowrap;
 }
+
+body { padding-left: 40px; }
