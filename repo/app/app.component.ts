@@ -97,7 +97,7 @@ export class AlertComponent {
   selector: "modal-open-button",
   template: `
     <h2>Modal</h2>
-    <button #modalOpen (onExitModalContext)="onExitModalContext($event)">Open Modal</button>
+    <button #modalOpen>Open Modal</button>
   ` 
 })
 
