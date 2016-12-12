@@ -1,4 +1,4 @@
-import { Component, ViewChild, Renderer. EventEmitter, Output } from '@angular/core';
+import { Component, ViewChild, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -145,25 +145,23 @@ export class JustTheDialog implements AfterViewInit {
 
   selector: "widget-demo",
   template: `
+      <button #focusMoveTest >Move focus to me</button>
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <h2 *ngIf="notModal">Modal</h2>
       <button #modalOpen *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
-      <just-the-dialog *ngIf="modal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
+      <just-the-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `,
 })
 
-export class WidgetDemoComponent {
+export class WidgetDemoComponent implements AfterViewInit {
 
-  public modal:boolean = false;
+
   public notModal:boolean = true;
   public constructor(private titleService: Title) {}
 
-  
-
-  @ViewChild('modalOpen') focusTarget: ElementRef;
-
+  @ViewChild('focusMoveTest') focusTarget1: ElementRef;
   constructor(private renderer: Renderer) {}
 
 
@@ -173,12 +171,13 @@ export class WidgetDemoComponent {
 
   ngAfterViewInit() {
     this.setTitle('ARIA Widgets in Angular 2');
+    //this.renderer.invokeElementMethod(this.focusTarget1.nativeElement, 'focus');
   }
 
   enterModalContext(){
     //Toggle the loading of the modal and the other components
-    this.modal = true;
-    this.notModal = false; 
+    this.notModal = false;
+  
   }
 
   onCloseButtonActivated(){
