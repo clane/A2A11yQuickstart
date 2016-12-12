@@ -102,6 +102,12 @@ export class AlertComponent {
 })
 
 export class ModalOpenButton {
+
+
+  @ViewChild('modalOpen') focusTarget: ElementRef;
+  constructor(private renderer: Renderer) {}
+
+
 }
 
 @Component({
@@ -147,7 +153,7 @@ export class JustTheDialog implements AfterViewInit {
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <modal-open-button #modalOpen (click)="enterModalContext()"  *ngIf="notModal">Loading...</modal-open-button>
+      <modal-open-button (click)="enterModalContext()"  *ngIf="notModal">Loading...</modal-open-button>
       <just-the-dialog *ngIf="modal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `,
 })
@@ -157,10 +163,7 @@ export class WidgetDemoComponent {
   public modal:boolean = false;
   public notModal:boolean = true;
   public constructor(private titleService: Title) {}
-  constructor(private renderer: Renderer) {}
-
-  @ViewChild('modalOpen') focusTarget: ElementRef;
-
+  
   public setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
@@ -170,13 +173,13 @@ export class WidgetDemoComponent {
   }
 
   enterModalContext(){
-    //Toggle the visibility of the modal and the other components
+    //Toggle the loading of the modal and the other components
     this.modal = true;
     this.notModal = false; 
   }
 
   onCloseButtonActivated(){
-     //Toggle the visibility of the modal and the other components
+     //Toggle the loading of the modal and the other components
      this.modal = false;
      this.notModal = true; 
      this.moveFocusBacktoOpenButton();
