@@ -5,7 +5,7 @@ import { TooltipComponent, AccordionComponent, AlertComponent, ModalOpenButton, 
 
 @NgModule({
   imports: [ BrowserModule ],
-  declarations: [ TooltipComponent, AccordionComponent, AlertComponent,ModalOpenButton, JustTheDialog, WidgetDemoComponent],
+  declarations: [ TooltipComponent, AccordionComponent, AlertComponent, ModalOpenButton, JustTheDialog, WidgetDemoComponent],
   bootstrap: [ WidgetDemoComponent]
 })
 export class AppModule { }
