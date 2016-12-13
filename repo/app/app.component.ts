@@ -94,11 +94,20 @@ export class AlertComponent {
   selector: "modal-open-button",
   template: `
     <h2>Modal</h2>
-    <button #modalOpen>Open Modal</button>
+    <button #modalOpen (click)="open()">Open Modal</button>
   ` 
 })
 
-export class ModalOpenButton {}
+export class ModalOpenButton {
+
+  @Output() onOpenButtonActivated = new EventEmitter<boolean>();
+
+  open(){
+      this.onOpenButtonActivated.emit(true);
+  }
+
+}
+
 
 @Component({
 
@@ -142,9 +151,9 @@ export class ModalDialog implements AfterViewInit {
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <h2 *ngIf="notModal">Modal</h2>
-      <button id="openModal" *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
+      <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
+      
   `
 })
 
@@ -152,26 +161,26 @@ export class WidgetDemoComponent  implements AfterViewInit {
 
   constructor(private titleService: Title, private renderer: Renderer) {}
 
-  
-
-
   ngAfterViewInit() {
       this.setTitle('foo');
   }
 
-  public notModal:boolean = true;
+  notModal:boolean = true;
  
   setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  private enterModalContext(){
+  enterModalContext(){
     this.notModal = false;
   }
 
-  public onCloseButtonActivated(){
+  onCloseButtonActivated(){
      this.notModal = true; 
-     
+  }
+
+  onOpenButtonActivated(){
+     this.notModal = false; 
   }
 
 }
