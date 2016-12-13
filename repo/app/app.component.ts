@@ -66,7 +66,6 @@ export class AccordionComponent {
 }
 
 @Component({
-
   selector: "aria-alert",
   template: `
     <style>
@@ -89,7 +88,6 @@ export class AlertComponent {
   alert() {
     this.alertText = "Oh no!"
   }
-
 }
 
 @Component({
@@ -101,9 +99,7 @@ export class AlertComponent {
   ` 
 })
 
-export class ModalOpenButton {
-
-}
+export class ModalOpenButton {}
 
 @Component({
 
@@ -126,8 +122,8 @@ export class ModalOpenButton {
 })
 export class JustTheDialog implements AfterViewInit {
 
-  @ViewChild('modalClose') focusTarget: ElementRef;
   constructor(private renderer: Renderer) {}
+  @ViewChild('modalClose') focusTarget: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
   ngAfterViewInit() {
@@ -145,7 +141,6 @@ export class JustTheDialog implements AfterViewInit {
 
   selector: "widget-demo",
   template: `
-      <button #focusMoveTest >Move focus to me</button>
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
@@ -157,32 +152,30 @@ export class JustTheDialog implements AfterViewInit {
 
 export class WidgetDemoComponent implements AfterViewInit {
 
-  notModal:boolean = true;
   constructor(private titleService: Title, private renderer: Renderer) {}
 
-  @ViewChild('focusMoveTest') focusTarget1: ElementRef;
+  public notModal:boolean = true;
+
+  @ViewChild('modalOpen') focusTarget: ElementRef;
  
-
-
   setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
   ngAfterViewInit() {
     this.setTitle('ARIA Widgets in Angular 2');
-    this.renderer.invokeElementMethod(this.focusTarget1.nativeElement, 'focus');
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
   }
 
-  enterModalContext(){
+  private enterModalContext(){
     //Toggle the loading of the modal and the other components
     this.notModal = false;
   
   }
 
-  onCloseButtonActivated(){
+  public onCloseButtonActivated(){
      //Toggle the loading of the modal and the other components
      this.notModal = true; 
-  
   }
 
 }
