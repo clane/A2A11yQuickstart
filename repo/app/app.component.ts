@@ -98,9 +98,15 @@ export class AlertComponent {
   ` 
 })
 
-export class ModalOpenButton {
+export class ModalOpenButton implements AfterViewInit {
 
+  constructor(private renderer: Renderer) {}
+  @ViewChild('modalOpen') focusTarget: ElementRef;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
+
+  ngAfterViewInit() {
+    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
+  }
 
   open(){
       this.onOpenButtonActivated.emit(true);
@@ -157,7 +163,7 @@ export class ModalDialog implements AfterViewInit {
   `
 })
 
-export class WidgetDemoComponent  implements AfterViewInit {
+export class WidgetDemoComponent implements AfterViewInit {
 
   constructor(private titleService: Title, private renderer: Renderer) {}
 
