@@ -43,7 +43,7 @@ export class TooltipComponent {
       #accordion { width:500px; margin:50px auto; } 
       #accLink { text-decoration:none; display:block; } 
       #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
-      .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
+      .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Accordion</h2>
     <p>Use the following link to toggle the appearance of the accordion's content</p>
@@ -72,7 +72,6 @@ export class AccordionComponent {
       #alert { width:500px; margin:50px auto; } 
       #alertButton { display:block; } 
       #alertLiveRegion { background-color:beige; padding:10px; margin-top:10px; } 
-      .icon { color:purple; font-weight:bold; font-size:1.5rem; text-decoration:none; } 
     </style>
     <h2>Alert</h2>
     <p>Use the following button to dynamically populate the alert's live region</p>
