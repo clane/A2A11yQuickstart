@@ -102,7 +102,7 @@ export class ModalOpenButton {}
 
 @Component({
 
-  selector: "just-the-dialog",
+  selector: "modal-dialog",
   template: `
       <style>
         #lightBox { background-color:#000; width:100%; min-height:2000px; opacity:0.3; } 
@@ -119,7 +119,7 @@ export class ModalOpenButton {}
       </div>
   `,
 })
-export class JustTheDialog implements AfterViewInit {
+export class ModalDialog implements AfterViewInit {
 
   constructor(private renderer: Renderer) {}
   @ViewChild('modalClose') focusTarget: ElementRef;
@@ -144,7 +144,7 @@ export class JustTheDialog implements AfterViewInit {
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <h2 *ngIf="notModal">Modal</h2>
       <button id="openModal" *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
-      <just-the-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
+      <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
   `
 })
 
