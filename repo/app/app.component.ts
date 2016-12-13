@@ -1,23 +1,6 @@
 import { Component, ViewChild, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-// Spy on any element to which it is applied.
-// Usage: <div mySpy>...</div>
-@Directive({selector: '[mySpy]'})
-export class SpyDirective implements OnInit, OnDestroy {
-
-  constructor(private logger: LoggerService) { }
-
-  ngOnInit()    { this.logIt(`onInit`); }
-
-  ngOnDestroy() { this.logIt(`onDestroy`); }
-
-  private logIt(msg: string) {
-    this.logger.log(`Spy #${nextId++} ${msg}`);
-  }
-}
-
-
 @Component({
     selector: 'aria-tooltip',
     template: `
@@ -160,14 +143,21 @@ export class JustTheDialog implements AfterViewInit {
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <h2 *ngIf="notModal">Modal</h2>
-      <button focus *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
+      <button id="openModal" *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
       <just-the-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
   `
 })
 
-export class WidgetDemoComponent  {
+export class WidgetDemoComponent  implements AfterViewInit {
 
-  constructor(private titleService: Title) {}
+  constructor(private titleService: Title, private renderer: Renderer) {}
+
+  
+
+
+  ngAfterViewInit() {
+      this.setTitle('foo');
+  }
 
   public notModal:boolean = true;
  
@@ -181,6 +171,7 @@ export class WidgetDemoComponent  {
 
   public onCloseButtonActivated(){
      this.notModal = true; 
+     
   }
 
 }
