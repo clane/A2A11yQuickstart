@@ -157,20 +157,20 @@ export class JustTheDialog implements AfterViewInit {
 
 export class WidgetDemoComponent implements AfterViewInit {
 
-  public notModal:boolean = true;
-  public constructor(private titleService: Title) {}
+  notModal:boolean = true;
+  constructor(private titleService: Title, private renderer: Renderer) {}
 
   @ViewChild('focusMoveTest') focusTarget1: ElementRef;
-  constructor(private renderer: Renderer) {}
+ 
 
 
-  public setTitle( newTitle: string) {
+  setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
   ngAfterViewInit() {
     this.setTitle('ARIA Widgets in Angular 2');
-    //this.renderer.invokeElementMethod(this.focusTarget1.nativeElement, 'focus');
+    this.renderer.invokeElementMethod(this.focusTarget1.nativeElement, 'focus');
   }
 
   enterModalContext(){
