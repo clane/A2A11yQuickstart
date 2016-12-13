@@ -1,6 +1,23 @@
 import { Component, ViewChild, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+// Spy on any element to which it is applied.
+// Usage: <div mySpy>...</div>
+@Directive({selector: '[mySpy]'})
+export class SpyDirective implements OnInit, OnDestroy {
+
+  constructor(private logger: LoggerService) { }
+
+  ngOnInit()    { this.logIt(`onInit`); }
+
+  ngOnDestroy() { this.logIt(`onDestroy`); }
+
+  private logIt(msg: string) {
+    this.logger.log(`Spy #${nextId++} ${msg}`);
+  }
+}
+
+
 @Component({
     selector: 'aria-tooltip',
     template: `
@@ -135,7 +152,6 @@ export class JustTheDialog implements AfterViewInit {
 
 }
 
-
 @Component({
 
   selector: "widget-demo",
@@ -144,37 +160,29 @@ export class JustTheDialog implements AfterViewInit {
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <h2 *ngIf="notModal">Modal</h2>
-      <button #modalOpen *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
+      <button focus *ngIf="notModal" (click)="enterModalContext()">Open Modal</button>
       <just-the-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</just-the-dialog>
-  `,
+  `
 })
 
-export class WidgetDemoComponent implements AfterViewInit {
+export class WidgetDemoComponent  {
 
-  constructor(private titleService: Title, private renderer: Renderer) {}
+  constructor(private titleService: Title) {}
 
   public notModal:boolean = true;
-
-  @ViewChild('modalOpen') focusTarget: ElementRef;
  
   setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  ngAfterViewInit() {
-    this.setTitle('ARIA Widgets in Angular 2');
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
-  }
-
   private enterModalContext(){
-    //Toggle the loading of the modal and the other components
     this.notModal = false;
-  
   }
 
   public onCloseButtonActivated(){
-     //Toggle the loading of the modal and the other components
      this.notModal = true; 
   }
 
 }
+
+
