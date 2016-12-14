@@ -156,7 +156,7 @@ export class ModalDialog implements AfterViewInit {
 
   selector: "widget-demo",
   template: `
-      <h1>A11y widget Demo</h1>
+      <h1 *ngIf="notModal">A11y widget Demo</h1>
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
