@@ -100,15 +100,17 @@ export class AlertComponent {
 export class ModalOpenButton {
 
   constructor(private renderer: Renderer) {}
-  @ViewChild('modalOpen') focusTarget: ElementRef;
+  @ViewChild('modalOpen') openButton: ElementRef;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
-
-  ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
-  }
 
   open(){
       this.onOpenButtonActivated.emit(true);
+  }
+
+  onCloseButtonActivated(){
+     this.notModal = true; 
+     console.log('close button activated');
+     this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
   }
 
 }
@@ -130,7 +132,7 @@ export class ModalOpenButton {
       <div id="dialog" (keyup.esc)="close()">
         <p class="offscreenText">Beginning of dialog</p>
         <h1>Modal Dialog</h1>
-        <button id="closeButton" #closeButton (keydown.shift.Tab)="focusActionButton()" (click)="close()" [disabled]="closeButtonActivated">X</button>
+        <button id="closeButton" #closeButton (keydown.shift.Tab)="focusActionButton()" (click)="close()" closeButtonActivated>X</button>
         <p>This is my version of a modal dialog. It is really a view swap. There is nothing under this.</p>
         <button #actionButton (keydown.Tab)="focusCloseButton()">Do it!</button>
         <p class="offscreenText">End of dialog</p>
@@ -141,7 +143,6 @@ export class ModalDialog  {
 
   constructor(private renderer: Renderer) {}
   @ViewChild('closeButton') closeButton: ElementRef;
-  @ViewChild('actionButton') actionButton: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
   ngAfterViewInit() {
@@ -152,9 +153,6 @@ export class ModalDialog  {
      this.renderer.invokeElementMethod(this.closeButton.nativeElement, 'focus');
   }
 
-   focusActionButton() {
-     this.renderer.invokeElementMethod(this.actionButton.nativeElement, 'focus');
-  }
 
   close(){
       this.onCloseButtonActivated.emit(true);
@@ -204,7 +202,7 @@ export class LoopbackComponent { }
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
+      <modal-open-button *ngIf="notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
       <loop-back *ngIf="notModal">loading...</loop-back>
@@ -217,6 +215,7 @@ export class WidgetDemoComponent {
 
   ngAfterViewInit() {
       this.setTitle('A11y Widgets using Angular 2');
+      console.log('test');
   }
 
   notModal:boolean = true;
