@@ -126,7 +126,7 @@ export class ModalOpenButton {
         }         
       </style>
       <div id="lightBox"></div>
-      <div id="dialog">
+      <div id="dialog" (keyup.esc)="close()">
         <p class="offscreenText">Beginning of dialog</p>
         <h1>Modal Dialog</h1>
         <p>This is my version of a modal dialog. It is really a view swap. There is nothing under this.</p>
