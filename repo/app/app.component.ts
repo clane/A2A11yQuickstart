@@ -156,7 +156,7 @@ export class ModalDialog  {
   template: `
     <h2>ComboBox</h2>
     <label for="comboBoxInput">ComboBox Input</label>
-    <input id="comboBoxInput" type="text" (change)="moveFocus()">
+    <input id="comboBoxInput" type="text" (keyup)="moveFocus()">
     <div tabindex="-1" #focusMe>alsjkdfksdfj</div>
   ` 
 })
