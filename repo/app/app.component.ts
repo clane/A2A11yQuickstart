@@ -97,7 +97,7 @@ export class AlertComponent {
   ` 
 })
 
-export class ModalOpenButton implements AfterViewInit {
+export class ModalOpenButton {
 
   constructor(private renderer: Renderer) {}
   @ViewChild('modalOpen') focusTarget: ElementRef;
@@ -135,7 +135,7 @@ export class ModalOpenButton implements AfterViewInit {
       </div>
   `,
 })
-export class ModalDialog implements AfterViewInit {
+export class ModalDialog  {
 
   constructor(private renderer: Renderer) {}
   @ViewChild('modalClose') focusTarget: ElementRef;
@@ -156,12 +156,34 @@ export class ModalDialog implements AfterViewInit {
   template: `
     <h2>ComboBox</h2>
     <label for="comboBoxInput">ComboBox Input</label>
-    <input id="comboBoxInput" type="text">
+    <input id="comboBoxInput" type="text" (change)="moveFocus()">
+    <div tabindex="-1" #focusMe>alsjkdfksdfj</div>
   ` 
 })
 
-export class ComboBox implements AfterViewInit {
+export class ComboBox  {
+
+  constructor(private renderer: Renderer) {}
+  @ViewChild('focusMe') focusTarget: ElementRef;
+
+  
+  moveFocus(){
+      this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
+
+  }
+
 }
+
+@Component({
+  selector: 'loop-back',
+  template: `
+    <h2>Loop Back</h2>
+    <input #box (keyup)="0">
+    <p>{{box.value}}</p>
+  `
+})
+export class LoopbackComponent { }
+
 
 @Component({
 
@@ -174,10 +196,11 @@ export class ComboBox implements AfterViewInit {
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
+      <loop-back *ngIf="notModal">loading...</loop-back>
   `
 })
 
-export class WidgetDemoComponent implements AfterViewInit {
+export class WidgetDemoComponent {
 
   constructor(private titleService: Title, private renderer: Renderer) {}
 
