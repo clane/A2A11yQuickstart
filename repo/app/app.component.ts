@@ -107,9 +107,8 @@ export class ModalOpenButton {
       this.onOpenButtonActivated.emit(true);
   }
 
-  onCloseButtonActivated(){
-     this.notModal = true; 
-     console.log('close button activated');
+  focusMe(){
+     console.log('this is the focusMe we want');
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
   }
 
@@ -213,9 +212,15 @@ export class WidgetDemoComponent {
 
   constructor(private titleService: Title, private renderer: Renderer) {}
 
+  @ViewChild(ModalOpenButton)
+  private modalButton: ModalOpenButton;
+
+  
+
   ngAfterViewInit() {
       this.setTitle('A11y Widgets using Angular 2');
-      console.log('test');
+      this.focusMe();
+    
   }
 
   notModal:boolean = true;
@@ -228,8 +233,26 @@ export class WidgetDemoComponent {
     this.notModal = false;
   }
 
+  focusMe() { 
+    console.log('should fire child focus me');
+    this.modalButton.focusMe(); 
+  
+}
+
   onCloseButtonActivated(){
-     this.notModal = true; 
+     this.notModal = true;
+   
+   
+     setTimeout( ()=>{ 
+       console.log(this); 
+       this.focusMe();
+      }, 0);
+   
+        console.log(this);
+    // console.log(this.notModal);
+    // console.log(this.modalButton);
+    // console.log(this.modalButton.focusMe);
+     //this.focusMe();
   }
 
   onOpenButtonActivated(){
