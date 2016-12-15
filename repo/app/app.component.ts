@@ -141,6 +141,7 @@ export class ModalDialog  {
 
   constructor(private renderer: Renderer) {}
   @ViewChild('closeButton') closeButton: ElementRef;
+  @ViewChild('actionButton') actionButton: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
   ngAfterViewInit() {
@@ -150,6 +151,11 @@ export class ModalDialog  {
   focusCloseButton() {
      this.renderer.invokeElementMethod(this.closeButton.nativeElement, 'focus');
   }
+
+   focusActionButton() {
+     this.renderer.invokeElementMethod(this.actionButton.nativeElement, 'focus');
+  }
+
 
 
   close(){
@@ -173,10 +179,8 @@ export class ComboBox  {
   constructor(private renderer: Renderer) {}
   @ViewChild('focusMe') focusTarget: ElementRef;
 
-  
   moveFocus(){
       this.renderer.invokeElementMethod(this.focusTarget.nativeElement, 'focus');
-
   }
 
 }
@@ -214,8 +218,6 @@ export class WidgetDemoComponent {
   @ViewChild(ModalOpenButton)
   private modalButton: ModalOpenButton;
 
-  
-
   ngAfterViewInit() {
       this.setTitle('A11y Widgets using Angular 2');
   }
@@ -231,10 +233,8 @@ export class WidgetDemoComponent {
   }
 
   focusMe() { 
-    console.log('should fire child focus me');
     this.modalButton.focusMe(); 
-  
-}
+  }
 
   onCloseButtonActivated(){
      this.notModal = true;
