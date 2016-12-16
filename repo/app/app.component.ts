@@ -270,12 +270,12 @@ button.cb_button img {
 
     <div id="cb1" class="cb" role="combobox">
       <div class="cb_label"><label id="cb1-label" for="cb1-edit">State</label>:</div>
-      <input (keydown.ArrowDown)="handleKeyEvent()" id="cb1-edit" class="cb_edit" type="text" 
+      <input (keydown.enter)="toggleExpanded()" (keydown.ArrowDown)="handleKeyEvent()" id="cb1-edit" class="cb_edit" type="text" 
         aria-labelledby="cb1-label"
         aria-autocomplete="inline"
         aria-owns="cb1-list"/>
       <div id="cb1-button-label" class="hidden">Open list of states</div>
-      <button  (click)="toggleExpanded()" id="cb1-button" class="cb_button" aria-labelledby="cb1-button-label" aria-controls="cb1-list" tabindex="-1">
+      <button id="cb1-button" class="cb_button" aria-labelledby="cb1-button-label" aria-controls="cb1-list" tabindex="-1">
         <img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box" />
       </button>
 
