@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
+import { Component, Input, ViewChild, ViewChildren, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
@@ -282,7 +282,7 @@ button.cb_button img {
       </button>
 
       <div *ngIf="expanded" id="cb1-list" class="cb_list" tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-        <div *ngFor="let state of states" id="{{state.id}}" role="option">{{state.name}}</div>
+        <div *ngFor="let state of states" id="{{state.id}}" role="option" #option>{{state.name}}</div>
       </div>
 
     </div>
@@ -291,14 +291,22 @@ button.cb_button img {
   providers: [StateService]
 })
 
-export class ComboBox  {
+export class ComboBox implements AfterViewInit {
+
+  //@ViewChildren(TodoComponent) todoComponents: QueryList<TodoComponent>;
+  @ViewChildren('option') options;
+
 
   constructor(private stateService: StateService) { }
   states: State[];
 
   expanded: boolean = false; 
 
- 
+  //expanded: boolean = true; 
+
+  ngAfterViewInit() {
+    console.log(this.options);
+  }
 
   @Input()
   state: State;
