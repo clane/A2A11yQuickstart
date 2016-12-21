@@ -294,9 +294,12 @@ button.cb_button img {
 
 export class ComboBox  {
 
-  //expanded: boolean = false; 
+  constructor(private stateService: StateService) { }
+  states: State[];
 
-  expanded: boolean = true; 
+  expanded: boolean = false; 
+
+ 
 
   @Input()
   state: State;
@@ -304,6 +307,15 @@ export class ComboBox  {
   toggleExpanded() {
     this.expanded = !this.expanded
   }
+
+  getStates(): void {
+    this.stateService.getStates().then(states => this.states = states);
+  }
+
+  ngOnInit(): void {
+    this.getStates();
+  }
+
 
   handleKeyEvent() { alert('key event happened'); }
   

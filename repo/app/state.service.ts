@@ -6,7 +6,7 @@ import { STATES } from './mock-states';
 
 @Injectable()
 export class StateService {
-  getHeroes(): Promise<State[]> {
+  getStates(): Promise<State[]> {
     return Promise.resolve(STATES);
   }
 
