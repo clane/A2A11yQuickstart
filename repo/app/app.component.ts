@@ -282,7 +282,7 @@ button.cb_button img {
       </button>
 
       <div *ngIf="expanded" id="cb1-list" class="cb_list" tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-        <div *ngFor="let state of states" id="{{state.id}}">{{state.name}}</div>
+        <div *ngFor="let state of states" id="{{state.id}}" role="option">{{state.name}}</div>
       </div>
 
     </div>
