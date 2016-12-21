@@ -1,6 +1,8 @@
 import { State } from './state';
 
-const STATES: State[] = [
+
+
+export const STATES: State[] = [
 
 { id : 0, name : "Alabama" },
 { id : 1, name : "Alaska" },

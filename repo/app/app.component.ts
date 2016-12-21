@@ -272,7 +272,7 @@ button.cb_button img {
 
     <div id="cb1" class="cb" role="combobox">
       <div class="cb_label"><label id="cb1-label" for="cb1-edit">State</label>:</div>
-      <input (keydown.enter)="toggleExpanded()" (keydown.ArrowDown)="handleKeyEvent()" id="cb1-edit" class="cb_edit" type="text" 
+      <input (click)="toggleExpanded()" (keydown.enter)="toggleExpanded()" (keydown.ArrowDown)="handleKeyEvent()" id="cb1-edit" class="cb_edit" type="text" 
         aria-labelledby="cb1-label"
         aria-autocomplete="inline"
         aria-owns="cb1-list"/>
@@ -305,7 +305,7 @@ export class ComboBox  {
   state: State;
 
   toggleExpanded() {
-    this.expanded = !this.expanded
+    this.expanded = !this.expanded;
   }
 
   getStates(): void {

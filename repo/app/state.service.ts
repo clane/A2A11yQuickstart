@@ -1,6 +1,5 @@
 
 import { Injectable } from '@angular/core';
-
 import { State } from './state';
 import { STATES } from './mock-states';
 
