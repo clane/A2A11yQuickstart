@@ -281,10 +281,9 @@ button.cb_button img {
         <img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box" />
       </button>
 
-      <ul *ngIf="expanded" id="cb1-list" class="cb_list" tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-        <li *ngFor="let state of states">{{state.id}}{{state.name}}</li>
-
-      </ul>
+      <div *ngIf="expanded" id="cb1-list" class="cb_list" tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
+        <div *ngFor="let state of states" id="{{state.id}}">{{state.name}}</div>
+      </div>
 
     </div>
 
