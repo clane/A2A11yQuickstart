@@ -180,7 +180,7 @@ export class ModalDialog  {
         (keydown.alt.ArrowDown)="expand()" 
         (keydown.alt.ArrowUp)="collapse()" 
       />
-      <button tabindex="-1" (click)="toggleExpanded()" >toggle listbox</button>
+      <button (click)="toggleExpanded()" >toggle listbox</button>
      <list-box *ngIf="expanded"></list-box>
     </div>
   ` 
