@@ -170,103 +170,7 @@ export class ModalDialog  {
   selector: "combo-box",
   template: `
 
-  <style>
 
-  * {
-  font-family: "Times New Roman,Georgia,Serif"; 
-}
-.hidden {
-  position: absolute;
-  top: -20em;
-  left: -200em;
-}
-
-.wrapper {
-  height: 24px;
-  overflow: auto;
-}
-.cb {
-  margin: 20px;
-  padding: 0;
-  height: 24px;
-  display: block;
-  overflow: visible;
-}
-
-.cb_label {
-  margin: 0;
-  padding: 2px;
-  width: 45px;
-  font-weight: bold;
-  float: left;
-  display: inline;
-}
-.cb_edit {
-  margin: 0;
-  padding: 2px 3px;
-  width: 240px;
-  height: 18px;
-  border: 1px solid black;
-  font-size: 1em;
-  float: left;
-  display: inline;
-}
-.cb_button {
-  margin: 0;
-  padding: 0;
-  height: 24px;
-  width: 24px;
-  border: 1px solid black;
-  background-color: #999;
-  float: left;
-  display: inline;
-  text-align: center;
-}
-
-button.cb_button img {
-  margin: 0;
-  padding: 0;
-  height: 22px;
-  width: 22px;
-  position: relative;
-  top: -1px;
-  left: -3px;
-}
-.cb_list {
-  clear: both;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-left: 49px;
-  border: 1px solid black;
-  width: 246px;
-  height: 200px;
-  overflow: auto;
-  background-color: #fff;
-  position: relative;
-  z-index: 300;
-}
-
-.cb_option {
-  margin: 0 1px 0 0;
-  padding: 2px 5px;
-}
-.selected {
-  border-top: 1px solid #44e;
-  border-bottom: 1px solid #44e;
-  padding: 1px 5px;
-  background-color: #77a;
-  color: #fff;
-}
-.cb_option:hover {
-  border-top: 1px solid #44e;
-  border-bottom: 1px solid #44e;
-  padding: 1px 5px;
-  font-weight: bold;
-  background-color: #77f;
-  color: #fff;
-}
-</style>
 
     <h2>ComboBox</h2>
 
@@ -281,39 +185,41 @@ button.cb_button img {
         <img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box" />
       </button>
 
-      <div *ngIf="expanded" id="cb1-list" class="cb_list" tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-        <div *ngFor="let state of states" id="{{state.id}}" role="option" #option>{{state.name}}</div>
-      </div>
+     <list-box></list-box>
 
     </div>
 
-  ` ,
-  providers: [StateService]
+  ` 
 })
 
 export class ComboBox implements AfterViewInit {
 
-  //@ViewChildren(TodoComponent) todoComponents: QueryList<TodoComponent>;
-  @ViewChildren('option') options;
-
-
-  constructor(private stateService: StateService) { }
-  states: State[];
-
   expanded: boolean = false; 
-
-  //expanded: boolean = true; 
-
-  ngAfterViewInit() {
-    console.log(this.options);
-  }
-
-  @Input()
-  state: State;
 
   toggleExpanded() {
     this.expanded = !this.expanded;
   }
+}
+
+
+@Component({
+  selector: 'list-box',
+  template: `
+    <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
+      <div *ngFor="let state of states" id="{{state.id}}" role="option" #option>{{state.name}}</div>
+    </div>
+  `,
+  providers: [StateService]
+})
+export class ListBoxComponent { 
+
+  @ViewChildren('option') options;
+
+  constructor(private stateService: StateService) { }
+  states: State[];
+
+  @Input()
+  state: State;
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -323,9 +229,10 @@ export class ComboBox implements AfterViewInit {
     this.getStates();
   }
 
+   ngAfterViewInit() {
+    console.log(this.options);
+  }
 
-  handleKeyEvent() { alert('key event happened'); }
-  
 }
 
 @Component({
