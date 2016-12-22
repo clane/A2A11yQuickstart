@@ -179,6 +179,58 @@ export class ModalDialog  {
         type="text" 
         (keydown.alt.ArrowDown)="expand()" 
         (keydown.alt.ArrowUp)="collapse()" 
+        (keydown.a)="alphaFocus($event)"
+        (keydown.b)="alphaFocus($event)"
+        (keydown.c)="alphaFocus($event)"
+        (keydown.d)="alphaFocus($event)"
+        (keydown.e)="alphaFocus($event)"
+        (keydown.f)="alphaFocus($event)"
+        (keydown.g)="alphaFocus($event)"
+        (keydown.h)="alphaFocus($event)"
+        (keydown.i)="alphaFocus($event)"
+        (keydown.j)="alphaFocus($event)"
+        (keydown.k)="alphaFocus($event)"
+        (keydown.l)="alphaFocus($event)"
+        (keydown.m)="alphaFocus($event)"
+        (keydown.n)="alphaFocus($event)"
+        (keydown.o)="alphaFocus($event)"
+        (keydown.p)="alphaFocus($event)"
+        (keydown.q)="alphaFocus($event)"
+        (keydown.r)="alphaFocus($event)"
+        (keydown.s)="alphaFocus($event)"
+        (keydown.t)="alphaFocus($event)"
+        (keydown.u)="alphaFocus($event)"
+        (keydown.v)="alphaFocus($event)"
+        (keydown.w)="alphaFocus($event)"
+        (keydown.x)="alphaFocus($event)"
+        (keydown.y)="alphaFocus($event)"
+        (keydown.z)="alphaFocus($event)"
+        (keydown.shift.a)="alphaFocus($event)"
+        (keydown.shift.b)="alphaFocus($event)"
+        (keydown.shift.c)="alphaFocus($event)"
+        (keydown.shift.d)="alphaFocus($event)"
+        (keydown.shift.e)="alphaFocus($event)"
+        (keydown.shift.f)="alphaFocus($event)"
+        (keydown.shift.g)="alphaFocus($event)"
+        (keydown.shift.h)="alphaFocus($event)"
+        (keydown.shift.i)="alphaFocus($event)"
+        (keydown.shift.j)="alphaFocus($event)"
+        (keydown.shift.k)="alphaFocus($event)"
+        (keydown.shift.l)="alphaFocus($event)"
+        (keydown.shift.m)="alphaFocus($event)"
+        (keydown.shift.n)="alphaFocus($event)"
+        (keydown.shift.o)="alphaFocus($event)"
+        (keydown.shift.p)="alphaFocus($event)"
+        (keydown.shift.q)="alphaFocus($event)"
+        (keydown.shift.r)="alphaFocus($event)"
+        (keydown.shift.s)="alphaFocus($event)"
+        (keydown.shift.t)="alphaFocus($event)"
+        (keydown.shift.u)="alphaFocus($event)"
+        (keydown.shift.v)="alphaFocus($event)"
+        (keydown.shift.w)="alphaFocus($event)"
+        (keydown.shift.x)="alphaFocus($event)"
+        (keydown.shift.y)="alphaFocus($event)"
+        (keydown.shift.z)="alphaFocus($event)"
       />
       <button (click)="toggleExpanded()" >toggle listbox</button>
      <list-box *ngIf="expanded"></list-box>
@@ -200,6 +252,11 @@ export class ComboBox implements AfterViewInit {
 
   collapse(){
     this.expanded = false;
+  }
+
+  alphaFocus() {
+    //console.log(event, event.keyCode, event.keyIdentifier);
+    console.log(event, event.key);
   }
 
 }
@@ -238,22 +295,12 @@ export class ListBoxComponent {
     setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[optionIndex].nativeElement, 'focus'); }, 0);
   }
 
-  selectOption() {
-
-  }
-
-
-
   focusNextOption() {
-    console.log('focus next option');
     this.focusIndex = this.focusIndex + 1;
     this.focusOption(this.focusIndex);
-      
-
   }
 
   focusPrevOption() {
-    console.log('focus previous option');
     this.focusIndex = this.focusIndex - 1;
     this.focusOption(this.focusIndex);
   }
