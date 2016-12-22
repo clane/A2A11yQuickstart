@@ -175,14 +175,10 @@ export class ModalDialog  {
     <h2>ComboBox</h2>
 
     <div role="combobox">
-      <label for="cb1-edit">State</label>
-      <input (click)="toggleExpanded()" 
-        id="cb1-edit"  
+      <input (click)="toggleExpanded()"  
         type="text" 
         (keydown.enter)="toggleExpanded()" 
         (keydown.ArrowDown)="handleKeyEvent()" 
-        aria-autocomplete="inline"
-        aria-owns="listbox"
       />
      <list-box *ngIf="expanded"></list-box>
     </div>
@@ -203,7 +199,12 @@ export class ComboBox implements AfterViewInit {
   selector: 'list-box',
   template: `
     <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-      <div *ngFor="let state of states" id="{{state.id}}" role="option" #option tabindex="-1">{{state.name}}</div>
+      <div *ngFor="let state of states" 
+        #option 
+        role="option"
+        (keydown.ArrowDown)="focusNextOption()" 
+        (keydown.ArrowUp)="focusPrevOption()" 
+        tabindex="-1">{{state.name}}</div>
     </div>
   `,
   providers: [StateService]
@@ -211,6 +212,8 @@ export class ComboBox implements AfterViewInit {
 export class ListBoxComponent { 
 
   @ViewChildren('option') options;
+
+  focusIndex:number = 0;
 
   constructor(private stateService: StateService, private renderer: Renderer) { }
   states: State[];
@@ -221,8 +224,28 @@ export class ListBoxComponent {
     this.stateService.getStates().then(states => this.states = states);
   }
 
-  focusOption() {
-    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[4].nativeElement, 'focus'); }, 0);
+  focusOption(optionIndex: number) {
+    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[optionIndex].nativeElement, 'focus'); }, 0);
+  }
+
+  selectOption() {
+
+  }
+
+
+
+  focusNextOption() {
+    console.log('focus next option');
+    this.focusIndex = this.focusIndex + 1;
+    this.focusOption(this.focusIndex);
+      
+
+  }
+
+  focusPrevOption() {
+    console.log('focus previous option');
+    this.focusIndex = this.focusIndex - 1;
+    this.focusOption(this.focusIndex);
   }
 
   ngOnInit(): void {
@@ -230,7 +253,7 @@ export class ListBoxComponent {
   }
 
   ngAfterViewInit() {
-    this.focusOption();
+    this.focusOption(2);
   }
 
   
