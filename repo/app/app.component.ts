@@ -221,19 +221,16 @@ export class ListBoxComponent {
     this.stateService.getStates().then(states => this.states = states);
   }
 
+  focusOption() {
+    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[4].nativeElement, 'focus'); }, 0);
+  }
+
   ngOnInit(): void {
     this.getStates();
   }
 
-   ngAfterViewInit() {
-    console.log(this.options);
-   // setTimeout( ()=>{  console.log(this.options._results); }, 0);
-    //setTimeout( ()=>{  console.log(this.options._results[4]); }, 0);
-    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[4].nativeElement, 'focus'); }, 0);
-
-
-    //this.renderer.invokeElementMethod(this.options[4].nativeElement, 'focus');
-    //setTimeout( ()=>{ this.focusMe(); }, 0);
+  ngAfterViewInit() {
+    this.focusOption();
   }
 
   
