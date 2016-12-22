@@ -177,9 +177,10 @@ export class ModalDialog  {
     <div role="combobox">
       <input (click)="toggleExpanded()"  
         type="text" 
-        (keydown.enter)="toggleExpanded()" 
-        (keydown.ArrowDown)="handleKeyEvent()" 
+        (keydown.alt.ArrowDown)="expand()" 
+        (keydown.alt.ArrowUp)="collapse()" 
       />
+      <button tabindex="-1" (click)="toggleExpanded()" >toggle listbox</button>
      <list-box *ngIf="expanded"></list-box>
     </div>
   ` 
@@ -192,6 +193,15 @@ export class ComboBox implements AfterViewInit {
   toggleExpanded() {
     this.expanded = !this.expanded;
   }
+
+  expand() {
+    this.expanded = true;
+  }
+
+  collapse(){
+    this.expanded = false;
+  }
+
 }
 
 
