@@ -174,21 +174,18 @@ export class ModalDialog  {
 
     <h2>ComboBox</h2>
 
-    <div id="cb1" class="cb" role="combobox">
-      <div class="cb_label"><label id="cb1-label" for="cb1-edit">State</label>:</div>
-      <input (click)="toggleExpanded()" (keydown.enter)="toggleExpanded()" (keydown.ArrowDown)="handleKeyEvent()" id="cb1-edit" class="cb_edit" type="text" 
-        aria-labelledby="cb1-label"
+    <div role="combobox">
+      <label for="cb1-edit">State</label>
+      <input (click)="toggleExpanded()" 
+        id="cb1-edit"  
+        type="text" 
+        (keydown.enter)="toggleExpanded()" 
+        (keydown.ArrowDown)="handleKeyEvent()" 
         aria-autocomplete="inline"
-        aria-owns="cb1-list"/>
-      <div id="cb1-button-label" class="hidden">Open list of states</div>
-      <button id="cb1-button" class="cb_button" aria-labelledby="cb1-button-label" aria-controls="cb1-list" tabindex="-1">
-        <img src="http://www.oaa-accessibility.org/media/examples/images/button-arrow-down.png" alt="Open or close the list box" />
-      </button>
-
-     <list-box></list-box>
-
+        aria-owns="listbox"
+      />
+     <list-box *ngIf="expanded"></list-box>
     </div>
-
   ` 
 })
 
@@ -206,7 +203,7 @@ export class ComboBox implements AfterViewInit {
   selector: 'list-box',
   template: `
     <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
-      <div *ngFor="let state of states" id="{{state.id}}" role="option" #option>{{state.name}}</div>
+      <div *ngFor="let state of states" id="{{state.id}}" role="option" #option tabindex="-1">{{state.name}}</div>
     </div>
   `,
   providers: [StateService]
@@ -215,11 +212,10 @@ export class ListBoxComponent {
 
   @ViewChildren('option') options;
 
-  constructor(private stateService: StateService) { }
+  constructor(private stateService: StateService, private renderer: Renderer) { }
   states: State[];
 
-  @Input()
-  state: State;
+  @Input() state: State;
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -231,7 +227,16 @@ export class ListBoxComponent {
 
    ngAfterViewInit() {
     console.log(this.options);
+   // setTimeout( ()=>{  console.log(this.options._results); }, 0);
+    //setTimeout( ()=>{  console.log(this.options._results[4]); }, 0);
+    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[4].nativeElement, 'focus'); }, 0);
+
+
+    //this.renderer.invokeElementMethod(this.options[4].nativeElement, 'focus');
+    //setTimeout( ()=>{ this.focusMe(); }, 0);
   }
+
+  
 
 }
 
