@@ -306,13 +306,16 @@ export class ListBoxComponent {
   }
 
   focusPrevOption() {
-    let optionsLength: number = this.options._results.length;
+    console.log(this.focusIndex);
     setTimeout( ()=>{ 
+      let optionsLength: number = this.options._results.length;
       if( this.focusIndex === 0){
         this.focusIndex = optionsLength;
+        //console.log(this.focusIndex);
       } else {
           this.focusIndex = this.focusIndex - 1;
           this.focusOption(this.focusIndex);
+          //console.log(this.focusIndex);
       }
     }, 0);
    
@@ -323,7 +326,7 @@ export class ListBoxComponent {
   }
 
   ngAfterViewInit() {
-    this.focusOption(2);
+    this.focusOption(0);
   }
 
   
