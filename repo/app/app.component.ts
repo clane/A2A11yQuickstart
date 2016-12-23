@@ -257,8 +257,6 @@ export class ComboBox implements AfterViewInit {
   }
 
   onListboxOptionSelected(stateName: string){
-    console.log('listbox selection emit successful');
-    console.log(event);
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
   }
