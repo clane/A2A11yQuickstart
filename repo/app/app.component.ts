@@ -295,23 +295,27 @@ export class ListBoxComponent {
 
   focusNextOption() {
     setTimeout( ()=>{  
-     
       let optionsLength: number = this.options._results.length;
-      if(this.focusIndex === (optionsLength - 1){
+      if ( this.focusIndex === (optionsLength - 1 ){
         this.focusIndex = -1;
       } else {
           this.focusIndex = this.focusIndex + 1;
           this.focusOption(this.focusIndex);
       }
-      
     }, 0);
-
   }
 
   focusPrevOption() {
     let optionsLength: number = this.options._results.length;
-    this.focusIndex = this.focusIndex - 1;
-    this.focusOption(this.focusIndex);
+    setTimeout( ()=>{ 
+      if( this.focusIndex === 0){
+        this.focusIndex = optionsLength;
+      } else {
+          this.focusIndex = this.focusIndex - 1;
+          this.focusOption(this.focusIndex);
+      }
+    }, 0);
+   
   }
 
   ngOnInit(): void {
