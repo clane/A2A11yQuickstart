@@ -259,6 +259,7 @@ export class ComboBox implements AfterViewInit {
   onListboxOptionSelected(stateName: string){
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+    this.expanded = false;
   }
 
 }
