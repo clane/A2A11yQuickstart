@@ -228,7 +228,7 @@ export class ModalDialog  {
         (keydown.shift.z)="alphaFocus($event)"
       />
       <button (click)="toggleExpanded()" >toggle listbox</button>
-     <list-box *ngIf="expanded"></list-box>
+     <list-box *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
   ` 
 })
@@ -252,6 +252,11 @@ export class ComboBox implements AfterViewInit {
   alphaFocus() {
     //console.log(event, event.keyCode, event.keyIdentifier);
     console.log(event.key);
+  }
+
+  onListboxOptionSelected(){
+
+    console.log('listbox selection emit successful');
   }
 
 }
@@ -315,7 +320,7 @@ export class ListBoxComponent {
 
   selectOption(){
     console.log('option  ' + this.focusIndex + ' should be selected');
-     this.onListboxOptionSelected.emit(this.focusIndex);
+    this.onListboxOptionSelected.emit(this.focusIndex);
   }
 
   ngOnInit(): void {
