@@ -289,14 +289,8 @@ export class ListBoxComponent {
   states: State[];
   @Input() state: State;
 
-  stateName:string;
-
-  stateIds:string [];
-  stateNames:string [];
-
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
-      
   }
 
   focusOption(optionIndex: number) {
@@ -330,20 +324,14 @@ export class ListBoxComponent {
   }
 
   selectOption(){
-    console.log('option  ' + this.focusIndex + ' should be selected');
-   
     setTimeout(()=>{ 
        for(var i = 0; i < this.states.length; i++){ 
-           console.log( this.states[i].name); 
            if(i === this.focusIndex){
               this.onListboxOptionSelected.emit(this.states[i].name); 
            }
-         
-
        }
     } 
     , 0);
-   
   }
 
   ngOnInit(): void {
