@@ -170,7 +170,7 @@ export class ModalDialog  {
     <h2>ComboBox</h2>
 
     <div role="combobox">
-      <input (click)="toggleExpanded()"  
+      <input #input (click)="toggleExpanded()"  
         type="text" 
         (keydown.alt.ArrowDown)="expand()" 
         (keydown.alt.ArrowUp)="collapse()" 
@@ -235,6 +235,8 @@ export class ModalDialog  {
 
 export class ComboBox implements AfterViewInit {
 
+  constructor(private renderer: Renderer) {}
+  @ViewChild('input') input: ElementRef;
   expanded: boolean = false; 
 
   toggleExpanded() {
@@ -255,8 +257,9 @@ export class ComboBox implements AfterViewInit {
   }
 
   onListboxOptionSelected(){
-
     console.log('listbox selection emit successful');
+    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', 'testing');
   }
 
 }
@@ -271,6 +274,7 @@ export class ComboBox implements AfterViewInit {
         (keydown.ArrowDown)="focusNextOption()" 
         (keydown.ArrowUp)="focusPrevOption()" 
         (keydown.enter)="selectOption()" 
+        (click)="selectOption()" 
         tabindex="-1">{{state.name}}</div>
     </div>
   `,
