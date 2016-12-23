@@ -265,20 +265,18 @@ export class ComboBox implements AfterViewInit {
         role="option"
         (keydown.ArrowDown)="focusNextOption()" 
         (keydown.ArrowUp)="focusPrevOption()" 
+        (keydown.enter)="selectOption()" 
         tabindex="-1">{{state.name}}</div>
     </div>
   `,
   providers: [StateService]
 })
 export class ListBoxComponent { 
-
-  @ViewChildren('option') options;
-
-  focusIndex:number = 0;
-
   constructor(private stateService: StateService, private renderer: Renderer) { }
+  @Output() onListboxOptionSelected = new EventEmitter<number>();
+  @ViewChildren('option') options;
+  focusIndex:number = 0;
   states: State[];
-
   @Input() state: State;
 
   getStates(): void {
@@ -286,45 +284,38 @@ export class ListBoxComponent {
   }
 
   focusOption(optionIndex: number) {
-  
     setTimeout( ()=>{  
       this.renderer.invokeElementMethod(this.options._results[optionIndex].nativeElement, 'focus');
     }, 0);
-   
   }
 
   focusNextOption() {
     setTimeout( ()=>{  
       let optionsLength: number = this.options._results.length;
-      console.log('options length ' + optionsLength);
-      console.log('focus index before moving it ' + this.focusIndex);
       if ( this.focusIndex === (optionsLength - 1 ){
         this.focusIndex = 0;
       } else {
           this.focusIndex = this.focusIndex + 1;
       }
       this.focusOption(this.focusIndex);
-      console.log('focus index after moving it ' + this.focusIndex);
     }, 0);
   }
 
   focusPrevOption() {
-  
     setTimeout( ()=>{ 
       let optionsLength: number = this.options._results.length;
-      
-
       if( this.focusIndex === 0){
         this.focusIndex = optionsLength - 1;
       } else {
           this.focusIndex = this.focusIndex - 1;
       }
       this.focusOption(this.focusIndex);
-     
     }, 0);
+  }
 
-    
-   
+  selectOption(){
+    console.log('option  ' + this.focusIndex + ' should be selected');
+     this.onListboxOptionSelected.emit(this.focusIndex);
   }
 
   ngOnInit(): void {
@@ -334,8 +325,6 @@ export class ListBoxComponent {
   ngAfterViewInit() {
     this.focusOption(0);
   }
-
-  
 
 }
 
@@ -392,7 +381,7 @@ export class WidgetDemoComponent {
 
   onCloseButtonActivated(){
      this.notModal = true;
-     setTimeout( ()=>{ this.focusMe(); }, 0);//needed for the modalButton to be defined
+     setTimeout( ()=>{ this.focusMe(); }, 0);//setTimeout needed for the modalButton to be defined
   }
 
   onOpenButtonActivated(){
