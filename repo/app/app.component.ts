@@ -158,8 +158,6 @@ export class ModalDialog  {
      this.renderer.invokeElementMethod(this.actionButton.nativeElement, 'focus');
   }
 
-
-
   close(){
       this.onCloseButtonActivated.emit(true);
   }
@@ -169,9 +167,6 @@ export class ModalDialog  {
 @Component({
   selector: "combo-box",
   template: `
-
-
-
     <h2>ComboBox</h2>
 
     <div role="combobox">
@@ -256,11 +251,10 @@ export class ComboBox implements AfterViewInit {
 
   alphaFocus() {
     //console.log(event, event.keyCode, event.keyIdentifier);
-    console.log(event, event.key);
+    console.log(event.key);
   }
 
 }
-
 
 @Component({
   selector: 'list-box',
@@ -292,15 +286,30 @@ export class ListBoxComponent {
   }
 
   focusOption(optionIndex: number) {
-    setTimeout( ()=>{  this.renderer.invokeElementMethod(this.options._results[optionIndex].nativeElement, 'focus'); }, 0);
+  
+    setTimeout( ()=>{  
+      this.renderer.invokeElementMethod(this.options._results[optionIndex].nativeElement, 'focus');
+    }, 0);
+   
   }
 
   focusNextOption() {
-    this.focusIndex = this.focusIndex + 1;
-    this.focusOption(this.focusIndex);
+    setTimeout( ()=>{  
+     
+      let optionsLength: number = this.options._results.length;
+      if(this.focusIndex === (optionsLength - 1){
+        this.focusIndex = -1;
+      } else {
+          this.focusIndex = this.focusIndex + 1;
+          this.focusOption(this.focusIndex);
+      }
+      
+    }, 0);
+
   }
 
   focusPrevOption() {
+    let optionsLength: number = this.options._results.length;
     this.focusIndex = this.focusIndex - 1;
     this.focusOption(this.focusIndex);
   }
