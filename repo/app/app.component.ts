@@ -331,13 +331,13 @@ export class ListBoxComponent {
        
        //console.log(this.states);
        //console.log(this.states.length);
-       for(var i = 0; i < this.states.length; i++)[
+       for(var i = 0; i < this.states.length; i++){
        
            //console.log( this.states[i] ); 
            //console.log( this.states[i].id ); 
            console.log( this.states[i].name ); 
       
-       ]
+       }
       
     
       } 
