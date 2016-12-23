@@ -256,11 +256,11 @@ export class ComboBox implements AfterViewInit {
     console.log(event.key);
   }
 
-  onListboxOptionSelected(index: number){
+  onListboxOptionSelected(stateName: string){
     console.log('listbox selection emit successful');
     console.log(event);
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', index);
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
   }
 
 }
@@ -283,11 +283,16 @@ export class ComboBox implements AfterViewInit {
 })
 export class ListBoxComponent { 
   constructor(private stateService: StateService, private renderer: Renderer) { }
-  @Output() onListboxOptionSelected = new EventEmitter<number>();
+  @Output() onListboxOptionSelected = new EventEmitter<string>();
   @ViewChildren('option') options;
   focusIndex:number = 0;
   states: State[];
   @Input() state: State;
+
+  stateName:string;
+
+  stateIds:string [];
+  stateNames:string [];
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -326,19 +331,19 @@ export class ListBoxComponent {
 
   selectOption(){
     console.log('option  ' + this.focusIndex + ' should be selected');
-    this.onListboxOptionSelected.emit(this.focusIndex);
+   
     setTimeout(()=>{ 
        for(var i = 0; i < this.states.length; i++){ 
            console.log( this.states[i].name); 
+           if(i === this.focusIndex){
+              this.onListboxOptionSelected.emit(this.states[i].name); 
+           }
+         
+
        }
     } 
     , 0);
-    setTimeout(()=>{ 
-       for(var i = 0; i < this.states.length; i++){ 
-           console.log( this.states[i].id); 
-       }
-    } 
-    , 0);
+   
   }
 
   ngOnInit(): void {
