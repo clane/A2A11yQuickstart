@@ -327,21 +327,18 @@ export class ListBoxComponent {
   selectOption(){
     console.log('option  ' + this.focusIndex + ' should be selected');
     this.onListboxOptionSelected.emit(this.focusIndex);
-     setTimeout(()=>{ 
-       
-       //console.log(this.states);
-       //console.log(this.states.length);
-       for(var i = 0; i < this.states.length; i++){
-       
-           //console.log( this.states[i] ); 
-           //console.log( this.states[i].id ); 
-           console.log( this.states[i].name ); 
-      
+    setTimeout(()=>{ 
+       for(var i = 0; i < this.states.length; i++){ 
+           console.log( this.states[i].name); 
        }
-      
-    
-      } 
-       , 0);
+    } 
+    , 0);
+    setTimeout(()=>{ 
+       for(var i = 0; i < this.states.length; i++){ 
+           console.log( this.states[i].id); 
+       }
+    } 
+    , 0);
   }
 
   ngOnInit(): void {
