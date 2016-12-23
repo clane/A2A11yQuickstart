@@ -274,7 +274,8 @@ export class ComboBox implements AfterViewInit {
         (keydown.ArrowDown)="focusNextOption()" 
         (keydown.ArrowUp)="focusPrevOption()" 
         (keydown.enter)="selectOption()" 
-        (click)="selectOption()" 
+        (click)="selectOptionWithClick($event)" 
+        id="{{state.id}}"
         tabindex="-1">{{state.name}}</div>
     </div>
   `,
@@ -324,13 +325,18 @@ export class ListBoxComponent {
 
   selectOption(){
     setTimeout(()=>{ 
-       for(var i = 0; i < this.states.length; i++){ 
-           if(i === this.focusIndex){
+       for(let i = 0; i < this.states.length; i++){ 
+           if(i == this.focusIndex){
               this.onListboxOptionSelected.emit(this.states[i].name); 
            }
        }
     } 
     , 0);
+  }
+
+  selectOptionWithClick(event){
+    this.focusIndex = event.target.id;
+    this.selectOption();
   }
 
   ngOnInit(): void {
