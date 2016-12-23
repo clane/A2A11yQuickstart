@@ -296,28 +296,34 @@ export class ListBoxComponent {
   focusNextOption() {
     setTimeout( ()=>{  
       let optionsLength: number = this.options._results.length;
+      console.log('options length ' + optionsLength);
+      console.log('focus index before moving it ' + this.focusIndex);
       if ( this.focusIndex === (optionsLength - 1 ){
-        this.focusIndex = -1;
+        this.focusIndex = 0;
       } else {
           this.focusIndex = this.focusIndex + 1;
-          this.focusOption(this.focusIndex);
       }
+      this.focusOption(this.focusIndex);
+      console.log('focus index after moving it ' + this.focusIndex);
     }, 0);
   }
 
   focusPrevOption() {
-    console.log(this.focusIndex);
+  
     setTimeout( ()=>{ 
       let optionsLength: number = this.options._results.length;
+      
+
       if( this.focusIndex === 0){
-        this.focusIndex = optionsLength;
-        //console.log(this.focusIndex);
+        this.focusIndex = optionsLength - 1;
       } else {
           this.focusIndex = this.focusIndex - 1;
-          this.focusOption(this.focusIndex);
-          //console.log(this.focusIndex);
       }
+      this.focusOption(this.focusIndex);
+     
     }, 0);
+
+    
    
   }
 
