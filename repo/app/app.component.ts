@@ -272,6 +272,7 @@ export class ComboBox implements AfterViewInit {
         (keydown.ArrowDown)="focusNextOption()" 
         (keydown.ArrowUp)="focusPrevOption()" 
         (keydown.enter)="selectOption()" 
+        (keydown.esc)="escapeListbox()"
         (click)="selectOptionWithClick($event)" 
         id="{{state.id}}"
         tabindex="-1">{{state.name}}</div>
@@ -336,6 +337,10 @@ export class ListBoxComponent {
   selectOptionWithClick(event){
     this.focusIndex = event.target.id;
     this.selectOption();
+  }
+
+  escapeListbox() {
+    console.log('escaping listbox');
   }
 
   ngOnInit(): void { 
