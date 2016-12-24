@@ -352,12 +352,10 @@ export class ListBoxComponent {
     this.onListboxEscPressed.emit(true);
   }
 
-  
-
   ngOnInit(): void { 
     this.getStates();
+  }
   
- }
   ngAfterViewInit() { 
     this.focusOption(this.focusIndex); 
   }
