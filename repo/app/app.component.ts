@@ -342,16 +342,6 @@ export class ListBoxComponent {
 }
 
 @Component({
-  selector: 'loop-back',
-  template: `
-    <h2>Loop Back</h2>
-    <input #box (keyup)="0">
-    <p>{{box.value}}</p>
-  `
-})
-export class LoopbackComponent {}
-
-@Component({
   selector: "widget-demo",
   template: `
       <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
@@ -361,7 +351,7 @@ export class LoopbackComponent {}
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
-      <loop-back *ngIf="notModal">loading...</loop-back>
+    
   `
 })
 
