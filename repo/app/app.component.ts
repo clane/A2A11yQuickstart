@@ -367,11 +367,9 @@ export class ListBoxComponent {
     <p>{{box.value}}</p>
   `
 })
-export class LoopbackComponent { }
-
+export class LoopbackComponent {}
 
 @Component({
-
   selector: "widget-demo",
   template: `
       <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
@@ -386,18 +384,15 @@ export class LoopbackComponent { }
 })
 
 export class WidgetDemoComponent {
-
   constructor(private titleService: Title, private renderer: Renderer) {}
-
   @ViewChild(ModalOpenButton)
   private modalButton: ModalOpenButton;
+  notModal:boolean = true;
 
   ngAfterViewInit() {
       this.setTitle('A11y Widgets using Angular 2');
   }
 
-  notModal:boolean = true;
- 
   setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
