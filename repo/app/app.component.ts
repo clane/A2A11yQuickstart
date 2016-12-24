@@ -248,6 +248,13 @@ export class ComboBox implements AfterViewInit {
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
     this.expanded = false;
+    //Get the id for the state and use it to set the selected id
+    for(let i = 0; i < this.states.length; i++){ 
+      if(stateName == this.states[i].name){
+        this.selectedId = this.states[i].id; 
+      }
+
+    } 
   }
 
   ngAfterViewInit() {
