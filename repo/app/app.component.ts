@@ -217,11 +217,10 @@ export class ModalDialog  {
 export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
-  //expanded: boolean = false; 
-  expanded: boolean = true; 
+  expanded: boolean = false;  
   states: State[];
   @Input() state: State;
-  selectedId: number = 5;
+  selectedId: number = 0;
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -334,12 +333,10 @@ export class ListBoxComponent {
 
   ngOnInit(): void { 
     this.getStates();
-    console.log(this.focusIndex);
   
  }
   ngAfterViewInit() { 
-    this.focusOption(0); 
-    console.log(this.focusIndex);
+    this.focusOption(this.focusIndex); 
   }
   
 }
