@@ -267,8 +267,7 @@ export class ComboBox implements AfterViewInit {
         id="{{state.id}}"
         tabindex="-1">{{state.name}}</div>
     </div>
-  `,
-  providers: [StateService]
+  `
 })
 export class ListBoxComponent { 
   constructor(private stateService: StateService, private renderer: Renderer) { }
