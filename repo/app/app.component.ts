@@ -207,7 +207,7 @@ export class ModalDialog  {
         (keydown.shift.y)="alphaFocus($event)"
         (keydown.shift.z)="alphaFocus($event)"
       />
-      <button (click)="toggleExpanded()">toggle listbox</button>
+      <button (click)="toggleExpanded()" tabindex="-1">toggle listbox</button>
      <list-box [selectedId]="selectedId" *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
   `, 
