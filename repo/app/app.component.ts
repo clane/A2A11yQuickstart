@@ -264,7 +264,6 @@ export class ComboBox implements AfterViewInit {
 
   onListboxEscPressed(){
     this.collapse();
-    console.log('this should be called');
   }
 
   ngAfterViewInit() {
@@ -294,9 +293,7 @@ export class ListBoxComponent {
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @Output() onListboxEscPressed = new EventEmitter<boolean>();
   @ViewChildren('option') options;
-
   @Input('selectedId') focusIndex: number;
-
   states: State[];
   @Input() state: State;
 
@@ -351,7 +348,6 @@ export class ListBoxComponent {
   }
 
   escapeListbox() {
-    console.log('escaping listbox');
     this.onListboxEscPressed.emit(true);
   }
 
