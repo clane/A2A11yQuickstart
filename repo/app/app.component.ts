@@ -16,27 +16,21 @@ import { StateService } from './state.service';
 `
 })
 export class TooltipComponent {
-
     show: boolean = false;
     ariaHidden: boolean = !this.show;
-
     open() {
         this.show = true;
         this.ariaHidden = !this.show;
     }
-
     close() {
         this.show = false;
         this.ariaHidden = !this.show;
     }
-
     toggle() {
         this.show = !this.show;
         this.ariaHidden = !this.show;
     }
-  
 }
-
 
 @Component({
   selector: "aria-accordion",
@@ -57,7 +51,6 @@ export class TooltipComponent {
 })
 
 export class AccordionComponent {
-
   show: boolean = false;
   expanded: boolean = false;
 
@@ -83,9 +76,7 @@ export class AccordionComponent {
 })
 
 export class AlertComponent {
-
   alertText: string = "This is a live region, the alert text will appear here dynamically";
-
   alert() {
     this.alertText = "Oh no!"
   }
@@ -100,15 +91,12 @@ export class AlertComponent {
 })
 
 export class ModalOpenButton {
-
   constructor(private renderer: Renderer) {}
   @ViewChild('modalOpen') openButton: ElementRef;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
-
   open(){
       this.onOpenButtonActivated.emit(true);
   }
-
   focusMe(){
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
   }
@@ -117,7 +105,6 @@ export class ModalOpenButton {
 
 
 @Component({
-
   selector: "modal-dialog",
   template: `
       <style>
@@ -140,28 +127,22 @@ export class ModalOpenButton {
   `,
 })
 export class ModalDialog  {
-
   constructor(private renderer: Renderer) {}
   @ViewChild('closeButton') closeButton: ElementRef;
   @ViewChild('actionButton') actionButton: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
-
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.closeButton.nativeElement, 'focus');
   }
-
   focusCloseButton() {
      this.renderer.invokeElementMethod(this.closeButton.nativeElement, 'focus');
   }
-
    focusActionButton() {
      this.renderer.invokeElementMethod(this.actionButton.nativeElement, 'focus');
   }
-
   close(){
       this.onCloseButtonActivated.emit(true);
   }
-
 }
 
 @Component({
@@ -271,7 +252,6 @@ export class ComboBox implements AfterViewInit {
   ngAfterViewInit() {
     this.getStates();
   }
-
 }
 
 @Component({
