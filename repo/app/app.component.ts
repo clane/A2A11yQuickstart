@@ -261,11 +261,7 @@ export class ComboBox implements AfterViewInit {
 
   alphaFocus(event) {
     setTimeout(()=>{ 
-      //console.log(event, event.keyCode, event.keyIdentifier);
-      console.log(event.key);
-      console.log(this.states);
       let firstChar = event.key;
-    
       for(let i = 0; i < this.states.length; i++){ 
         if(firstChar == this.states[i].name.charAt(0)){
           this.onListboxOptionSelected(this.states[i].name); 
