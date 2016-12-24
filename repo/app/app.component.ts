@@ -235,7 +235,6 @@ export class ModalDialog  {
 })
 
 export class ComboBox implements AfterViewInit {
-
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false; 
@@ -246,18 +245,9 @@ export class ComboBox implements AfterViewInit {
     this.stateService.getStates().then(states => this.states = states);
   }
 
-
-  toggleExpanded() {
-    this.expanded = !this.expanded;
-  }
-
-  expand() {
-    this.expanded = true;
-  }
-
-  collapse(){
-    this.expanded = false;
-  }
+  toggleExpanded() { this.expanded = !this.expanded; }
+  expand() { this.expanded = true; }
+  collapse(){ this.expanded = false; }
 
   alphaFocus(event) {
     setTimeout(()=>{ 
@@ -270,7 +260,6 @@ export class ComboBox implements AfterViewInit {
       }
     } 
     , 0);
-
   }
 
   onListboxOptionSelected(stateName: string){
