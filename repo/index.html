@@ -21,5 +21,20 @@
 
   <body>
       <widget-demo>Loading...</widget-demo>
+      <div id="va">
+        <button id="ariaButton">Run Visual ARIA</button>
+        <p>Visual ARIA is an ARIA education and testing tool</p>
+        <p>For more see http://whatsock.com/training/matrices/visual-aria.htm</p>
+      </div>
+      <script>
+        function runVisualARIA (){
+            var a=document.createElement('script');
+            a.type='text/javascript';
+            a.src='https://gutterstar.bizland.com/whatsock/training/matrices/visual-aria/roles.js';
+            document.head.appendChild(a);
+        }
+        var visualAriaButton = document.getElementById('ariaButton');            
+        visualAriaButton.addEventListener('click', function(){ runVisualARIA(); }, false);             
+      </script>
   </body>
 </html>
