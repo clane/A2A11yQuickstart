@@ -150,7 +150,7 @@ export class ModalDialog  {
   template: `
     <h2>ComboBox</h2>
     <div role="combobox">
-      <input #input (click)="toggleExpanded()"  
+      <input #input
         type="text" 
         (keydown.alt.ArrowDown)="expand()" 
         (keydown.alt.ArrowUp)="collapse()" 
