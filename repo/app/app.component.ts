@@ -208,7 +208,12 @@ export class ModalDialog  {
         (keydown.shift.z)="alphaFocus($event)"
       />
       <button (click)="toggleExpanded()" tabindex="-1">toggle listbox</button>
-     <list-box [selectedId]="selectedId" *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
+     <list-box 
+      [selectedId]="selectedId" 
+      *ngIf="expanded" 
+      (onListboxOptionSelected)="onListboxOptionSelected($event)"
+      (onListboxEscPressed)="onListboxEscPressed()"
+     ></list-box>
     </div>
   `, 
    providers: [StateService]
@@ -257,6 +262,11 @@ export class ComboBox implements AfterViewInit {
     } 
   }
 
+  onListboxEscPressed(){
+    this.collapse();
+    console.log('this should be called');
+  }
+
   ngAfterViewInit() {
     this.getStates();
   }
@@ -282,6 +292,7 @@ export class ComboBox implements AfterViewInit {
 export class ListBoxComponent { 
   constructor(private stateService: StateService, private renderer: Renderer) { }
   @Output() onListboxOptionSelected = new EventEmitter<string>();
+  @Output() onListboxEscPressed = new EventEmitter<boolean>();
   @ViewChildren('option') options;
 
   @Input('selectedId') focusIndex: number;
@@ -341,7 +352,10 @@ export class ListBoxComponent {
 
   escapeListbox() {
     console.log('escaping listbox');
+    this.onListboxEscPressed.emit(true);
   }
+
+  
 
   ngOnInit(): void { 
     this.getStates();
