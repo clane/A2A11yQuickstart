@@ -329,14 +329,9 @@ export class ListBoxComponent {
     this.selectOption();
   }
 
-  ngOnInit(): void {
-    this.getStates();
-  }
-
-  ngAfterViewInit() {
-    this.focusOption(0);
-  }
-
+  ngOnInit(): void { this.getStates(); }
+  ngAfterViewInit() { this.focusOption(0); }
+  
 }
 
 @Component({
@@ -369,30 +364,17 @@ export class WidgetDemoComponent {
   private modalButton: ModalOpenButton;
   notModal:boolean = true;
 
-  ngAfterViewInit() {
-      this.setTitle('A11y Widgets using Angular 2');
-  }
-
-  setTitle( newTitle: string) {
-    this.titleService.setTitle(newTitle);
-  }
-
-  enterModalContext(){
-    this.notModal = false;
-  }
-
-  focusMe() { 
-    this.modalButton.focusMe(); 
-  }
+  ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
+  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+  enterModalContext(){ this.notModal = false; }
+  focusMe() { this.modalButton.focusMe(); }
 
   onCloseButtonActivated(){
      this.notModal = true;
      setTimeout( ()=>{ this.focusMe(); }, 0);//setTimeout needed for the modalButton to be defined
   }
 
-  onOpenButtonActivated(){
-     this.notModal = false; 
-  }
+  onOpenButtonActivated(){ this.notModal = false; }
 
 }
 
