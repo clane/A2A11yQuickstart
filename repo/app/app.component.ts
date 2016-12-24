@@ -269,6 +269,7 @@ export class ComboBox implements AfterViewInit {
       for(let i = 0; i < this.states.length; i++){ 
         if(firstChar == this.states[i].name.charAt(0)){
           this.onListboxOptionSelected(this.states[i].name); 
+          break;
         }
       }
     } 
