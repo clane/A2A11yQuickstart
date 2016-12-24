@@ -264,6 +264,7 @@ export class ComboBox implements AfterViewInit {
 
   onListboxEscPressed(){
     this.collapse();
+    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 
   ngAfterViewInit() {
