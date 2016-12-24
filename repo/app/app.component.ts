@@ -208,7 +208,7 @@ export class ModalDialog  {
         (keydown.shift.z)="alphaFocus($event)"
       />
       <button (click)="toggleExpanded()">toggle listbox</button>
-     <list-box #listbox *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
+     <list-box [selectedId]="selectedId" *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
   `, 
    providers: [StateService]
@@ -217,9 +217,11 @@ export class ModalDialog  {
 export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
-  expanded: boolean = false; 
+  //expanded: boolean = false; 
+  expanded: boolean = true; 
   states: State[];
   @Input() state: State;
+  selectedId: number = 5;
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -234,6 +236,7 @@ export class ComboBox implements AfterViewInit {
       let firstCharEntered = event.key;
       for(let i = 0; i < this.states.length; i++){ 
         if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
+          this.selectedId = i;
           this.onListboxOptionSelected(this.states[i].name); 
           break;
         }
@@ -273,7 +276,9 @@ export class ListBoxComponent {
   constructor(private stateService: StateService, private renderer: Renderer) { }
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @ViewChildren('option') options;
-  focusIndex:number = 0;
+
+  @Input('selectedId') focusIndex: number;
+
   states: State[];
   @Input() state: State;
 
@@ -327,8 +332,15 @@ export class ListBoxComponent {
     this.selectOption();
   }
 
-  ngOnInit(): void { this.getStates(); }
-  ngAfterViewInit() { this.focusOption(0); }
+  ngOnInit(): void { 
+    this.getStates();
+    console.log(this.focusIndex);
+  
+ }
+  ngAfterViewInit() { 
+    this.focusOption(0); 
+    console.log(this.focusIndex);
+  }
   
 }
 
