@@ -261,9 +261,9 @@ export class ComboBox implements AfterViewInit {
 
   alphaFocus(event) {
     setTimeout(()=>{ 
-      let firstChar = event.key;
+      let firstCharEntered = event.key;
       for(let i = 0; i < this.states.length; i++){ 
-        if(firstChar == this.states[i].name.charAt(0)){
+        if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
           this.onListboxOptionSelected(this.states[i].name); 
           break;
         }
