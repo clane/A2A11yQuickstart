@@ -168,7 +168,6 @@ export class ModalDialog  {
   selector: "combo-box",
   template: `
     <h2>ComboBox</h2>
-
     <div role="combobox">
       <input #input (click)="toggleExpanded()"  
         type="text" 
@@ -227,7 +226,7 @@ export class ModalDialog  {
         (keydown.shift.y)="alphaFocus($event)"
         (keydown.shift.z)="alphaFocus($event)"
       />
-      <button (click)="toggleExpanded()" >toggle listbox</button>
+      <button (click)="toggleExpanded()">toggle listbox</button>
      <list-box *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
   `, 
