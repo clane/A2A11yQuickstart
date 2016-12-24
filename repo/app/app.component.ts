@@ -230,14 +230,22 @@ export class ModalDialog  {
       <button (click)="toggleExpanded()" >toggle listbox</button>
      <list-box *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
-  ` 
+  `, 
+   providers: [StateService]
 })
 
 export class ComboBox implements AfterViewInit {
 
-  constructor(private renderer: Renderer) {}
+  constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false; 
+  states: State[];
+  @Input() state: State;
+
+  getStates(): void {
+    this.stateService.getStates().then(states => this.states = states);
+  }
+
 
   toggleExpanded() {
     this.expanded = !this.expanded;
@@ -251,15 +259,31 @@ export class ComboBox implements AfterViewInit {
     this.expanded = false;
   }
 
-  alphaFocus() {
-    //console.log(event, event.keyCode, event.keyIdentifier);
-    console.log(event.key);
+  alphaFocus(event) {
+    setTimeout(()=>{ 
+      //console.log(event, event.keyCode, event.keyIdentifier);
+      console.log(event.key);
+      console.log(this.states);
+      let firstChar = event.key;
+    
+      for(let i = 0; i < this.states.length; i++){ 
+        if(firstChar == this.states[i].name.charAt(0)){
+          this.onListboxOptionSelected(this.states[i].name); 
+        }
+      }
+    } 
+    , 0);
+
   }
 
   onListboxOptionSelected(stateName: string){
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
     this.expanded = false;
+  }
+
+  ngAfterViewInit() {
+    this.getStates();
   }
 
 }
