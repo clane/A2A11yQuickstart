@@ -235,6 +235,7 @@ export class ModalDialog  {
 
 export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
+  @Output() onFirstCharEntered = new EventEmitter<number>();
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false; 
   states: State[];
@@ -375,7 +376,7 @@ export class LoopbackComponent {}
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
-      <modal-open-button *ngIf="notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
+      <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
       <loop-back *ngIf="notModal">loading...</loop-back>
