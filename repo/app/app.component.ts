@@ -208,7 +208,7 @@ export class ModalDialog  {
         (keydown.shift.z)="alphaFocus($event)"
       />
       <button (click)="toggleExpanded()">toggle listbox</button>
-     <list-box *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
+     <list-box #listbox *ngIf="expanded" (onListboxOptionSelected)="onListboxOptionSelected($event)"></list-box>
     </div>
   `, 
    providers: [StateService]
@@ -216,7 +216,6 @@ export class ModalDialog  {
 
 export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
-  @Output() onFirstCharEntered = new EventEmitter<number>();
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false; 
   states: State[];
