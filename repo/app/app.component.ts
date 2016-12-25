@@ -207,6 +207,8 @@ export class ModalDialog  {
       (keydown.shift.x)="alphaFocus($event)"
       (keydown.shift.y)="alphaFocus($event)"
       (keydown.shift.z)="alphaFocus($event)"
+      (keydown.ArrowDown)="selectNextOption()" 
+      (keydown.ArrowUp)="selectPrevOption()"
     />
     <button (click)="toggleExpanded()" tabindex="-1">toggle listbox</button>
     <list-box 
@@ -262,6 +264,29 @@ export class ComboBox implements AfterViewInit {
 
     } 
   }
+
+  selectNextOption(){
+    let stateName: string;
+    if( this.selectedId == (this.states.length - 1)){
+      this.selectedId = 0;
+    } else {
+        this.selectedId = this.selectedId + 1;
+    }
+    stateName = this.states[this.selectedId].name;
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+  }
+
+  selectPrevOption(){
+    let stateName: string;
+    if( this.selectedId == 0){
+      this.selectedId = this.states.length - 1;
+    } else {
+        this.selectedId = this.selectedId - 1;
+    }
+    stateName = this.states[this.selectedId].name;
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+  }
+
 
   onListboxEscPressed(){
     this.collapse();
