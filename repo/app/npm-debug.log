@@ -5,14 +5,14 @@
 4 verbose run-script [ 'pree2e', 'e2e', 'poste2e' ]
 5 info lifecycle angular-quickstart@1.0.0~pree2e: angular-quickstart@1.0.0
 6 verbose lifecycle angular-quickstart@1.0.0~pree2e: unsafe-perm in lifecycle true
-7 verbose lifecycle angular-quickstart@1.0.0~pree2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/angus/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin
-8 verbose lifecycle angular-quickstart@1.0.0~pree2e: CWD: /Users/developer/Desktop/eddie/angus
+7 verbose lifecycle angular-quickstart@1.0.0~pree2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/repo/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+8 verbose lifecycle angular-quickstart@1.0.0~pree2e: CWD: /Users/developer/Desktop/eddie/repo
 9 silly lifecycle angular-quickstart@1.0.0~pree2e: Args: [ '-c', 'npm run webdriver:update' ]
 10 silly lifecycle angular-quickstart@1.0.0~pree2e: Returned: code: 0  signal: null
 11 info lifecycle angular-quickstart@1.0.0~e2e: angular-quickstart@1.0.0
 12 verbose lifecycle angular-quickstart@1.0.0~e2e: unsafe-perm in lifecycle true
-13 verbose lifecycle angular-quickstart@1.0.0~e2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/angus/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin
-14 verbose lifecycle angular-quickstart@1.0.0~e2e: CWD: /Users/developer/Desktop/eddie/angus
+13 verbose lifecycle angular-quickstart@1.0.0~e2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/repo/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+14 verbose lifecycle angular-quickstart@1.0.0~e2e: CWD: /Users/developer/Desktop/eddie/repo
 15 silly lifecycle angular-quickstart@1.0.0~e2e: Args: [ '-c',
 15 silly lifecycle   'concurrently "npm run tsc:w" "http-server -s" "protractor protractor.config.js" --kill-others --success first' ]
 16 silly lifecycle angular-quickstart@1.0.0~e2e: Returned: code: 1  signal: null
@@ -28,8 +28,8 @@
 18 verbose stack     at maybeClose (internal/child_process.js:877:16)
 18 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 19 verbose pkgid angular-quickstart@1.0.0
-20 verbose cwd /Users/developer/Desktop/eddie/angus/app
-21 error Darwin 14.5.0
+20 verbose cwd /Users/developer/Desktop/eddie/repo/app
+21 error Darwin 15.2.0
 22 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "e2e"
 23 error node v6.6.0
 24 error npm  v3.10.3

@@ -80,6 +80,16 @@ export class AlertComponent {
   alert() {
     this.alertText = "Oh no!"
   }
+  
+  ngAfterViewInit() {
+    let cnt = 0;
+    setInterval( ()=>{
+     this.alertText = cnt;
+     cnt = cnt + 1;
+    }, 2000);
+  }
+
+  
 }
 
 @Component({
