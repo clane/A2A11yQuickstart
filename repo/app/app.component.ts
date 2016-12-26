@@ -69,27 +69,27 @@ export class AccordionComponent {
       #alertLiveRegion { border:2px solid; padding:10px; margin-top:10px; } 
     </style>
     <h2>Alert</h2>
-    <p>Use the following button to dynamically populate the alert's live region</p>
-    <button id="alertButton" href="#" (click)="alert()" aria-controls="alertLiveRegion">Trigger an alert</button>
+    <p>Alerts will appear below and be announced to screen readers assertively</p>
+    <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
     <div id="alertLiveRegion" role="alert">{{alertText}}</div>
   ` 
 })
 
 export class AlertComponent {
   alertText: string = "This is a live region, the alert text will appear here dynamically";
-  alert() {
-    this.alertText = "Oh no!"
+  alertsOn: boolean = true;
+  stopAlerts() {
+    this.alertsOn = false;
   }
   
   ngAfterViewInit() {
     let cnt = 0;
-    setInterval( ()=>{
-     this.alertText = cnt;
-     cnt = cnt + 1;
-    }, 2000);
+    setInterval(()=>{this.alertText = cnt;cnt = cnt + 1;}, 2000);
   }
+    
 
   
+
 }
 
 @Component({
@@ -99,7 +99,6 @@ export class AlertComponent {
     <button #modalOpen (click)="open()">Open Modal</button>
   ` 
 })
-
 export class ModalOpenButton {
   constructor(private renderer: Renderer) {}
   @ViewChild('modalOpen') openButton: ElementRef;
