@@ -248,10 +248,9 @@ export class ComboBox implements AfterViewInit {
 
   toggleExpanded() { 
     this.expanded = !this.expanded;
-    if(this.inputTabindex == 0) {
+    if(this.expanded == true) {
       this.inputTabindex = -1;
-    }
-    if(this.inputTabindex == -1) {
+    } else {
       this.inputTabindex = 0;
     }
   }
