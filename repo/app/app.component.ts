@@ -339,7 +339,63 @@ export class ComboBox implements AfterViewInit {
         (keydown.esc)="escapeListbox()"
         (click)="selectOptionWithClick($event)" 
         id="{{state.id}}"
-        tabindex="-1">{{state.name}}</div>
+        tabindex="-1"
+        (keydown.a)="firstCharAlphaFocus($event)"
+        (keydown.b)="firstCharAlphaFocus($event)"
+        (keydown.c)="firstCharAlphaFocus($event)"
+        (keydown.d)="firstCharAlphaFocus($event)"
+        (keydown.e)="firstCharAlphaFocus($event)"
+        (keydown.f)="firstCharAlphaFocus($event)"
+        (keydown.g)="firstCharAlphaFocus($event)"
+        (keydown.h)="firstCharAlphaFocus($event)"
+        (keydown.i)="firstCharAlphaFocus($event)"
+        (keydown.j)="firstCharAlphaFocus($event)"
+        (keydown.k)="firstCharAlphaFocus($event)"
+        (keydown.l)="firstCharAlphaFocus($event)"
+        (keydown.m)="firstCharAlphaFocus($event)"
+        (keydown.n)="firstCharAlphaFocus($event)"
+        (keydown.o)="firstCharAlphaFocus($event)"
+        (keydown.p)="firstCharAlphaFocus($event)"
+        (keydown.q)="firstCharAlphaFocus($event)"
+        (keydown.r)="firstCharAlphaFocus($event)"
+        (keydown.s)="firstCharAlphaFocus($event)"
+        (keydown.t)="firstCharAlphaFocus($event)"
+        (keydown.u)="firstCharAlphaFocus($event)"
+        (keydown.v)="firstCharAlphaFocus($event)"
+        (keydown.w)="firstCharAlphaFocus($event)"
+        (keydown.x)="firstCharAlphaFocus($event)"
+        (keydown.y)="firstCharAlphaFocus($event)"
+        (keydown.z)="firstCharAlphaFocus($event)"
+        (keydown.shift.a)="firstCharAlphaFocus($event)"
+        (keydown.shift.b)="firstCharAlphaFocus($event)"
+        (keydown.shift.c)="firstCharAlphaFocus($event)"
+        (keydown.shift.d)="firstCharAlphaFocus($event)"
+        (keydown.shift.e)="firstCharAlphaFocus($event)"
+        (keydown.shift.f)="firstCharAlphaFocus($event)"
+        (keydown.shift.g)="firstCharAlphaFocus($event)"
+        (keydown.shift.h)="firstCharAlphaFocus($event)"
+        (keydown.shift.i)="firstCharAlphaFocus($event)"
+        (keydown.shift.j)="firstCharAlphaFocus($event)"
+        (keydown.shift.k)="firstCharAlphaFocus($event)"
+        (keydown.shift.l)="firstCharAlphaFocus($event)"
+        (keydown.shift.m)="firstCharAlphaFocus($event)"
+        (keydown.shift.n)="firstCharAlphaFocus($event)"
+        (keydown.shift.o)="firstCharAlphaFocus($event)"
+        (keydown.shift.p)="firstCharAlphaFocus($event)"
+        (keydown.shift.q)="firstCharAlphaFocus($event)"
+        (keydown.shift.r)="firstCharAlphaFocus($event)"
+        (keydown.shift.s)="firstCharAlphaFocus($event)"
+        (keydown.shift.t)="firstCharAlphaFocus($event)"
+        (keydown.shift.u)="firstCharAlphaFocus($event)"
+        (keydown.shift.v)="firstCharAlphaFocus($event)"
+        (keydown.shift.w)="firstCharAlphaFocus($event)"
+        (keydown.shift.x)="firstCharAlphaFocus($event)"
+        (keydown.shift.y)="firstCharAlphaFocus($event)"
+        (keydown.shift.z)="firstCharAlphaFocus($event)"
+        
+        
+        
+        >{{state.name}}</div>
     </div>
   `
 })
@@ -404,6 +460,20 @@ export class ListBoxComponent {
 
   escapeListbox() {
     this.onListboxEscPressed.emit(true);
+  }
+
+  firstCharAlphaFocus(event) {
+    setTimeout(()=>{ 
+      let firstCharEntered = event.key;
+      for(let i = 0; i < this.states.length; i++){ 
+        if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
+          this.focusIndex = i;
+          this.focusOption(this.focusIndex);
+          break;
+        }
+      }
+    } 
+    , 0);
   }
 
   ngOnInit(): void { 
