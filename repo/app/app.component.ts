@@ -329,6 +329,17 @@ export class ComboBox implements AfterViewInit {
 @Component({
   selector: 'list-box',
   template: `
+    <style>
+      div[role="listbox"] { 
+        margin-top:10px;
+        border:2px solid #000;
+        height:200px; 
+        overflow:scroll;
+        width:200px;
+        padding:10px;
+        
+      }
+    </style>
     <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
       <div *ngFor="let state of states" 
         #option 
@@ -392,9 +403,6 @@ export class ComboBox implements AfterViewInit {
         (keydown.shift.x)="firstCharAlphaFocus($event)"
         (keydown.shift.y)="firstCharAlphaFocus($event)"
         (keydown.shift.z)="firstCharAlphaFocus($event)"
-        
-        
-        
         >{{state.name}}</div>
     </div>
   `
