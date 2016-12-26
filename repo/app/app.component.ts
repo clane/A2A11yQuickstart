@@ -162,61 +162,62 @@ export class ModalDialog  {
     <input #input
       role="combobox"
       [attr.aria-expanded]="expanded"
+      [attr.tabindex]="inputTabindex"
       type="text" 
       (keydown.alt.ArrowDown)="expand()" 
       (keydown.alt.ArrowUp)="collapse()" 
-      (keydown.a)="alphaFocus($event)"
-      (keydown.b)="alphaFocus($event)"
-      (keydown.c)="alphaFocus($event)"
-      (keydown.d)="alphaFocus($event)"
-      (keydown.e)="alphaFocus($event)"
-      (keydown.f)="alphaFocus($event)"
-      (keydown.g)="alphaFocus($event)"
-      (keydown.h)="alphaFocus($event)"
-      (keydown.i)="alphaFocus($event)"
-      (keydown.j)="alphaFocus($event)"
-      (keydown.k)="alphaFocus($event)"
-      (keydown.l)="alphaFocus($event)"
-      (keydown.m)="alphaFocus($event)"
-      (keydown.n)="alphaFocus($event)"
-      (keydown.o)="alphaFocus($event)"
-      (keydown.p)="alphaFocus($event)"
-      (keydown.q)="alphaFocus($event)"
-      (keydown.r)="alphaFocus($event)"
-      (keydown.s)="alphaFocus($event)"
-      (keydown.t)="alphaFocus($event)"
-      (keydown.u)="alphaFocus($event)"
-      (keydown.v)="alphaFocus($event)"
-      (keydown.w)="alphaFocus($event)"
-      (keydown.x)="alphaFocus($event)"
-      (keydown.y)="alphaFocus($event)"
-      (keydown.z)="alphaFocus($event)"
-      (keydown.shift.a)="alphaFocus($event)"
-      (keydown.shift.b)="alphaFocus($event)"
-      (keydown.shift.c)="alphaFocus($event)"
-      (keydown.shift.d)="alphaFocus($event)"
-      (keydown.shift.e)="alphaFocus($event)"
-      (keydown.shift.f)="alphaFocus($event)"
-      (keydown.shift.g)="alphaFocus($event)"
-      (keydown.shift.h)="alphaFocus($event)"
-      (keydown.shift.i)="alphaFocus($event)"
-      (keydown.shift.j)="alphaFocus($event)"
-      (keydown.shift.k)="alphaFocus($event)"
-      (keydown.shift.l)="alphaFocus($event)"
-      (keydown.shift.m)="alphaFocus($event)"
-      (keydown.shift.n)="alphaFocus($event)"
-      (keydown.shift.o)="alphaFocus($event)"
-      (keydown.shift.p)="alphaFocus($event)"
-      (keydown.shift.q)="alphaFocus($event)"
-      (keydown.shift.r)="alphaFocus($event)"
-      (keydown.shift.s)="alphaFocus($event)"
-      (keydown.shift.t)="alphaFocus($event)"
-      (keydown.shift.u)="alphaFocus($event)"
-      (keydown.shift.v)="alphaFocus($event)"
-      (keydown.shift.w)="alphaFocus($event)"
-      (keydown.shift.x)="alphaFocus($event)"
-      (keydown.shift.y)="alphaFocus($event)"
-      (keydown.shift.z)="alphaFocus($event)"
+      (keydown.a)="firstCharAlphaSelect($event)"
+      (keydown.b)="firstCharAlphaSelect($event)"
+      (keydown.c)="firstCharAlphaSelect($event)"
+      (keydown.d)="firstCharAlphaSelect($event)"
+      (keydown.e)="firstCharAlphaSelect($event)"
+      (keydown.f)="firstCharAlphaSelect($event)"
+      (keydown.g)="firstCharAlphaSelect($event)"
+      (keydown.h)="firstCharAlphaSelect($event)"
+      (keydown.i)="firstCharAlphaSelect($event)"
+      (keydown.j)="firstCharAlphaSelect($event)"
+      (keydown.k)="firstCharAlphaSelect($event)"
+      (keydown.l)="firstCharAlphaSelect($event)"
+      (keydown.m)="firstCharAlphaSelect($event)"
+      (keydown.n)="firstCharAlphaSelect($event)"
+      (keydown.o)="firstCharAlphaSelect($event)"
+      (keydown.p)="firstCharAlphaSelect($event)"
+      (keydown.q)="firstCharAlphaSelect($event)"
+      (keydown.r)="firstCharAlphaSelect($event)"
+      (keydown.s)="firstCharAlphaSelect($event)"
+      (keydown.t)="firstCharAlphaSelect($event)"
+      (keydown.u)="firstCharAlphaSelect($event)"
+      (keydown.v)="firstCharAlphaSelect($event)"
+      (keydown.w)="firstCharAlphaSelect($event)"
+      (keydown.x)="firstCharAlphaSelect($event)"
+      (keydown.y)="firstCharAlphaSelect($event)"
+      (keydown.z)="firstCharAlphaSelect($event)"
+      (keydown.shift.a)="firstCharAlphaSelect($event)"
+      (keydown.shift.b)="firstCharAlphaSelect($event)"
+      (keydown.shift.c)="firstCharAlphaSelect($event)"
+      (keydown.shift.d)="firstCharAlphaSelect($event)"
+      (keydown.shift.e)="firstCharAlphaSelect($event)"
+      (keydown.shift.f)="firstCharAlphaSelect($event)"
+      (keydown.shift.g)="firstCharAlphaSelect($event)"
+      (keydown.shift.h)="firstCharAlphaSelect($event)"
+      (keydown.shift.i)="firstCharAlphaSelect($event)"
+      (keydown.shift.j)="firstCharAlphaSelect($event)"
+      (keydown.shift.k)="firstCharAlphaSelect($event)"
+      (keydown.shift.l)="firstCharAlphaSelect($event)"
+      (keydown.shift.m)="firstCharAlphaSelect($event)"
+      (keydown.shift.n)="firstCharAlphaSelect($event)"
+      (keydown.shift.o)="firstCharAlphaSelect($event)"
+      (keydown.shift.p)="firstCharAlphaSelect($event)"
+      (keydown.shift.q)="firstCharAlphaSelect($event)"
+      (keydown.shift.r)="firstCharAlphaSelect($event)"
+      (keydown.shift.s)="firstCharAlphaSelect($event)"
+      (keydown.shift.t)="firstCharAlphaSelect($event)"
+      (keydown.shift.u)="firstCharAlphaSelect($event)"
+      (keydown.shift.v)="firstCharAlphaSelect($event)"
+      (keydown.shift.w)="firstCharAlphaSelect($event)"
+      (keydown.shift.x)="firstCharAlphaSelect($event)"
+      (keydown.shift.y)="firstCharAlphaSelect($event)"
+      (keydown.shift.z)="firstCharAlphaSelect($event)"
       (keydown.ArrowDown)="selectNextOption()" 
       (keydown.ArrowUp)="selectPrevOption()"
     />
@@ -236,6 +237,7 @@ export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false;  
+  inputTabindex: number = 0;
   states: State[];
   @Input() state: State;
   selectedId: number = 0;
@@ -244,11 +246,27 @@ export class ComboBox implements AfterViewInit {
     this.stateService.getStates().then(states => this.states = states);
   }
 
-  toggleExpanded() { this.expanded = !this.expanded; }
-  expand() { this.expanded = true; }
-  collapse(){ this.expanded = false; }
+  toggleExpanded() { 
+    this.expanded = !this.expanded;
+    if(this.inputTabindex == 0) {
+      this.inputTabindex = -1;
+    }
+    if(this.inputTabindex == -1) {
+      this.inputTabindex = 0;
+    }
+  }
 
-  alphaFocus(event) {
+  expand() { 
+    this.expanded = true; 
+    this.inputTabindex = -1;
+    
+  }
+  collapse(){  
+    this.expanded = false; 
+    this.inputTabindex = 0;
+}
+
+  firstCharAlphaSelect(event) {
     setTimeout(()=>{ 
       let firstCharEntered = event.key;
       for(let i = 0; i < this.states.length; i++){ 
