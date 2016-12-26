@@ -162,7 +162,6 @@ export class ModalDialog  {
     <input #input
       role="combobox"
       [attr.aria-expanded]="expanded"
-      [attr.tabindex]="inputTabindex"
       type="text" 
       (keydown.alt.ArrowDown)="expand()" 
       (keydown.alt.ArrowUp)="collapse()" 
@@ -237,7 +236,6 @@ export class ComboBox implements AfterViewInit {
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false;  
-  inputTabindex: number = 0;
   states: State[];
   @Input() state: State;
   selectedId: number = 0;
@@ -248,17 +246,10 @@ export class ComboBox implements AfterViewInit {
 
   toggleExpanded() { 
     this.expanded = !this.expanded;
-    if(this.expanded == true) {
-      this.inputTabindex = -1;
-    } else {
-      this.inputTabindex = 0;
-    }
   }
 
   expand() { 
     this.expanded = true; 
-    this.inputTabindex = -1;
-    
   }
   collapse(){  
     this.expanded = false; 
