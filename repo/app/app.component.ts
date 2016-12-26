@@ -84,12 +84,12 @@ export class AlertComponent {
   
   ngAfterViewInit() {
     let cnt = 0;
-    setInterval(()=>{this.alertText = cnt;cnt = cnt + 1;}, 2000);
+    let intervalId =  setInterval(()=>{
+      this.alertText = "alert " + cnt;
+      cnt = cnt + 1;
+      if(this.alertsOn == false){ clearInterval(intervalId); }
+    }, 1000);
   }
-    
-
-  
-
 }
 
 @Component({
