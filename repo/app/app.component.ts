@@ -227,6 +227,7 @@ export class ModalDialog  {
     *ngIf="expanded" 
     (onListboxOptionSelected)="onListboxOptionSelected($event)"
     (onListboxEscPressed)="onListboxEscPressed()"
+    (onListboxBlur)="onListboxBlur()"
     ></list-box>
    
   `, 
@@ -320,6 +321,10 @@ export class ComboBox implements AfterViewInit {
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 
+  onListboxBlur(){
+    this.collapse();
+  }
+
   ngAfterViewInit() {
     this.getStates();
   }
@@ -348,6 +353,7 @@ export class ComboBox implements AfterViewInit {
         (keydown.enter)="selectOption()" 
         (keydown.esc)="escapeListbox()"
         (click)="selectOptionWithClick($event)" 
+        (blur)="blurListbox()"
         id="{{state.id}}"
         tabindex="-1"
         (keydown.a)="firstCharAlphaFocus($event)"
@@ -410,6 +416,7 @@ export class ListBoxComponent {
   constructor(private stateService: StateService, private renderer: Renderer) { }
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @Output() onListboxEscPressed = new EventEmitter<boolean>();
+  @Output() onListboxBlur = new EventEmitter<boolean>();
   @ViewChildren('option') options;
   @Input('selectedId') focusIndex: number;
   states: State[];
@@ -467,6 +474,10 @@ export class ListBoxComponent {
 
   escapeListbox() {
     this.onListboxEscPressed.emit(true);
+  }
+
+  blurListbox() {
+    this.onListboxBlur.emit(true);
   }
 
   firstCharAlphaFocus(event) {
