@@ -161,6 +161,7 @@ export class ModalDialog  {
     <input #input
       role="combobox"
       [attr.aria-expanded]="expanded"
+      aria-autocomplete="both"
       type="text" 
       (keydown.alt.ArrowDown)="expand()" 
       (keydown.alt.ArrowUp)="collapse()" 
