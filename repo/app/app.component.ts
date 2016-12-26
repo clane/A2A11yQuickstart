@@ -331,9 +331,14 @@ export class ComboBox implements AfterViewInit {
         color:yellow; 
       }
 
-      div[role="option"]:focus { 
-        outline:2px solid yellow;
 
+      div[role="option"]{ 
+        margin-top:10px;
+        padding:5px;
+      }
+
+      div[role="option"]:focus { 
+        outline:2px dotted yellow;
       }
     
     </style>
