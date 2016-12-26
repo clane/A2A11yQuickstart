@@ -227,7 +227,6 @@ export class ModalDialog  {
     *ngIf="expanded" 
     (onListboxOptionSelected)="onListboxOptionSelected($event)"
     (onListboxEscPressed)="onListboxEscPressed()"
-    (onListboxBlur)="onListboxBlur()"
     ></list-box>
    
   `, 
@@ -321,10 +320,6 @@ export class ComboBox implements AfterViewInit {
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 
-  onListboxBlur(){
-    this.collapse();
-  }
-
   ngAfterViewInit() {
     this.getStates();
   }
@@ -341,8 +336,15 @@ export class ComboBox implements AfterViewInit {
         overflow:scroll;
         width:200px;
         padding:10px;
-        
+        background-color:#000;
+        color:yellow; 
       }
+
+      div[role="option"]:focus { 
+        outline:2px solid yellow;
+
+      }
+    
     </style>
     <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
       <div *ngFor="let state of states" 
@@ -353,7 +355,6 @@ export class ComboBox implements AfterViewInit {
         (keydown.enter)="selectOption()" 
         (keydown.esc)="escapeListbox()"
         (click)="selectOptionWithClick($event)" 
-        (blur)="blurListbox()"
         id="{{state.id}}"
         tabindex="-1"
         (keydown.a)="firstCharAlphaFocus($event)"
@@ -416,7 +417,6 @@ export class ListBoxComponent {
   constructor(private stateService: StateService, private renderer: Renderer) { }
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @Output() onListboxEscPressed = new EventEmitter<boolean>();
-  @Output() onListboxBlur = new EventEmitter<boolean>();
   @ViewChildren('option') options;
   @Input('selectedId') focusIndex: number;
   states: State[];
@@ -474,10 +474,6 @@ export class ListBoxComponent {
 
   escapeListbox() {
     this.onListboxEscPressed.emit(true);
-  }
-
-  blurListbox() {
-    this.onListboxBlur.emit(true);
   }
 
   firstCharAlphaFocus(event) {
