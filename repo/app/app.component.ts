@@ -158,7 +158,8 @@ export class ModalDialog  {
   selector: "combo-box",
   template: `
     <h2>ComboBox</h2>
-    <input #input
+    <label for="statesInput">States</label>
+    <input id="statesInput" #input
       role="combobox"
       [attr.aria-expanded]="expanded"
       aria-autocomplete="both"
@@ -279,7 +280,6 @@ export class ComboBox implements AfterViewInit {
       if(stateName == this.states[i].name){
         this.selectedId = this.states[i].id; 
       }
-
     } 
   }
 
@@ -506,7 +506,6 @@ export class ListBoxComponent {
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
-    
   `
 })
 
