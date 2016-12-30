@@ -483,12 +483,16 @@ export class ListBoxComponent {
   selector: "widget-demo",
   template: `
       <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
+      <!-- 
       <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
       <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
       <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <combo-box *ngIf="notModal">Loading...</combo-box>
+      -->
+      
+      <router-outlet></router-outlet>
   `
 })
 

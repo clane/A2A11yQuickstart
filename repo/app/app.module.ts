@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { RouterModule }   from '@angular/router';
+
+
+
 import { 
   TooltipComponent, 
   AccordionComponent,
@@ -11,7 +15,14 @@ import {
   WidgetDemoComponent }  from './app.component';
 
 @NgModule({
-  imports: [ BrowserModule ],
+  imports: [ BrowserModule, 
+  RouterModule.forRoot([
+    {
+      path: 'tooltip',
+      component: TooltipComponent,
+    }
+  ]) 
+  ],
   declarations: [ TooltipComponent,
                   AccordionComponent, 
                   AlertComponent, 
