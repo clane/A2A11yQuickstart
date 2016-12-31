@@ -103,7 +103,6 @@ export class AlertComponent {
 @Component({
   selector: "modal-open-button",
   template: `
-    <h2>Modal</h2>
     <button href="" #modalOpen (click)="open()">Open Modal</button>
   ` 
 })
