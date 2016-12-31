@@ -1,5 +1,5 @@
 /* Master Styles */
-*:focus { outline:3px solid blue; }
+*:focus { outline:3px dotted yellow; }
 .offscreenText {
 position: absolute;
 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -13,4 +13,7 @@ overflow: hidden;
 white-space: nowrap;
 }
 
-body { background:fffff2; color:#353535; } 
+body { background-color:#000 !important; color: yellow !important; padding:50px; font-size:30px; } 
+a { color:#fff; padding:0 0 0 30px; }
+button { font-size:30px; }
+input { height:40px; }

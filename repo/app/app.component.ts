@@ -122,8 +122,7 @@ export class ModalOpenButton {
 
 @Component({
   selector: "modal-dialog",
-  templateUrl: "./app/templates/modal.html"
-      
+  templateUrl: "./app/templates/modal.html",
 })
 export class ModalDialog  {
   constructor(private renderer: Renderer) {}
@@ -307,28 +306,6 @@ export class ComboBox implements AfterViewInit {
 @Component({
   selector: 'list-box',
   template: `
-    <style>
-      div[role="listbox"] { 
-        margin-top:10px;
-        border:2px solid #000;
-        height:200px; 
-        overflow:scroll;
-        width:200px;
-        padding:10px;
-        background-color:#000;
-        color:yellow; 
-      }
-
-      div[role="option"]{ 
-        margin-top:10px;
-        padding:5px;
-      }
-
-      div[role="option"]:focus { 
-        outline:2px dotted yellow;
-      }
-    
-    </style>
     <div tabindex="-1" role="listbox" [attr.aria-expanded]="expanded">
       <div *ngFor="let state of states" 
         #option 
@@ -394,7 +371,26 @@ export class ComboBox implements AfterViewInit {
         (keydown.shift.z)="firstCharAlphaFocus($event)"
         >{{state.name}}</div>
     </div>
-  `
+  `,
+  styles:[`
+      div[role="listbox"] { 
+        margin-top:10px;
+        border:2px solid #000;
+        height:200px; 
+        overflow:scroll;
+        width:200px;
+        padding:10px;
+        background-color:#000;
+        color:yellow; 
+      }
+      div[role="option"]{ 
+        margin-top:10px;
+        padding:5px;
+      }
+      div[role="option"]:focus { 
+        outline:2px dotted yellow;
+      }
+  `],
 })
 export class ListBoxComponent { 
   constructor(private stateService: StateService, private renderer: Renderer) { }
