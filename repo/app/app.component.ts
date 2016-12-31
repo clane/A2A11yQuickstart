@@ -20,7 +20,17 @@ import { StateService } from './state.service';
         <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar this is my tooltip</div>
     `,
     styles: [`
-       #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
+       #tooltip { 
+         padding:10px; 
+         width:200px; 
+         border-radius:10px; 
+         background-color:#fff; 
+         position:relative; 
+         top:-45px; 
+         left:230px; 
+         color:#000;
+      }  
+      #link { width:200px; }
     `],
 })
 export class TooltipComponent {
@@ -53,7 +63,7 @@ export class TooltipComponent {
   styles:[`
       #accordion { width:500px; margin:50px auto; } 
       #accLink { text-decoration:none; display:block; } 
-      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
+      #insertionPoint { background-color:#fff; color:#000; padding:10px; margin-top:10px; } 
       .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
   `],
 })
@@ -144,80 +154,8 @@ export class ModalDialog  {
 }
 
 @Component({
-  selector: "combo-box",
-  template: `
-    <h2>ComboBox</h2>
-    <label for="statesInput">States</label>
-    <input id="statesInput" #input
-      role="combobox"
-      [attr.aria-expanded]="expanded"
-      aria-autocomplete="both"
-      type="text" 
-      (keydown.alt.ArrowDown)="expand()" 
-      (keydown.alt.ArrowUp)="collapse()" 
-      (keydown.a)="firstCharAlphaSelect($event)"
-      (keydown.b)="firstCharAlphaSelect($event)"
-      (keydown.c)="firstCharAlphaSelect($event)"
-      (keydown.d)="firstCharAlphaSelect($event)"
-      (keydown.e)="firstCharAlphaSelect($event)"
-      (keydown.f)="firstCharAlphaSelect($event)"
-      (keydown.g)="firstCharAlphaSelect($event)"
-      (keydown.h)="firstCharAlphaSelect($event)"
-      (keydown.i)="firstCharAlphaSelect($event)"
-      (keydown.j)="firstCharAlphaSelect($event)"
-      (keydown.k)="firstCharAlphaSelect($event)"
-      (keydown.l)="firstCharAlphaSelect($event)"
-      (keydown.m)="firstCharAlphaSelect($event)"
-      (keydown.n)="firstCharAlphaSelect($event)"
-      (keydown.o)="firstCharAlphaSelect($event)"
-      (keydown.p)="firstCharAlphaSelect($event)"
-      (keydown.q)="firstCharAlphaSelect($event)"
-      (keydown.r)="firstCharAlphaSelect($event)"
-      (keydown.s)="firstCharAlphaSelect($event)"
-      (keydown.t)="firstCharAlphaSelect($event)"
-      (keydown.u)="firstCharAlphaSelect($event)"
-      (keydown.v)="firstCharAlphaSelect($event)"
-      (keydown.w)="firstCharAlphaSelect($event)"
-      (keydown.x)="firstCharAlphaSelect($event)"
-      (keydown.y)="firstCharAlphaSelect($event)"
-      (keydown.z)="firstCharAlphaSelect($event)"
-      (keydown.shift.a)="firstCharAlphaSelect($event)"
-      (keydown.shift.b)="firstCharAlphaSelect($event)"
-      (keydown.shift.c)="firstCharAlphaSelect($event)"
-      (keydown.shift.d)="firstCharAlphaSelect($event)"
-      (keydown.shift.e)="firstCharAlphaSelect($event)"
-      (keydown.shift.f)="firstCharAlphaSelect($event)"
-      (keydown.shift.g)="firstCharAlphaSelect($event)"
-      (keydown.shift.h)="firstCharAlphaSelect($event)"
-      (keydown.shift.i)="firstCharAlphaSelect($event)"
-      (keydown.shift.j)="firstCharAlphaSelect($event)"
-      (keydown.shift.k)="firstCharAlphaSelect($event)"
-      (keydown.shift.l)="firstCharAlphaSelect($event)"
-      (keydown.shift.m)="firstCharAlphaSelect($event)"
-      (keydown.shift.n)="firstCharAlphaSelect($event)"
-      (keydown.shift.o)="firstCharAlphaSelect($event)"
-      (keydown.shift.p)="firstCharAlphaSelect($event)"
-      (keydown.shift.q)="firstCharAlphaSelect($event)"
-      (keydown.shift.r)="firstCharAlphaSelect($event)"
-      (keydown.shift.s)="firstCharAlphaSelect($event)"
-      (keydown.shift.t)="firstCharAlphaSelect($event)"
-      (keydown.shift.u)="firstCharAlphaSelect($event)"
-      (keydown.shift.v)="firstCharAlphaSelect($event)"
-      (keydown.shift.w)="firstCharAlphaSelect($event)"
-      (keydown.shift.x)="firstCharAlphaSelect($event)"
-      (keydown.shift.y)="firstCharAlphaSelect($event)"
-      (keydown.shift.z)="firstCharAlphaSelect($event)"
-      (keydown.ArrowDown)="selectNextOption()" 
-      (keydown.ArrowUp)="selectPrevOption()"
-    />
-    <button (click)="toggleExpanded()" tabindex="-1">toggle listbox</button>
-    <list-box 
-    [selectedId]="selectedId" 
-    *ngIf="expanded" 
-    (onListboxOptionSelected)="onListboxOptionSelected($event)"
-    (onListboxEscPressed)="onListboxEscPressed()"
-    ></list-box>
-  `, 
+   selector: "combo-box",
+   templateUrl: "./app/templates/combobox.html",
    providers: [StateService]
 })
 
