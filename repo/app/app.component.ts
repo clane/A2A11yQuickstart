@@ -14,14 +14,14 @@ import { StateService } from './state.service';
 @Component({
     selector: 'aria-tooltip',
     template: `
-        <style>
-          #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
-        </style>
         <h2>Tooltip</h2>
         <p>Focus the following link to see the tooltip</p>
         <a id="link" (click)="toggle()" (focus)="open()" (blur)="close()" (mouseover)="open()" (mouseout)="close()" href="#" aria-describedby="tooltip" (keyup.escape)="close()">link with tooltip</a>
         <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar this is my tooltip</div>
-`
+    `,
+    styles: [`
+       #tooltip { padding:10px; width:200px; border-radius:10px; background-color:beige;  position:relative; top:-45px; left:180px; }  
+    `],
 })
 export class TooltipComponent {
     show: boolean = false;
@@ -43,19 +43,19 @@ export class TooltipComponent {
 @Component({
   selector: "aria-accordion",
   template: `
-    <style>
-      #accordion { width:500px; margin:50px auto; } 
-      #accLink { text-decoration:none; display:block; } 
-      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
-      .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
-    </style>
     <h2>Accordion</h2>
     <p>Use the following link to toggle the appearance of the accordion's content</p>
     <button id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Button</button>
     <div id="insertionPoint" *ngIf="show">
         <p>Lorem impsum ...</p>
     </div>
-  ` 
+  `,
+  styles:[`
+      #accordion { width:500px; margin:50px auto; } 
+      #accLink { text-decoration:none; display:block; } 
+      #insertionPoint { background-color:beige; padding:10px; margin-top:10px; } 
+      .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
+  `],
 })
 
 export class AccordionComponent {
@@ -71,16 +71,17 @@ export class AccordionComponent {
 @Component({
   selector: "aria-alert",
   template: `
-    <style>
-      #alert { width:500px; margin:50px auto; } 
-      #alertButton { display:block; } 
-      #alertLiveRegion { border:2px solid; padding:10px; margin-top:10px; } 
-    </style>
     <h2>Alert</h2>
     <p>Alerts will appear below and be announced to screen readers assertively</p>
     <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
     <div id="alertLiveRegion" role="alert" aria-live="assertive">{{alertText}}</div>
-  ` 
+  `,
+  styles:
+    [`
+      #alert { width:500px; margin:50px auto; } 
+      #alertButton { display:block; } 
+      #alertLiveRegion { border:2px solid; padding:10px; margin-top:10px; } 
+   `],
 })
 
 export class AlertComponent {
@@ -119,10 +120,9 @@ export class ModalOpenButton {
 
 }
 
-
 @Component({
   selector: "modal-dialog",
-  templateUrl:"./app/templates/modal.html"
+  templateUrl: "./app/templates/modal.html"
       
 })
 export class ModalDialog  {
@@ -218,7 +218,6 @@ export class ModalDialog  {
     (onListboxOptionSelected)="onListboxOptionSelected($event)"
     (onListboxEscPressed)="onListboxEscPressed()"
     ></list-box>
-   
   `, 
    providers: [StateService]
 })
@@ -238,14 +237,14 @@ export class ComboBox implements AfterViewInit {
   toggleExpanded() { 
     this.expanded = !this.expanded;
   }
-
   expand() { 
     this.expanded = true; 
   }
+
   collapse(){  
     this.expanded = false; 
     this.inputTabindex = 0;
-}
+  }
 
   firstCharAlphaSelect(event) {
     setTimeout(()=>{ 
@@ -295,7 +294,6 @@ export class ComboBox implements AfterViewInit {
     this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
   }
 
-
   onListboxEscPressed(){
     this.collapse();
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
@@ -320,7 +318,6 @@ export class ComboBox implements AfterViewInit {
         background-color:#000;
         color:yellow; 
       }
-
 
       div[role="option"]{ 
         margin-top:10px;
