@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { RouterModule }   from '@angular/router';
-
-
-
+import { RouterModule } from '@angular/router';
 import { 
   TooltipComponent, 
   AccordionComponent,
@@ -12,7 +9,7 @@ import {
   ModalDialog, 
   ComboBox, 
   ListBoxComponent, 
-  WidgetDemoComponent }  from './app.component';
+  WidgetDemoComponent } from './app.component';
 
 @NgModule({
   imports: [ BrowserModule, 
@@ -20,7 +17,23 @@ import {
     {
       path: 'tooltip',
       component: TooltipComponent,
-    }
+      data: { title: 'Tooltip' }
+    },
+    {
+      path: 'accordion',
+      component: AccordionComponent,
+      data: { title: 'Accordion' }
+    },
+    {
+      path: 'alert',
+      component: AlertComponent,
+      data: { title: 'Accordion' }
+    },
+    {
+      path: 'combobox',
+      component: ComboBox,
+      data: { title: 'ComboBox' }
+    },
   ]) 
   ],
   declarations: [ TooltipComponent,
@@ -34,4 +47,4 @@ import {
 
   bootstrap: [ WidgetDemoComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,12 @@
-import { Component, Input, ViewChild, ViewChildren, Renderer. EventEmitter, Output, AfterViewInit, Directive } from '@angular/core';
+import { Component, 
+         Input, 
+         ViewChild, 
+         ViewChildren, 
+         Renderer.
+         EventEmitter, 
+         Output, 
+         AfterViewInit,
+         Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
@@ -43,7 +51,7 @@ export class TooltipComponent {
     </style>
     <h2>Accordion</h2>
     <p>Use the following link to toggle the appearance of the accordion's content</p>
-    <a id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Link</a>
+    <button id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Button</button>
     <div id="insertionPoint" *ngIf="show">
         <p>Lorem impsum ...</p>
     </div>
@@ -96,7 +104,7 @@ export class AlertComponent {
   selector: "modal-open-button",
   template: `
     <h2>Modal</h2>
-    <button #modalOpen (click)="open()">Open Modal</button>
+    <button href="" #modalOpen (click)="open()">Open Modal</button>
   ` 
 })
 export class ModalOpenButton {
@@ -483,15 +491,12 @@ export class ListBoxComponent {
   selector: "widget-demo",
   template: `
       <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
-      <!-- 
-      <aria-tooltip *ngIf="notModal">Loading...</aria-tooltip>
-      <aria-accordion *ngIf="notModal">Loading...</aria-accordion>
-      <aria-alert *ngIf="notModal">Loading...</aria-alert>
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
-      <combo-box *ngIf="notModal">Loading...</combo-box>
-      -->
-      
+      <a routerLink="/tooltip">Tooltip</a>
+      <a routerLink="/accordion">accordion</a>
+      <a routerLink="/alert">Alert</a>
+      <a routerLink="/combobox">Combobox</a>
       <router-outlet></router-outlet>
   `
 })
