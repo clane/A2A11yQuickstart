@@ -133,6 +133,7 @@ export class ModalOpenButton {
 @Component({
   selector: "modal-dialog",
   templateUrl: "./app/templates/modal.html",
+  styleUrls: ["./app/templates/css/modal.css"]
 })
 export class ModalDialog  {
   constructor(private renderer: Renderer) {}
