@@ -29,15 +29,9 @@ import { StateService } from './state.service';
 
 export class WidgetDemoComponent {
   constructor(private titleService: Title, private renderer: Renderer) {}
-
   notModal:boolean = true;
-
   ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
-
-
-  
-
 }
 
 
