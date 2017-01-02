@@ -267,10 +267,10 @@ export class ComboBox implements AfterViewInit {
   styles:[`
       div[role="listbox"] { 
         margin-top:10px;
-        border:2px solid #000;
-        height:200px; 
+        border:3px solid yellow;
+        height:800px; 
         overflow:scroll;
-        width:200px;
+        width:500px;
         padding:10px;
         background-color:#fff;
         color:#000; 
