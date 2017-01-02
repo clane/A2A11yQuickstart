@@ -12,6 +12,44 @@ import { State } from './state';
 import { StateService } from './state.service';
 
 @Component({
+  selector: "aria-alert",
+  template: `
+    <h2>Alert</h2>
+    <p>Alerts will appear below and be announced to screen readers assertively</p>
+    <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
+    <div id="alertLiveRegion" role="alert" aria-live="assertive">{{alertText}}</div>
+  `,
+  styles:
+    [`
+      #alert { width:500px; margin:50px auto; } 
+      #alertButton { display:block; } 
+      #alertLiveRegion { margin-top:10px; } 
+   `],
+})
+
+export class AlertComponent {
+  constructor(private titleService: Title){}
+  alertText: string = "This is a live region, the alert text will appear here dynamically";
+  alertsOn: boolean = true;
+  stopAlerts() {
+    this.alertsOn = false;
+  }
+
+
+  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+  
+  ngAfterViewInit() {
+    let cnt = 0;
+    let intervalId =  setInterval(()=>{
+      this.alertText = "alert " + cnt;
+      cnt = cnt + 1;
+      if(this.alertsOn == false){ clearInterval(intervalId); }
+      this.setTitle('Alerts');  
+    }, 1000);
+  }
+}
+
+@Component({
   selector: "modal-open-button",
   template: `
     <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Modal</span>
