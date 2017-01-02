@@ -16,13 +16,13 @@ import { StateService } from './state.service';
   template: `
     <h2>Alert</h2>
     <p>Alerts will appear below and be announced to screen readers assertively</p>
-    <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
     <div id="alertLiveRegion" role="alert" aria-live="assertive">{{alertText}}</div>
+    <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
   `,
   styles:
     [`
       #alert { width:500px; margin:50px auto; } 
-      #alertButton { display:block; } 
+      #alertButton { display:block; margin-top:20px; } 
       #alertLiveRegion { margin-top:10px; } 
    `],
 })

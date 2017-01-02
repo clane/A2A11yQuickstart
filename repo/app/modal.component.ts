@@ -14,10 +14,10 @@ import { StateService } from './state.service';
 @Component({
   selector: "modal-open-button",
   template: `
-    <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Modal</span>
+    <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Open modal dialog</span>
   `,
   styles:[`
-      #modalButton { color:#fff; width:200px; text-decoration:underline; display:inline-block; text-align:center; }  
+      #modalButton { color:#fff; width:300px; text-decoration:underline; display:inline-block; text-align:center; }  
   `],
 })
 export class ModalOpenButton {
