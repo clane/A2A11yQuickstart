@@ -114,8 +114,11 @@ export class AlertComponent {
 @Component({
   selector: "modal-open-button",
   template: `
-    <button href="" #modalOpen (click)="open()">Open Modal</button>
-  ` 
+    <span role="link" id="modalButton" #modalOpen (click)="open()">Open Modal</span>
+  `,
+  styles:[`
+      #modalButton { color:#fff; width:200px; }  
+  `],
 })
 export class ModalOpenButton {
   constructor(private renderer: Renderer) {}

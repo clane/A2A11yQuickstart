@@ -14,6 +14,7 @@ white-space: nowrap;
 }
 
 body { background-color:#000 !important; color: yellow !important; padding:50px; font-size:30px; } 
-a { color:#fff; width:150px; text-align: center; display:inline-block;  }
+a { color:#fff; width:200px; text-align: center; display:inline-block;  }
 button { font-size:30px; }
-input { height:40px; font-size:30px;  }
+input { height:40px; font-size:30px; border:none; outline:none; } 
+#va { margin-top:500px; } 
