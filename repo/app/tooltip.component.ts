@@ -33,7 +33,7 @@ import { StateService } from './state.service';
       #link { width:200px; }
     `],
 })
-export class TooltipComponent {
+export class TooltipComponent implements AfterViewInit {
     constructor(private titleService: Title){}
     show: boolean = false;
     ariaHidden: boolean = !this.show;
@@ -49,6 +49,10 @@ export class TooltipComponent {
         this.show = !this.show;
         this.ariaHidden = !this.show;
     }
+
+    setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+
+    ngAfterViewInit() { this.setTitle('Tooltip'); }
 
 
 }
