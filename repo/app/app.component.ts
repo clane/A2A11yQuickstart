@@ -114,7 +114,7 @@ export class AlertComponent {
 @Component({
   selector: "modal-open-button",
   template: `
-    <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Open Modal</span>
+    <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Modal</span>
   `,
   styles:[`
       #modalButton { color:#fff; width:200px; text-decoration:underline; }  
@@ -362,7 +362,7 @@ export class ListBoxComponent {
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
       <a routerLink="/tooltip">Tooltip</a>
-      <a routerLink="/accordion">accordion</a>
+      <a routerLink="/accordion">Accordion</a>
       <a routerLink="/alert">Alert</a>
       <a routerLink="/combobox">Combobox</a>
       <router-outlet></router-outlet>
