@@ -31,6 +31,7 @@ export class AlertComponent {
   constructor(private titleService: Title){}
   alertText: string = "This is a live region, the alert text will appear here dynamically";
   alertsOn: boolean = true;
+  intervalId: number; 
   stopAlerts() {
     this.alertsOn = false;
   }
@@ -39,16 +40,17 @@ export class AlertComponent {
   
   ngAfterViewInit() {
     let cnt = 0;
-    let intervalId =  setInterval(()=>{
+    this.setTitle('Alerts');  
+    this.intervalId =  setInterval(()=>{
       this.alertText = "alert " + cnt;
       cnt = cnt + 1;
       if(this.alertsOn == false){ clearInterval(intervalId); }
-      this.setTitle('Alerts');  
+  
     }, 1000);
   }
 
   ngOnDestroy(){
-    this.stopAlerts();
+    clearInterval(this.intervalId);
   }
 
 }
