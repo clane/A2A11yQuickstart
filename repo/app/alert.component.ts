@@ -44,7 +44,7 @@ export class AlertComponent {
     this.intervalId =  setInterval(()=>{
       this.alertText = "alert " + cnt;
       cnt = cnt + 1;
-      if(this.alertsOn == false){ clearInterval(intervalId); }
+      if(this.alertsOn == false){ clearInterval(this.intervalId); }
   
     }, 1000);
   }
