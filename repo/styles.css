@@ -18,4 +18,5 @@ h1, h2 { color:yellow; }
 a { color:#fff; width:200px; text-align: center; display:inline-block;  }
 button { font-size:30px; }
 input { height:40px; font-size:30px; border:none; outline:none; } 
+label { font-size:40px; }
 #va { margin-top:500px; } 
