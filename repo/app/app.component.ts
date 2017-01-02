@@ -34,6 +34,7 @@ import { StateService } from './state.service';
     `],
 })
 export class TooltipComponent {
+    constructor(private titleService: Title){}
     show: boolean = false;
     ariaHidden: boolean = !this.show;
     open() {
@@ -48,6 +49,8 @@ export class TooltipComponent {
         this.show = !this.show;
         this.ariaHidden = !this.show;
     }
+
+
 }
 
 @Component({
@@ -68,9 +71,14 @@ export class TooltipComponent {
   `],
 })
 
-export class AccordionComponent {
+export class AccordionComponent implements AfterViewInit {
+  constructor(private titleService: Title){}
   show: boolean = false;
   expanded: boolean = false;
+
+  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+
+  ngAfterViewInit() { this.setTitle('Accordion'); }
 
   toggle() {
     this.show = !this.show;
@@ -95,11 +103,15 @@ export class AccordionComponent {
 })
 
 export class AlertComponent {
+  constructor(private titleService: Title){}
   alertText: string = "This is a live region, the alert text will appear here dynamically";
   alertsOn: boolean = true;
   stopAlerts() {
     this.alertsOn = false;
   }
+
+
+  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
   
   ngAfterViewInit() {
     let cnt = 0;
@@ -107,6 +119,7 @@ export class AlertComponent {
       this.alertText = "alert " + cnt;
       cnt = cnt + 1;
       if(this.alertsOn == false){ clearInterval(intervalId); }
+      this.setTitle('Alerts');  
     }, 1000);
   }
 }
@@ -121,7 +134,7 @@ export class AlertComponent {
   `],
 })
 export class ModalOpenButton {
-  constructor(private renderer: Renderer) {}
+  constructor(private renderer: Renderer, private titleService: Title) {}
   @ViewChild('modalOpen') openButton: ElementRef;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
   open(){
@@ -139,7 +152,7 @@ export class ModalOpenButton {
   styleUrls: ["./app/templates/css/modal.css"]
 })
 export class ModalDialog  {
-  constructor(private renderer: Renderer) {}
+  constructor(private renderer: Renderer, private titleService: Title) {}
   @ViewChild('closeButton') closeButton: ElementRef;
   @ViewChild('actionButton') actionButton: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
@@ -164,7 +177,7 @@ export class ModalDialog  {
 })
 
 export class ComboBox implements AfterViewInit {
-  constructor(private stateService: StateService, private renderer: Renderer) {}
+  constructor(private stateService: StateService, private renderer: Renderer, private titleService: Title,) {}
   @ViewChild('input') input: ElementRef;
   expanded: boolean = false;  
   states: State[];
@@ -242,7 +255,10 @@ export class ComboBox implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getStates();
+    this.setTitle('Combobox');
   }
+
+  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
 }
 
 @Component({
@@ -269,7 +285,7 @@ export class ComboBox implements AfterViewInit {
   `],
 })
 export class ListBoxComponent { 
-  constructor(private stateService: StateService, private renderer: Renderer) { }
+  constructor(private stateService: StateService, private renderer: Renderer) {}
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @Output() onListboxEscPressed = new EventEmitter<boolean>();
   @ViewChildren('option') options;
@@ -359,8 +375,10 @@ export class ListBoxComponent {
   selector: "widget-demo",
   template: `
       <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
+      <!--
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
+      -->
       <a routerLink="/tooltip">Tooltip</a>
       <a routerLink="/accordion">Accordion</a>
       <a routerLink="/alert">Alert</a>
