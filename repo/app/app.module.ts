@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { 
-  TooltipComponent, 
   AccordionComponent,
   AlertComponent,
   ModalOpenButton,
@@ -10,6 +9,9 @@ import {
   ComboBox, 
   ListBoxComponent, 
   WidgetDemoComponent } from './app.component';
+
+import { TooltipComponent } from './tooltip.component';
+
 
 @NgModule({
   imports: [ BrowserModule, 
@@ -27,12 +29,10 @@ import {
     {
       path: 'alert',
       component: AlertComponent,
-      data: { title: 'Accordion' }
     },
     {
       path: 'combobox',
       component: ComboBox,
-      data: { title: 'ComboBox' }
     },
   ]) 
   ],
