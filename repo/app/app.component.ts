@@ -114,10 +114,10 @@ export class AlertComponent {
 @Component({
   selector: "modal-open-button",
   template: `
-    <span role="link" id="modalButton" #modalOpen (click)="open()">Open Modal</span>
+    <span role="link" tabindex="0" id="modalButton" #modalOpen (click)="open()">Open Modal</span>
   `,
   styles:[`
-      #modalButton { color:#fff; width:200px; }  
+      #modalButton { color:#fff; width:200px; text-decoration:underline; }  
   `],
 })
 export class ModalOpenButton {
@@ -256,15 +256,15 @@ export class ComboBox implements AfterViewInit {
         overflow:scroll;
         width:200px;
         padding:10px;
-        background-color:#000;
-        color:yellow; 
+        background-color:#fff;
+        color:#000; 
       }
       div[role="option"]{ 
         margin-top:10px;
         padding:5px;
       }
       div[role="option"]:focus { 
-        outline:2px dotted yellow;
+        outline:2px dotted #000;
       }
   `],
 })
