@@ -35,7 +35,6 @@ export class AlertComponent {
     this.alertsOn = false;
   }
 
-
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
   
   ngAfterViewInit() {
@@ -47,6 +46,11 @@ export class AlertComponent {
       this.setTitle('Alerts');  
     }, 1000);
   }
+
+  ngOnDestroy(){
+    this.stopAlerts();
+  }
+
 }
 
 

@@ -64,14 +64,14 @@ export class ModalDialog  {
       <!--
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
-        <a routerLink="/alert">Alert</a>
+      
      
       -->
 
       <a routerLink="/tooltip">Tooltip</a>
       <a routerLink="/accordion">Accordion</a>
-   
       <a routerLink="/combobox">Combobox</a>
+      <a routerLink="/alert">Alert</a>
       <router-outlet></router-outlet>
   `
 })
