@@ -58,31 +58,21 @@ export class ModalDialog  {
 }
 
 @Component({
-  selector: "widget-demo",
+  selector: "modal-component",
   template: `
-      <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
-      <!--
+      <h2>Modal</h2>
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
-      
-     
-      -->
-
-      <a routerLink="/tooltip">Tooltip</a>
-      <a routerLink="/accordion">Accordion</a>
-      <a routerLink="/combobox">Combobox</a>
-      <a routerLink="/alert">Alert</a>
-      <router-outlet></router-outlet>
   `
 })
 
-export class WidgetDemoComponent {
+export class ModalComponent {
   constructor(private titleService: Title, private renderer: Renderer) {}
   @ViewChild(ModalOpenButton)
   private modalButton: ModalOpenButton;
   notModal:boolean = true;
 
-  ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
+  ngAfterViewInit() { this.setTitle('Modal'); }
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
   enterModalContext(){ this.notModal = false; }
   focusMe() { this.modalButton.focusMe(); }

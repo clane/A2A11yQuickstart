@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { 
-  ModalOpenButton,
-  ModalDialog, 
-  WidgetDemoComponent } from './app.component';
-
+import { WidgetDemoComponent } from './app.component';
 import { TooltipComponent } from './tooltip.component';
 import { AccordionComponent } from './accordion.component';
 import { AlertComponent } from './alert.component';
 import { ComboBox } from './combobox.component';
 import { ListBoxComponent } from './listbox.component';
-
+import { ModalComponent } from './modal.component';
+import { ModalOpenButton } from './modal.component';
+import { ModalDialog } from './modal.component';
 
 @NgModule({
   imports: [ BrowserModule, 
@@ -19,12 +17,10 @@ import { ListBoxComponent } from './listbox.component';
     {
       path: 'tooltip',
       component: TooltipComponent,
-      data: { title: 'Tooltip' }
     },
     {
       path: 'accordion',
       component: AccordionComponent,
-      data: { title: 'Accordion' }
     },
     {
       path: 'alert',
@@ -34,11 +30,16 @@ import { ListBoxComponent } from './listbox.component';
       path: 'combobox',
       component: ComboBox,
     },
+    {
+      path: 'modal',
+      component: ModalComponent,
+    },
   ]) 
   ],
   declarations: [ TooltipComponent,
                   AccordionComponent, 
                   AlertComponent, 
+                  ModalComponent,
                   ModalOpenButton, 
                   ModalDialog, 
                   ComboBox, 
