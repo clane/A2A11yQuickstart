@@ -4,13 +4,13 @@ import { RouterModule } from '@angular/router';
 import { 
   ModalOpenButton,
   ModalDialog, 
-  ComboBox, 
-  ListBoxComponent, 
   WidgetDemoComponent } from './app.component';
 
 import { TooltipComponent } from './tooltip.component';
 import { AccordionComponent } from './accordion.component';
-import {  AlertComponent } from './alert.component';
+import { AlertComponent } from './alert.component';
+import { ComboBox } from './combobox.component';
+import { ListBoxComponent } from './listbox.component';
 
 
 @NgModule({
