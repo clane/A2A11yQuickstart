@@ -98,7 +98,7 @@ export class AccordionComponent implements AfterViewInit {
     [`
       #alert { width:500px; margin:50px auto; } 
       #alertButton { display:block; } 
-      #alertLiveRegion { border:2px solid; padding:10px; margin-top:10px; } 
+      #alertLiveRegion { margin-top:10px; } 
    `],
 })
 
