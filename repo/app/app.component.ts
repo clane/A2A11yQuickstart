@@ -13,6 +13,7 @@ import { StateService } from './state.service';
 import { ModalService } from './modal.service';
 
 
+
 @Component({
   selector: "widget-demo",
   template: `
@@ -30,12 +31,12 @@ import { ModalService } from './modal.service';
 })
 
 export class WidgetDemoComponent {
-  
+  subscription: Subscription;
 
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {
     this.notModal = !this.modalDialogService.isModal;
-    let subscription = this.modalDialogService.stateChange.subscribe((value) => { this.notModal = !value; });
-    console.log(this.subscription); 
+    this._subscription = this.modalDialogService.stateChange.subscribe((value) => { this.notModal = !value; });
+    console.log(this._subscription); 
   }
 
   ngAfterViewInit() { 

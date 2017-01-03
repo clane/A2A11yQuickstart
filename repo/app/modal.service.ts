@@ -12,10 +12,12 @@ export class ModalService {
   showModal(){ 
     this.isModal = true; 
     this.stateChange.next(this.isModal);
-  
-}
+    console.log('from modal service showModal, isModal = ' + this.isModal);
+  }
+
   hideModal(){ 
     this.isModal = false;   
     this.stateChange.next(this.isModal);
+    console.log('from modal service hideModal, isModal = ' + this.isModal);
   }
 }
