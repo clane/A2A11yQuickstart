@@ -10,7 +10,6 @@ import { Component,
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
-import { ModalService } from './modal.service';
 
 
 @Component({
@@ -25,22 +24,13 @@ import { ModalService } from './modal.service';
         <a routerLink="/combobox">Combobox</a>
         <router-outlet></router-outlet>
       </div>
-  `,
-  providers:[ModalService]
+  `
 })
 
 export class WidgetDemoComponent {
-  constructor(private titleService: Title, private modalService: ModalService, private renderer: Renderer) {}
-  notModal:boolean = !this.modalService.isModal;
-  ngAfterViewInit() { 
-    this.setTitle('A11y Widgets using Angular 2'); 
-    console.log(this.notModal); 
-  }
-  
-  ngAfterViewChecked(){
-    console.log(this.notModal); 
-  }
-
+  constructor(private titleService: Title, private renderer: Renderer) {}
+  notModal:boolean = true;
+  ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
 }
 
