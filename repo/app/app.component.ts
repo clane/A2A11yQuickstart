@@ -30,14 +30,13 @@ import { ModalService } from './modal.service';
 })
 
 export class WidgetDemoComponent {
-  constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
+  notModal:boolean =true;
 
-  notModal:boolean = true;
-
-  ngOnInit() {
-
-    this.ngOnInit = !this.modalDialogService.getModalState();
-
+  constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {
+    this.subscription = this.modalDialogService.stateChange.subscribe((value) => { 
+      this.notModal = !value; 
+    });
+    console.log(this.subscription); 
   }
 
   ngAfterViewInit() { 
