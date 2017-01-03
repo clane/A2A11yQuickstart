@@ -23,8 +23,8 @@ import { ModalService } from './modal.service';
         <a routerLink="/alert">Alert</a>
         <a routerLink="/modal">Modal</a>
         <a routerLink="/combobox">Combobox</a>
-        <router-outlet></router-outlet>
       </div>
+      <router-outlet></router-outlet>
   `,
   providers:[ModalService]
 })
@@ -32,7 +32,7 @@ import { ModalService } from './modal.service';
 export class WidgetDemoComponent {
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
 
-  notModal:boolean = true;
+  notModal:boolean = !this.modalDialogService.isModal;
 
   ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
