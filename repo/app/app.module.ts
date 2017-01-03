@@ -14,6 +14,13 @@ import { ModalDialog } from './modal.component';
 @NgModule({
   imports: [ BrowserModule, 
   RouterModule.forRoot([
+
+    {
+      //A default path is required to prevent routing errors
+      path:'',
+      component: AlertComponent,
+
+    },
     {
       path: 'tooltip',
       component: TooltipComponent,

@@ -10,6 +10,7 @@ import { Component,
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
+import { ModalService } from './modal.service';
 
 
 @Component({
@@ -24,11 +25,12 @@ import { StateService } from './state.service';
         <a routerLink="/combobox">Combobox</a>
         <router-outlet></router-outlet>
       </div>
-  `
+  `,
+  providers:[ModalService]
 })
 
 export class WidgetDemoComponent {
-  constructor(private titleService: Title, private renderer: Renderer) {}
+  constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
 
   notModal:boolean = true;
 
