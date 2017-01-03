@@ -32,7 +32,7 @@ import { ModalService } from './modal.service';
 
 export class WidgetDemoComponent {
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {
-    this.notModal = !this.modalDialogService.isModal;
+    this.notModal = !this.modalDialogService.getState();
   }
 
   ngAfterViewInit() { 
@@ -40,6 +40,10 @@ export class WidgetDemoComponent {
   }
 
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+
+   onSetModalTrue(){ 
+     this.modalDialogService.setModalTrue.subscribe();
+   }
 
 }
 
