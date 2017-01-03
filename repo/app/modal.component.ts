@@ -29,6 +29,7 @@ export class ModalOpenButton {
   open(){
       this.onOpenButtonActivated.emit(true);
       this.modalDialogService.isModal = true;
+      console.log(this.modalDialogService.isModal);
   }
   focusMe(){
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');

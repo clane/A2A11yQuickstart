@@ -32,9 +32,18 @@ import { ModalService } from './modal.service';
 export class WidgetDemoComponent {
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
 
-  notModal:boolean = !this.modalDialogService.isModal;
+  notModal:boolean = true;
 
-  ngAfterViewInit() { this.setTitle('A11y Widgets using Angular 2'); }
+  ngOnInit() {
+
+    this.ngOnInit = !this.modalDialogService.getModalState();
+
+  }
+
+  ngAfterViewInit() { 
+    this.setTitle('A11y Widgets using Angular 2');
+    console.log('from the demo component, notModal = ' + this.notModal);
+  }
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
 
 
