@@ -30,12 +30,11 @@ import { ModalService } from './modal.service';
 })
 
 export class WidgetDemoComponent {
-  notModal:boolean =true;
+  
 
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {
-    this.subscription = this.modalDialogService.stateChange.subscribe((value) => { 
-      this.notModal = !value; 
-    });
+    this.notModal = !this.modalDialogService.isModal;
+    let subscription = this.modalDialogService.stateChange.subscribe((value) => { this.notModal = !value; });
     console.log(this.subscription); 
   }
 

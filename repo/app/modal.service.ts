@@ -4,7 +4,7 @@ import { Subject }    from 'rxjs/Subject';
 @Injectable()
 export class ModalService {
   isModal:boolean;
-  stateChange: Subject<string> = new Subject<string>();
+  stateChange: Subject<boolean> = new Subject<boolean>();
 
   constructor(){
     this.isModal = false;
