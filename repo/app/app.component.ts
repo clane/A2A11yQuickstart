@@ -35,8 +35,6 @@ export class WidgetDemoComponent {
 
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {
     this.notModal = !this.modalDialogService.isModal;
-    this._subscription = this.modalDialogService.stateChange.subscribe((value) => { this.notModal = !value; });
-    console.log(this._subscription); 
   }
 
   ngAfterViewInit() { 

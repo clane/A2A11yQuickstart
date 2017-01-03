@@ -28,7 +28,6 @@ export class ModalOpenButton {
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
   open(){
       this.onOpenButtonActivated.emit(true);
-      this.modalDialogService.showModal();
   }
   focusMe(){
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
@@ -58,8 +57,6 @@ export class ModalDialog  {
   }
   close(){
       this.onCloseButtonActivated.emit(true);
-      this.modalDialogService.hideModal();
-   
   }
 }
 
