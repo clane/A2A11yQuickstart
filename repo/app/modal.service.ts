@@ -8,16 +8,19 @@ export class ModalService {
 
   constructor(){
     this.isModal = false;
+    console.log(this.stateChange);
   }
   showModal(){ 
     this.isModal = true; 
     this.stateChange.next(this.isModal);
     console.log('from modal service showModal, isModal = ' + this.isModal);
+    console.log(this.stateChange.next);
   }
 
   hideModal(){ 
     this.isModal = false;   
     this.stateChange.next(this.isModal);
     console.log('from modal service hideModal, isModal = ' + this.isModal);
+        console.log(this.stateChange.next);
   }
 }
