@@ -10,6 +10,7 @@ import { Component,
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: "modal-open-button",
@@ -19,13 +20,15 @@ import { StateService } from './state.service';
   styles:[`
       #modalButton { color:#fff; width:300px; text-decoration:underline; display:inline-block; text-align:center; }  
   `],
+  providers: [ModalService]
 })
 export class ModalOpenButton {
-  constructor(private renderer: Renderer, private titleService: Title) {}
+  constructor(private renderer: Renderer, private titleService: Title, private modalDialogService: ModalService) {}
   @ViewChild('modalOpen') openButton: ElementRef;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
   open(){
       this.onOpenButtonActivated.emit(true);
+      this.modalDialogService.isModal = true;
   }
   focusMe(){
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
@@ -36,10 +39,11 @@ export class ModalOpenButton {
 @Component({
   selector: "modal-dialog",
   templateUrl: "./app/templates/modal.html",
-  styleUrls: ["./app/templates/css/modal.css"]
+  styleUrls: ["./app/templates/css/modal.css"],
+  providers: [ModalService]
 })
 export class ModalDialog  {
-  constructor(private renderer: Renderer, private titleService: Title) {}
+  constructor(private renderer: Renderer, private titleService: Title, private modalDialogService: ModalService) {}
   @ViewChild('closeButton') closeButton: ElementRef;
   @ViewChild('actionButton') actionButton: ElementRef;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
@@ -54,6 +58,7 @@ export class ModalDialog  {
   }
   close(){
       this.onCloseButtonActivated.emit(true);
+      this.modalDialogService.isModal = false;
   }
 }
 
