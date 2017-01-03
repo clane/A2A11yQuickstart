@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Subject }    from 'rxjs/Subject'
 
 @Injectable()
 export class ModalService {
-  isModal:boolean = false;
+ 
+  // Observable source
+  private modalStateSource = new Subject<boolean>();
+  // Observable stream
+  modalStateChanged$ = this.modalStateSource.asObservable();
+
+  getModalState(state: boolean) {
+    this.modalStateSource.next(state);
+  }
+
  
   setModalTrue(){ 
-    this.isModal = true; 
-    console.log('calling setModalTrue, isModal now = ' + this.isModal );
+    console.log('calling setModalTrue');
   }
   setModalFalse(){ 
-    this.isModal = false;
     console.log('calling setModalFalse');
-    console.log('calling setModalFalse isModal now = ' + this.isModal );
   }
-  getState() { 
-    return this.isModal;
-  }
+ 
 
 }
