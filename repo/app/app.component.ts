@@ -46,9 +46,15 @@ export class WidgetDemoComponent implements OnInit, AfterViewInit {
   private data: Observable<Array<boolean>>;
   private values: Array<boolean> = [];
 
+
+  public showModal$: Observable<Array<boolean>>;
+
   notModal:boolean;
 
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
+
+
+  
 
   ngAfterViewInit() { 
     this.setTitle('A11y Widgets using Angular 2');
@@ -76,8 +82,11 @@ export class WidgetDemoComponent implements OnInit, AfterViewInit {
           error => this.anyErrors = true,
           () => this.finished = true
       );
-    
+
   }
+
+  
+
 
 }
 
