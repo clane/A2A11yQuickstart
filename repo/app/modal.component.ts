@@ -63,7 +63,7 @@ export class ModalDialog  {
 @Component({
   selector: "modal-component",
   template: `
-      <h2>Modal</h2>
+      <h2  *ngIf="notModal">Modal</h2>
       <modal-open-button *ngIf="notModal" (onOpenButtonActivated)="onOpenButtonActivated($event)">Loading...</modal-open-button>
       <modal-dialog *ngIf="!notModal" (onCloseButtonActivated)="onCloseButtonActivated($event)">Loading...</modal-dialog>
   `
