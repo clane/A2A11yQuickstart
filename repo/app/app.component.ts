@@ -33,16 +33,30 @@ import { StateService } from './state.service';
 export class WidgetDemoComponent implements OnInit, AfterViewInit {
     constructor(private titleService: Title, private renderer: Renderer ) {}
 
-    docTitle:string = 'initialTitle'; 
+    setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+    getTitle() { 
+        let title:string;
+        title = this.titleService.getTitle(); 
+        return title;
+    }
+
+    docTitle:string;
     notModal:boolean = true;
   
 
-    ngAfterViewInit() { 
-        this.titleService.setTitle('titletest');
+    ngOnInit() { 
+        this.setTitle('titletest');
+        this.docTitle = this.getTitle();
         console.log(this.docTitle);
-        this.docTitle = this.titleService.getTitle();
+       
+    }
+
+    ngAfterViewInit() {
+        this.docTitle = this.getTitle();
         console.log(this.docTitle);
     }
+
+    
 
 }
 
