@@ -30,10 +30,10 @@ import { StateService } from './state.service';
   `,
 })
 
-export class WidgetDemoComponent implements OnInit, AfterViewInit {
+export class WidgetDemoComponent {
     constructor(private titleService: Title, private renderer: Renderer ) {}
 
-    setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+    setTitle( newTitle: string ) { this.titleService.setTitle(newTitle); }
     getTitle() { 
         let title:string;
         title = this.titleService.getTitle(); 
@@ -41,30 +41,16 @@ export class WidgetDemoComponent implements OnInit, AfterViewInit {
     }
 
     docTitle:string;
-    notModal:boolean = true;
+    notModal:boolean;
   
-
-    ngOnInit() { 
-        this.setTitle('titletest');
+    ngAfterContentChecked() {
         this.docTitle = this.getTitle();
-        console.log(this.docTitle);
-       
-    }
 
-    ngAfterViewInit() {
-        this.docTitle = this.getTitle();
-        console.log(this.docTitle);
-    }
-
-    ngAfterContentInit(){
-
-        this.docTitle = this.getTitle();
-        console.log(this.docTitle);
-    }
-
-    ngAfterContentChecked(){
-this.docTitle = this.getTitle();
-        console.log(this.docTitle);
+        if ( this.docTitle == 'MODAL TIME' ) {
+            this.notModal = false;
+        } else {
+            this.notModal = true;
+        }
 
     }
 

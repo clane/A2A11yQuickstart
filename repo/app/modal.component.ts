@@ -56,6 +56,7 @@ export class ModalDialog  {
   }
   close(){
       this.onCloseButtonActivated.emit(true);
+      this.titleService.setTitle('Modal');
   }
 }
 
