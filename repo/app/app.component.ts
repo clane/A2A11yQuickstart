@@ -11,13 +11,14 @@ import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
 import { ModalService } from './modal.service';
+import {Observable} from 'rxjs/Observable';
 
 
 
 @Component({
   selector: "widget-demo",
   template: `
-      <div  *ngIf="notModal">
+      <div *ngIf="notModal">
         <h1>A11y Angular2 Demo</h1>
         <a routerLink="/tooltip">Tooltip</a>
         <a routerLink="/accordion">Accordion</a>
@@ -26,12 +27,27 @@ import { ModalService } from './modal.service';
         <a routerLink="/combobox">Combobox</a>
       </div>
       <router-outlet></router-outlet>
+
+      <div *ngFor="let value of values">- {{ value }}</div>
+
+      <div>notModal =  {{notModal}}</div>
+
+
+
   `,
   providers:[ModalService]
 })
 
-export class WidgetDemoComponent {
-  notModal:boolean = true;
+export class WidgetDemoComponent implements OnInit, AfterViewInit {
+
+  //Finally found a simple Observable example
+  //https://angular-2-training-book.rangle.io/handout/observables/using_observables.html
+
+  private data: Observable<Array<boolean>>;
+  private values: Array<boolean> = [];
+
+  notModal:boolean;
+
   constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
 
   ngAfterViewInit() { 
@@ -40,6 +56,28 @@ export class WidgetDemoComponent {
 
   setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
 
+  ngOnInit() { 
+   
+    this.data = new Observable(observer => {
+          setTimeout(() => {
+              observer.next(true);
+              console.log(this.notModal);
+          }, 1000);
+
+          setTimeout(() => {
+              observer.next(false);
+              console.log(this.notModal);
+          }, 2000);
+         
+      });
+
+      let subscription = this.data.subscribe(
+          value => this.notModal = !value,
+          error => this.anyErrors = true,
+          () => this.finished = true
+      );
+    
+  }
 
 }
 
