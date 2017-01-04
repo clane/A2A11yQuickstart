@@ -10,8 +10,8 @@ import { Component,
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
-import { ModalService } from './modal.service';
-import {Observable} from 'rxjs/Observable';
+
+
 
 
 
@@ -27,66 +27,22 @@ import {Observable} from 'rxjs/Observable';
         <a routerLink="/combobox">Combobox</a>
       </div>
       <router-outlet></router-outlet>
-
-      <div *ngFor="let value of values">- {{ value }}</div>
-
-      <div>notModal =  {{notModal}}</div>
-
-
-
   `,
-  providers:[ModalService]
 })
 
 export class WidgetDemoComponent implements OnInit, AfterViewInit {
+    constructor(private titleService: Title, private renderer: Renderer ) {}
 
-  //Finally found a simple Observable example
-  //https://angular-2-training-book.rangle.io/handout/observables/using_observables.html
-
-  private data: Observable<Array<boolean>>;
-  private values: Array<boolean> = [];
-
-
-  public showModal$: Observable<Array<boolean>>;
-
-  notModal:boolean;
-
-  constructor(private titleService: Title, private renderer: Renderer, private modalDialogService: ModalService) {}
-
-
+    docTitle:string = 'initialTitle'; 
+    notModal:boolean = true;
   
 
-  ngAfterViewInit() { 
-    this.setTitle('A11y Widgets using Angular 2');
-  }
-
-  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
-
-  ngOnInit() { 
-   
-    this.data = new Observable(observer => {
-          setTimeout(() => {
-              observer.next(true);
-              console.log('this.notModal = ' + this.notModal);
-          }, 2000);
-
-          setTimeout(() => {
-              observer.next(false);
-              console.log('this.notModal = ' + this.notModal);
-          }, 2000);
-         
-      });
-
-      let subscription = this.data.subscribe(
-          value => this.notModal = !value,
-          error => this.anyErrors = true,
-          () => this.finished = true
-      );
-
-  }
-
-  
-
+    ngAfterViewInit() { 
+        this.titleService.setTitle('titletest');
+        console.log(this.docTitle);
+        this.docTitle = this.titleService.getTitle();
+        console.log(this.docTitle);
+    }
 
 }
 
