@@ -61,12 +61,12 @@ export class WidgetDemoComponent implements OnInit, AfterViewInit {
     this.data = new Observable(observer => {
           setTimeout(() => {
               observer.next(true);
-              console.log(this.notModal);
-          }, 1000);
+              console.log('this.notModal = ' + this.notModal);
+          }, 2000);
 
           setTimeout(() => {
               observer.next(false);
-              console.log(this.notModal);
+              console.log('this.notModal = ' + this.notModal);
           }, 2000);
          
       });
