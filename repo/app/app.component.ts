@@ -56,6 +56,18 @@ export class WidgetDemoComponent implements OnInit, AfterViewInit {
         console.log(this.docTitle);
     }
 
+    ngAfterContentInit(){
+
+        this.docTitle = this.getTitle();
+        console.log(this.docTitle);
+    }
+
+    ngAfterContentChecked(){
+this.docTitle = this.getTitle();
+        console.log(this.docTitle);
+
+    }
+
     
 
 }

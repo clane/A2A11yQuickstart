@@ -27,6 +27,7 @@ export class ModalOpenButton {
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
   open(){
       this.onOpenButtonActivated.emit(true);
+      this.titleService.setTitle('MODAL TIME');
   }
   focusMe(){
      this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
