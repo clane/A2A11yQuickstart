@@ -1,5 +1,6 @@
 /* Master Styles */
 *:focus { outline:3px dotted yellow; }
+body:focus { outline:none; }
 .offscreenText {
 position: absolute;
 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -13,9 +14,10 @@ overflow: hidden;
 white-space: nowrap;
 }
 
-body { background-color:#000 !important; color: #fff !important; padding:50px 0 0 200px; font-size:30px; } 
+body { background-color:#000; color: #fff; padding-left:50px; font-size:30px; min-width:900px; } 
 h1, h2 { color:yellow; }
+a[routerLink]:first-of-type { margin-left:-50px; } 
 a { color:#fff; width:200px; text-align: center; display:inline-block;  }
 button { font-size:30px; }
 input { height:40px; font-size:30px; border:none; outline:none; } 
-#va { margin-top:500px; } 
+
