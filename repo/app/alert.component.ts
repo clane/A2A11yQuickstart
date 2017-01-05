@@ -16,7 +16,7 @@ import { StateService } from './state.service';
   template: `
     <h2>Alert</h2>
     <p>Alerts will appear below and be announced to screen readers assertively</p>
-    <div id="alertLiveRegion" role="alert" aria-live="assertive">{{alertText}}</div>
+    <div id="alertLiveRegion" role="alert">{{alertText}}</div>
     <button id="alertButton" href="#" (click)="stopAlerts()" aria-controls="alertLiveRegion">Stop Alerts</button>
   `,
   styles:
