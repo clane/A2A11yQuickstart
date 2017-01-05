@@ -5,7 +5,7 @@
 <h1>Modal Dialog</h1>
 
 <p>This is my version of a modal dialog. It is really a view swap. There is nothing under this.</p>
-<button #actionButton (keydown.Tab)="focusCloseButton()">Do it!</button>
+<button #actionButton (keydown.Tab)="focusCloseButton()"  (click)="doIt()">Do it!</button>
 <p class="offscreenText">End of dialog</p>
 </div>
 

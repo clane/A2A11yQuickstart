@@ -58,6 +58,9 @@ export class ModalDialog  {
       this.onCloseButtonActivated.emit(true);
       this.titleService.setTitle('Modal');
   }
+  doIt(){ 
+    alert('you did it');
+  }
 }
 
 @Component({
