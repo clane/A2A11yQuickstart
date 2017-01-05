@@ -8,12 +8,6 @@ import { Component,
          AfterViewInit,
          Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { State } from './state';
-import { StateService } from './state.service';
-
-
-
-
 
 @Component({
   selector: "widget-demo",
@@ -31,9 +25,9 @@ import { StateService } from './state.service';
 })
 
 export class WidgetDemoComponent {
-    constructor(private titleService: Title, private renderer: Renderer ) {}
+    constructor(private titleService: Title, private renderer: Renderer) {}
 
-    setTitle( newTitle: string ) { this.titleService.setTitle(newTitle); }
+    setTitle(newTitle: FunctionStringCallback) { this.titleService.setTitle(newTitle); }
     getTitle() { 
         let title:string;
         title = this.titleService.getTitle(); 
@@ -51,11 +45,7 @@ export class WidgetDemoComponent {
         } else {
             this.notModal = true;
         }
-
     }
-
-    
-
 }
 
 
