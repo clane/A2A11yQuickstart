@@ -12,14 +12,14 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: "widget-demo",
   template: `
-      <div *ngIf="notModal">
+      <nav *ngIf="notModal">
         <h1>A11y Angular2 Demo</h1>
         <a routerLink="/tooltip">Tooltip</a>
         <a routerLink="/accordion">Accordion</a>
         <a routerLink="/alert">Alert</a>
         <a routerLink="/modal">Modal</a>
         <a routerLink="/combobox">Combobox</a>
-      </div>
+      </nav>
       <router-outlet></router-outlet>
   `,
 })
