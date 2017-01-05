@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: "widget-demo",
   template: `
+      <a id="skipLink" href="#content">Skip to Content</a>
       <nav *ngIf="notModal">
         <h1>A11y Angular2 Demo</h1>
         <a routerLink="/tooltip">Tooltip</a>
@@ -20,8 +21,12 @@ import { Title } from '@angular/platform-browser';
         <a routerLink="/modal">Modal</a>
         <a routerLink="/combobox">Combobox</a>
       </nav>
-      <router-outlet></router-outlet>
+
+      <div id="content" tabindex="-1">
+        <router-outlet></router-outlet>
+      </div>
   `,
+
 })
 
 export class WidgetDemoComponent {
