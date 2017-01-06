@@ -62,7 +62,7 @@ type="text"
 (keydown.ArrowDown)="selectNextOption()" 
 (keydown.ArrowUp)="selectPrevOption()"
 />
-<button (click)="toggleExpanded()" tabindex="-1">toggle listbox</button>
+<button (click)="toggleExpanded()">toggle listbox</button>
 <list-box 
 [selectedId]="selectedId" 
 *ngIf="expanded" 
