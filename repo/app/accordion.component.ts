@@ -1,7 +1,5 @@
-import { Component, 
-         AfterViewInit,
-         Directive } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, AfterViewInit, Directive, } from '@angular/core';
+import { Title, } from '@angular/platform-browser';
 
 
 @Component({

@@ -1,15 +1,6 @@
-import { Component, 
-         Input, 
-         ViewChild, 
-         ViewChildren, 
-         Renderer.
-         EventEmitter, 
-         Output, 
-         AfterViewInit,
-         Directive } from '@angular/core';
+import { Component, AfterViewInit, Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { State } from './state';
-import { StateService } from './state.service';
+
 
 @Component({
   selector: "aria-alert",
