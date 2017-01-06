@@ -40,7 +40,7 @@ export class ComboBox implements AfterViewInit {
     this.expanded = false; 
   }
 
-  firstCharAlphaSelect(event) {
+  firstCharAlphaSelect(event: any) {
     setTimeout(()=>{ 
       let firstCharEntered = event.key;
       for(let i = 0; i < this.states.length; i++){ 
