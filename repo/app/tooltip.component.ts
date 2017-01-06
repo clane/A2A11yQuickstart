@@ -17,7 +17,7 @@ import { StateService } from './state.service';
         <h2>Tooltip</h2>
         <p>Focus the following link to see the tooltip</p>
         <a id="link" (click)="toggle()" (focus)="open()" (blur)="close()" (mouseover)="open()" (mouseout)="close()" href="#" aria-describedby="tooltip" (keyup.escape)="close()">link with tooltip</a>
-        <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar this is my tooltip</div>
+        <div id="tooltip" role="tooltip" *ngIf="show" [attr.aria-hidden]="ariaHidden">lorem impsum dolar</div>
     `,
     styles: [`
        #tooltip { 
