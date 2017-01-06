@@ -30,7 +30,7 @@ import { Title } from '@angular/platform-browser';
 export class WidgetDemoComponent {
     constructor(private titleService: Title) {}
 
-    setTitle(newTitle: FunctionStringCallback) { this.titleService.setTitle(newTitle); }
+    setTitle(newTitle:string ) { this.titleService.setTitle(newTitle); }
 
     getTitle() { 
         let title:string;

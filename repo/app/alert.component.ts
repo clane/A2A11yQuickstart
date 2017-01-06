@@ -22,7 +22,7 @@ export class AlertComponent {
   constructor(private titleService: Title){}
   alertText: string = "This is a live region, the alert text will appear here dynamically";
   alertsOn: boolean = true;
-  intervalId: number; 
+  intervalId: any; 
   stopAlerts() {
     this.alertsOn = false;
   }
