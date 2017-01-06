@@ -22,12 +22,12 @@ import { StateService } from './state.service';
     styles: [`
        #tooltip { 
          padding:10px; 
-         width:200px; 
+         width:500px; 
          border-radius:10px; 
          background-color:#fff; 
          position:relative; 
          top:-45px; 
-         left:230px; 
+         left:330px; 
          color:#000;
       }  
       #link { width:200px; }
