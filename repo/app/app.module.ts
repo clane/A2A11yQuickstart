@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { WidgetDemoComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { TooltipComponent } from './tooltip.component';
 import { AccordionComponent } from './accordion.component';
 import { AlertComponent } from './alert.component';
@@ -51,8 +51,8 @@ import { ModalDialog } from './modal.component';
                   ModalDialog, 
                   ComboBox, 
                   ListBoxComponent, 
-                  WidgetDemoComponent],
+                  AppComponent],
 
-  bootstrap: [ WidgetDemoComponent]
+  bootstrap: [ AppComponent]
 })
 export class AppModule {}
