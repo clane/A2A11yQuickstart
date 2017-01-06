@@ -2,7 +2,7 @@ import { Component,
          Input, 
          ViewChild, 
          ViewChildren, 
-         Renderer.
+         Renderer,
          EventEmitter, 
          Output, 
          AfterViewInit,
@@ -58,7 +58,7 @@ export class ComboBox implements AfterViewInit {
 
   onListboxOptionSelected(stateName: string){
     this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
     this.expanded = false;
     //Get the id for the state and use it to set the selected id
     for(let i = 0; i < this.states.length; i++){ 
@@ -76,7 +76,7 @@ export class ComboBox implements AfterViewInit {
         this.selectedId = this.selectedId + 1;
     }
     stateName = this.states[this.selectedId].name;
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
   }
 
   selectPrevOption(){
@@ -87,7 +87,7 @@ export class ComboBox implements AfterViewInit {
         this.selectedId = this.selectedId - 1;
     }
     stateName = this.states[this.selectedId].name;
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName;
+    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
   }
 
   onListboxEscPressed(){

@@ -2,7 +2,7 @@ import { Component,
          Input, 
          ViewChild, 
          ViewChildren, 
-         Renderer.
+         Renderer,
          EventEmitter, 
          Output, 
          AfterViewInit,
@@ -56,7 +56,7 @@ export class ListBoxComponent {
   focusNextOption() {
     setTimeout( ()=>{  
       let optionsLength: number = this.options._results.length;
-      if ( this.focusIndex === (optionsLength - 1 ){
+      if ( this.focusIndex === (optionsLength - 1 )){
         this.focusIndex = 0;
       } else {
           this.focusIndex = this.focusIndex + 1;

@@ -1,8 +1,6 @@
 import { Component, 
-         Input, 
          ViewChild, 
-         ViewChildren, 
-         Renderer.
+         Renderer,
          EventEmitter, 
          Output, 
          AfterViewInit,
