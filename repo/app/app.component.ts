@@ -1,19 +1,15 @@
-import { Component, 
-         Input, 
-         ViewChild, 
-         ViewChildren, 
-         Renderer.
-         EventEmitter, 
-         Output, 
-         AfterViewInit,
-         Directive } from '@angular/core';
+import { Component, AfterViewInit, } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: "widget-demo",
   template: `
       <div *ngIf="notModal">
-        <a id="skipLink" href="#content">Skip to Content</a>
+        <a id="skipLink" 
+            (focus)="showSkipLink()"
+            (blur)="hideSkipLink()"
+            [ngClass]="{'offscreenText':  skipLinkHidden }"
+            href="#content">Skip to Content</a>
         <h1>A11y Angular2 Demo</h1>
         <nav *ngIf="notModal">
             <a routerLink="/tooltip">Tooltip</a>
@@ -32,9 +28,10 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class WidgetDemoComponent {
-    constructor(private titleService: Title, private renderer: Renderer) {}
+    constructor(private titleService: Title) {}
 
     setTitle(newTitle: FunctionStringCallback) { this.titleService.setTitle(newTitle); }
+
     getTitle() { 
         let title:string;
         title = this.titleService.getTitle(); 
@@ -43,6 +40,7 @@ export class WidgetDemoComponent {
 
     docTitle:string;
     notModal:boolean;
+    skipLinkHidden:boolean = true;
   
     ngAfterContentChecked() {
         this.docTitle = this.getTitle();
@@ -53,6 +51,10 @@ export class WidgetDemoComponent {
             this.notModal = true;
         }
     }
+
+    showSkipLink(){ this.skipLinkHidden = false; }
+
+    hideSkipLink(){ this.skipLinkHidden = true; }
 }
 
 
