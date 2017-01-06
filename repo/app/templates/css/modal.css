@@ -1,6 +1,6 @@
 
 #dialog { color:#000; background-color:yellow; color:#000; width:90%; margin:150px auto; padding:20px; min-height:900px; }
-#dialog h1 { color:#000; }
+#dialog h1 { color:#000; position:relative; top:-130px; }
 button { font-size:4rem; }
 #closeButton { position:relative; left:1050px; }
 button:focus { outline:5px dotted #000; }
