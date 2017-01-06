@@ -1,15 +1,8 @@
 import { Component, 
-         Input, 
-         ViewChild, 
-         ViewChildren, 
-         Renderer.
-         EventEmitter, 
-         Output, 
          AfterViewInit,
          Directive } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { State } from './state';
-import { StateService } from './state.service';
+
 
 @Component({
     selector: 'aria-tooltip',
@@ -26,7 +19,7 @@ import { StateService } from './state.service';
          border-radius:10px; 
          background-color:#fff; 
          position:relative; 
-         top:-45px; 
+         top:-55px; 
          left:330px; 
          color:#000;
       }  
