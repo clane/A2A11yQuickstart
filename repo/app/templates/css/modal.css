@@ -4,4 +4,4 @@ a { color:#000; }
 #dialog h1 { color:#000; position:relative; top:-130px; }
 button { font-size:4rem; }
 #closeButton { position:relative; left:1050px; }
-button:focus { outline:5px dotted #000; }
+*:focus { outline:5px dotted #000; }
