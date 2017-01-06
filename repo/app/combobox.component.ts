@@ -39,7 +39,6 @@ export class ComboBox implements AfterViewInit {
 
   collapse(){  
     this.expanded = false; 
-    this.inputTabindex = 0;
   }
 
   firstCharAlphaSelect(event) {
