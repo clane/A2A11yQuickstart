@@ -19,7 +19,7 @@ import { StateService } from './state.service';
 })
 export class ModalOpenButton {
   constructor(private renderer: Renderer, private titleService: Title ) {}
-  @ViewChild('modalOpen') openButton: ElementRef;
+  @ViewChild('modalOpen') openButton: any;
   @Output() onOpenButtonActivated = new EventEmitter<boolean>();
   open(){
       this.onOpenButtonActivated.emit(true);
@@ -38,8 +38,8 @@ export class ModalOpenButton {
 })
 export class ModalDialog  {
   constructor(private renderer: Renderer, private titleService: Title ) {}
-  @ViewChild('closeButton') closeButton: ElementRef;
-  @ViewChild('actionButton') actionButton: ElementRef;
+  @ViewChild('closeButton') closeButton: any;
+  @ViewChild('actionButton') actionButton: any;
   @Output() onCloseButtonActivated = new EventEmitter<boolean>();
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.closeButton.nativeElement, 'focus');
