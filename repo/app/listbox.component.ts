@@ -38,7 +38,7 @@ export class ListBoxComponent {
   constructor(private stateService: StateService, private renderer: Renderer) {}
   @Output() onListboxOptionSelected = new EventEmitter<string>();
   @Output() onListboxEscPressed = new EventEmitter<boolean>();
-  @ViewChildren('option') options;
+  @ViewChildren('option') options: any;
   @Input('selectedId') focusIndex: number;
   states: State[];
   @Input() state: State;
@@ -88,7 +88,7 @@ export class ListBoxComponent {
     , 0);
   }
 
-  selectOptionWithClick(event){
+  selectOptionWithClick(event: any){
     this.focusIndex = event.target.id;
     this.selectOption();
   }
@@ -97,7 +97,7 @@ export class ListBoxComponent {
     this.onListboxEscPressed.emit(true);
   }
 
-  firstCharAlphaFocus(event) {
+  firstCharAlphaFocus(event: any) {
     setTimeout(()=>{ 
       let firstCharEntered = event.key;
       for(let i = 0; i < this.states.length; i++){ 
