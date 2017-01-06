@@ -13,6 +13,8 @@ overflow: hidden;
 white-space: nowrap;
 }
 
+.visuallyHidden { color:#000; }
+
 body { background-color:#000; color: #fff; padding-left:50px; font-size:2.5rem; min-width:900px; } 
 h1, h2 { color:yellow; }
 a { color:#fff;  } 

@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
         <a id="skipLink" 
             (focus)="showSkipLink()"
             (blur)="hideSkipLink()"
-            [ngClass]="{'offscreenText':  skipLinkHidden }"
+            [ngClass]="{'visuallyHidden':  skipLinkHidden }"
             href="#content">Skip to Content</a>
         <h1>A11y Angular2 Demo</h1>
         <nav *ngIf="notModal">
