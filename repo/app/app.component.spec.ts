@@ -32,6 +32,7 @@ describe('AppComponent with TCB', function () {
 
         h2 = fixture.debugElement.query(By.css('h2')).nativeElement;            // preferred
 
-        expect(h2.innerText).toMatch(/widget/i, '<h2> should say something about "Widgets"');
+        expect(h2.innerText).toMatch(/Alert/i),
+        '<h2> should display the widget');
   });
 });
