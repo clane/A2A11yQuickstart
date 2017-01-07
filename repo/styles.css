@@ -28,3 +28,5 @@ input { height:40px; border:none; outline:none; font-size:2rem; }
 .about ul { color:#000; font-size:1.5rem;  }
 .about a { color:#000;  font-size:1.5rem; }
 
+#va { display:none; margin-top:50px; }
+

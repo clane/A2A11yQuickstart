@@ -18,7 +18,7 @@ import { StateService } from './state.service';
 })
 
 export class ComboBox implements AfterViewInit {
-  constructor(private stateService: StateService, private renderer: Renderer, private titleService: Title,) {}
+  constructor(private stateService: StateService, private renderer: Renderer, private titleService: Title) {}
   @ViewChild('input') input: any;
   expanded: boolean = false;  
   states: State[];
