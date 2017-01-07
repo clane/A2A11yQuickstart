@@ -1,14 +1,16 @@
 
 describe('A11y QuickStart E2E Tests', function () {
 
-    let expectedMsg = 'A11y Angular2 Demo';
+    browser.ignoreSynchronization = true;
+
+    let lang = 'en';
   
     beforeEach(function () {
         browser.get('http://localhost:8080');
     });
 
-    it('should display: ' + expectedMsg, function () {
-        expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
+    it('html tag lang attribute should be: ' + lang, function () {
+        expect(element(by.css('html')).getAttribute('lang')).toEqual(lang);
     });
 
 });
