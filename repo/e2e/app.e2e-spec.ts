@@ -14,8 +14,14 @@ describe('A11y QuickStart E2E Tests', function () {
         expect(element(by.css('html')).getAttribute('lang')).toEqual(lang);
     });
 
-    let expectedTitle = 'A2i A11y Quickstart';
+    let expectedTitle = 'A2 A11y Quickstart';
     it('The title tag should be: ' + expectedTitle, function () {
+    	expect(browser.getTitle()).toEqual(expectedTitle);
+    });
+
+    let expectedTitle = 'Tooltip';
+    it('The title tag should be: ' + expectedTitle, function () {
+        element(by.css('[value="add"]')).click();
     	expect(browser.getTitle()).toEqual(expectedTitle);
     });
 
