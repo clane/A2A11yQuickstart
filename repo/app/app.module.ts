@@ -18,7 +18,7 @@ import { ModalDialog } from './modal.component';
     {
       //A default path is required to prevent routing errors
       path:'',
-      component: AlertComponent,
+      component: TooltipComponent,
 
     },
     {
