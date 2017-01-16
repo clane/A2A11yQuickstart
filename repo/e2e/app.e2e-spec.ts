@@ -29,4 +29,29 @@ describe('A11y QuickStart E2E Tests', function () {
         expect(expectedTitle).toEqual(title);
     });
 
+    expectedTitle = 'Alerts';
+    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
+        let navLink:any = element(by.css('[routerlink="/tooltip"]'));
+        navLink.click();
+        var expectedTitle  = browser.getTitle().then(function(title){});
+        expect(expectedTitle).toEqual(title);
+    });
+
+    expectedTitle = 'Modal';
+    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
+        let navLink:any = element(by.css('[routerlink="/tooltip"]'));
+        navLink.click();
+        var expectedTitle  = browser.getTitle().then(function(title){});
+        expect(expectedTitle).toEqual(title);
+    });
+
+    expectedTitle = 'Combobox`';
+    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
+        let navLink:any = element(by.css('[routerlink="/tooltip"]'));
+        navLink.click();
+        var expectedTitle  = browser.getTitle().then(function(title){});
+        expect(expectedTitle).toEqual(title);
+    });
+
+
 });
