@@ -57,15 +57,13 @@ describe('A11y QuickStart E2E Tests', function () {
 
     //End
 
-    //Begin active element
-    it('Test for the tag name of the active element to be "BODY"', function () {
+    //Begin test for <body> as active element
+    it('Test for the tag name of the active element to be "BODY" after each browser.get call', function () {
          browser.executeScript('return document.activeElement.tagName').then(function (tagName){
              expect(tagName).toEqual('BODY');
-             //expect(tagName).toEqual('div');
          });
-        
     });
-    //End active element
+    //End test for <body> as active element
 
 
 });
