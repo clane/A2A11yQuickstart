@@ -16,12 +16,19 @@ describe('A11y QuickStart E2E Tests', function () {
 
     //Begin title specs
     let expectedTitle:string;
-    let title:any;
-
 
     expectedTitle = 'Accordion';
     it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
         let navLink:any = element(by.css('[routerlink="/accordion"]'));
+        navLink.click();
+        browser.getTitle().then(function(title){
+            expect(expectedTitle).toEqual(title);
+        });
+    });
+
+    expectedTitle = 'Tooltip';
+    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
+        let navLink:any = element(by.css('[routerlink="/tooltip"]'));
         navLink.click();
         browser.getTitle().then(function(title){
             expect(expectedTitle).toEqual(title);
