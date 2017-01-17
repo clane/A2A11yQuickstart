@@ -58,15 +58,13 @@ describe('A11y QuickStart E2E Tests', function () {
     //End
 
     //Begin active element
-    it('Active element test, should be body ', function () {
-        let tag:any = element(by.css('body'));
+    it('Active element test', function () {
       
-        //browser.executeScript('alert("test");');
-      
-        
-        browser.executeScript('alert(document.activeElement);');
-      
-        browser.pause();
+   
+         expect(true).toEqual(true);
+         browser.pause();
+    
+    
         
     });
     //End active element
