@@ -3,8 +3,6 @@ describe('A11y QuickStart E2E Tests', function () {
 
     beforeEach(function () {
         browser.get('http://localhost:8080');
-       
-
     });
 
     //Begin lang attribute spec 
