@@ -30,14 +30,7 @@ describe('A11y QuickStart E2E Tests', function () {
         });
     });
 
-    //Repeat
-    expectedTitle = 'Tooltip';
-    it('After the main components loads the expected title should be ' + expectedTitle, function () {
-        browser.getTitle().then(function(title){
-            expect(expectedTitle).toEqual(title);
-        });
-    });
-
+   
 
    
 
