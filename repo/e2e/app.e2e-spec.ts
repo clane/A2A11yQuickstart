@@ -22,6 +22,7 @@ describe('A11y QuickStart E2E Tests', function () {
     //Begin title specs
     let expectedTitle:string;
 
+    //Default route, no activiting any nav links
     expectedTitle = 'Tooltip';
     it('After the main components loads the expected title should be ' + expectedTitle, function () {
         browser.getTitle().then(function(title){
@@ -29,7 +30,18 @@ describe('A11y QuickStart E2E Tests', function () {
         });
     });
 
-    //End
+    //Repeat
+    expectedTitle = 'Tooltip';
+    it('After the main components loads the expected title should be ' + expectedTitle, function () {
+        browser.getTitle().then(function(title){
+            expect(expectedTitle).toEqual(title);
+        });
+    });
+
+
+   
+
+    //End title specs
 
    
 
