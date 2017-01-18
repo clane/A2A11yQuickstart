@@ -1,9 +1,16 @@
 
 describe('A11y QuickStart E2E Tests', function () {
 
-    beforeEach(function () {
-        browser.get('http://localhost:8080');
+ 
+    browser.get('http://localhost:8080');
+
+    //Begin spec for <body> as active element
+    it('Test for the tag name of the active element to be "BODY" after each browser.get call', function () {
+         browser.executeScript('return document.activeElement.tagName').then(function (tagName){
+             expect(tagName).toEqual('BODY');
+         });
     });
+    //End  spec for <body> as active element
 
     //Begin lang attribute spec 
     let lang:string = 'en';
@@ -15,28 +22,16 @@ describe('A11y QuickStart E2E Tests', function () {
     //Begin title specs
     let expectedTitle:string;
 
-    expectedTitle = 'Accordion';
-    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
-        let navLink:any = element(by.css('[routerlink="/accordion"]'));
-        navLink.click();
-        browser.getTitle().then(function(title){
-            expect(expectedTitle).toEqual(title);
-        });
-    });
-
     expectedTitle = 'Tooltip';
-    it('After activating the ' + expectedTitle + ' link the title should be ' + expectedTitle, function () {
-        let navLink:any = element(by.css('[routerlink="/tooltip"]'));
-        navLink.click();
+    it('After the main components loads the expected title should be ' + expectedTitle, function () {
         browser.getTitle().then(function(title){
             expect(expectedTitle).toEqual(title);
         });
     });
-
-
-
 
     //End
+
+   
 
    
 });
