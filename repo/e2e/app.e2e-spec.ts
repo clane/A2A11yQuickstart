@@ -15,10 +15,12 @@ describe('A11y QuickStart E2E Tests',  () => {
     it('Focus should go to the modal close button when the modal is opened', () => {
         let modalLink:any = element(by.css('[routerlink="/modal"]'));
         modalLink.click(); 
+        let focusTargetId:string = "closeButton";
         let modalButton:any = element(by.id('modalButton'));
         modalButton.click();
         browser.executeScript('return document.activeElement.id;').then( (id) => {
-            expect(id).toEqual('closeButton');
+            browser.sleep(5000);
+            expect(id).toEqual(focusTargetId);
         });
     });
     
