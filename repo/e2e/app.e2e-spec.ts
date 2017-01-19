@@ -1,6 +1,6 @@
 
 describe('A11y QuickStart E2E Tests',  () => {
-
+    
     browser.get('http://localhost:8080');
 
     //Begin spec for <body> as active element
@@ -20,6 +20,7 @@ describe('A11y QuickStart E2E Tests',  () => {
 
     //Begin title specs
     let expectedTitle:string;
+    let navLink:any;
 
     //Default route, no activiting any nav links
     expectedTitle = 'Tooltip';
@@ -31,7 +32,4 @@ describe('A11y QuickStart E2E Tests',  () => {
 
     //End title specs
 
-   
-
-   
 });

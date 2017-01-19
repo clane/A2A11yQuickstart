@@ -69,7 +69,7 @@ chromeDriver: '.\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.ex
 
   jasmineNodeOpts: {
     // defaultTimeoutInterval: 60000,
-    defaultTimeoutInterval: 10000,
+    defaultTimeoutInterval: 60000,
     showTiming: true,
     print: function() {}
   }
