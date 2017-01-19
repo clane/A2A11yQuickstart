@@ -22,7 +22,7 @@ describe('A11y QuickStart E2E Tests',  () => {
     let expectedTitle:string;
     let navLink:any;
 
-    //Default route, no activiting any nav links
+    //Default route, no activiting any route links
     expectedTitle = 'Tooltip';
     it('After the main components loads the expected title should be ' + expectedTitle, () => {
         browser.getTitle().then((title) => {
