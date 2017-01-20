@@ -11,24 +11,6 @@ describe('A11y QuickStart E2E Tests',  () => {
     });
     //End  spec for <body> as active element
 
-    //Begin spec for modal focus movement
-    it('Focus should go to the modal close button when the modal is opened', () => {
-        let modalLink:any = element(by.css('[routerlink="/modal"]'));
-        modalLink.click(); 
-        let focusTargetId:string = "closeButton";
-        let modalButton:any = element(by.id('modalButton'));
-        modalButton.click();
-        browser.executeScript('return document.activeElement.id;').then( (id) => {
-            browser.sleep(5000);
-            expect(id).toEqual(focusTargetId);
-        });
-    });
-    
-    
-
-
-    
-
     //Begin lang attribute spec 
     let lang:string = 'en';
     it('html tag lang attribute should be: ' + lang, () => {
@@ -48,6 +30,22 @@ describe('A11y QuickStart E2E Tests',  () => {
     });
 
     //End title specs
+
+    //Begin spec for modal focus movement
+    it('Focus should go to the modal close button when the modal is opened', () => {
+        let modalLink:any = element(by.css('[routerlink="/modal"]'));
+        modalLink.click(); 
+        let focusTargetId:string = "closeButton";
+        let modalButton:any = element(by.id('modalButton'));
+        modalButton.click();
+        browser.executeScript('return document.activeElement.id;').then( (id) => {
+            browser.sleep(5000);
+            expect(id).toEqual(focusTargetId);
+        });
+    });
+    
+    
+
 
  
 
