@@ -1,11 +1,26 @@
 
 describe('A11y QuickStart E2E Tests',  () => {
     
-    //slow it down for presentation purposes
+   
     browser.get('http://localhost:8080');
 
     beforeEach(function () {
-         browser.sleep(5000);
+        //Delay before each spec for presentation purposes
+        browser.sleep(5000);
+      
+        //Slows things down but breaks some tests
+        /*
+            var origFn = browser.driver.controlFlow().execute;
+            browser.driver.controlFlow().execute = function() {
+            var args = arguments;
+            //queue 100ms wait
+            origFn.call(browser.driver.controlFlow(), function() {
+                return protractor.promise.delayed(100);
+            });
+                return origFn.apply(browser.driver.controlFlow(), args);
+            };
+        */
+
     });
 
     //Begin spec for <body> as active element
@@ -32,7 +47,7 @@ describe('A11y QuickStart E2E Tests',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-    });
+     });
 
     //End title specs
 
@@ -40,16 +55,14 @@ describe('A11y QuickStart E2E Tests',  () => {
     it('Focus should go to the modal close button when the modal is opened', () => {
         let modalLink:any = element(by.css('[routerlink="/modal"]'));
         modalLink.click(); 
-        browser.sleep(4000);
         let focusTargetId:string = "closeButton";
         let modalButton:any = element(by.id('modalButton'));
         modalButton.click();
         browser.executeScript('return document.activeElement.id;').then( (id) => {
-            browser.sleep(4000);
             expect(id).toEqual(focusTargetId);
         });
     });
 
 
-    
+
 });
