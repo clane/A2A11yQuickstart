@@ -6,20 +6,21 @@ describe('A11y QuickStart E2E Tests',  () => {
 
     beforeEach(function () {
         //Delay before each spec for presentation purposes
-        browser.sleep(5000);
+        //browser.sleep(5000);
       
         //Slows things down but breaks some tests
-        /*
+       
             var origFn = browser.driver.controlFlow().execute;
             browser.driver.controlFlow().execute = function() {
             var args = arguments;
             //queue 100ms wait
             origFn.call(browser.driver.controlFlow(), function() {
-                return protractor.promise.delayed(100);
+                //return protractor.promise.delayed(100);
+                return protractor.promise.delayed(20);//all tests pass at 20 milliseconds
             });
                 return origFn.apply(browser.driver.controlFlow(), args);
             };
-        */
+        
 
     });
 
