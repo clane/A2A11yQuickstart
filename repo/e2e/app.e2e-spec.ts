@@ -1,7 +1,12 @@
 
 describe('A11y QuickStart E2E Tests',  () => {
     
+    //slow it down for presentation purposes
     browser.get('http://localhost:8080');
+
+    beforeEach(function () {
+         browser.sleep(5000);
+    });
 
     //Begin spec for <body> as active element
     it('Test for the tag name of the active element to be "BODY" after the page loads', () => {
@@ -35,18 +40,16 @@ describe('A11y QuickStart E2E Tests',  () => {
     it('Focus should go to the modal close button when the modal is opened', () => {
         let modalLink:any = element(by.css('[routerlink="/modal"]'));
         modalLink.click(); 
+        browser.sleep(4000);
         let focusTargetId:string = "closeButton";
         let modalButton:any = element(by.id('modalButton'));
         modalButton.click();
         browser.executeScript('return document.activeElement.id;').then( (id) => {
-            browser.sleep(5000);
+            browser.sleep(4000);
             expect(id).toEqual(focusTargetId);
         });
     });
+
+
     
-    
-
-
- 
-
 });
