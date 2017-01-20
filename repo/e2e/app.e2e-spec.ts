@@ -16,7 +16,7 @@ describe('A11y QuickStart E2E Tests',  () => {
             //queue 100ms wait
             origFn.call(browser.driver.controlFlow(), function() {
                 //return protractor.promise.delayed(100);
-                return protractor.promise.delayed(20);//all tests pass at 20 milliseconds
+                return protractor.promise.delayed(30);//all tests pass at 30 milliseconds
             });
                 return origFn.apply(browser.driver.controlFlow(), args);
             };
