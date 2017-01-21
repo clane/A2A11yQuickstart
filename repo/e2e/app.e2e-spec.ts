@@ -47,20 +47,16 @@ describe('A11y QuickStart E2E Tests',  () => {
         browser.get('http://localhost:8080');
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
-        });
-     });
-
-    //End title specs
-
-    //Begin spec for modal focus movement
-    it('Focus should go to the modal close button when the modal is opened', () => {
-        let modalLink:any = element(by.css('[routerlink="/modal"]'));
-        modalLink.click(); 
-        let focusTargetId:string = "closeButton";
-        let modalButton:any = element(by.id('modalButton'));
-        modalButton.click();
-        browser.executeScript('return document.activeElement.id;').then( (id) => {
-            expect(id).toEqual(focusTargetId);
+        }).then(function () {
+                expectedTitle = 'Accordion';
+                let navLink:any = element(by.css('[routerlink="/accordion"]'));
+                //console.log(navLink);
+                navLink.click();
+                browser.getTitle().then((title) => {
+                    console.log(title);
+                    expect(expectedTitle).toEqual(title);
+                });
+             
         });
     });
 
