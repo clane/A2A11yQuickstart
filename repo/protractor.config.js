@@ -18,6 +18,7 @@ var _ = require('lodash');
 exports.config = {
   directConnect: true,
 
+getPageTimeout: 70000,
 
 //OSX
 chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
