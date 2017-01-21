@@ -41,6 +41,7 @@ describe('A11y QuickStart E2E Tests',  () => {
 
     //Begin title specs
     let expectedTitle:string;
+    let navLink:any;
     //Default route, no activiting any routing links
     expectedTitle = 'Tooltip';
     it('After the main components loads the expected title should be ' + expectedTitle, () => {
@@ -48,14 +49,14 @@ describe('A11y QuickStart E2E Tests',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         }).then(function () {
+
                 expectedTitle = 'Accordion';
-                let navLink:any = element(by.css('[routerlink="/accordion"]'));
+                navLink = element(by.css('[routerlink="/accordion"]'));
                 navLink.click();
                 browser.getTitle().then((title) => {
-                    console.log(title);
-                    console.log(expectedTitle);
                     expect(expectedTitle).toEqual(title);
                 });
+
              
         });
     });
