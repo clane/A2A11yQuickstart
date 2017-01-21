@@ -50,10 +50,10 @@ describe('A11y QuickStart E2E Tests',  () => {
         }).then(function () {
                 expectedTitle = 'Accordion';
                 let navLink:any = element(by.css('[routerlink="/accordion"]'));
-                //console.log(navLink);
                 navLink.click();
                 browser.getTitle().then((title) => {
                     console.log(title);
+                    console.log(expectedTitle);
                     expect(expectedTitle).toEqual(title);
                 });
              
