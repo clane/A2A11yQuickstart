@@ -44,7 +44,7 @@ describe('A11y QuickStart E2E Tests',  () => {
     let navLink:any;
     //Default route, no activiting any routing links
     expectedTitle = 'Tooltip';
-    it('After the main components loads the expected title should be ' + expectedTitle, () => {
+    it('Test of deault route (Tooltip) and accordion route', () => {
         browser.get('http://localhost:8080');
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
