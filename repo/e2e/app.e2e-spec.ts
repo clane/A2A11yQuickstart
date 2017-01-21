@@ -1,6 +1,7 @@
 
 describe('Suite 1',  () => {
     
+    browser.ignoreSynchronization = true;
     browser.get('http://localhost:8080');
 
     beforeEach(function () {

@@ -6,7 +6,7 @@ describe('Suite 2',  () => {
 
     let navLink:any;
 
-    it('Test of accordion route', () => {
+    it('Test of tooltip route', () => {
         navLink = element(by.css('[routerlink="/accordion"]'));
         navLink.click();
     });
@@ -15,5 +15,44 @@ describe('Suite 2',  () => {
         navLink = element(by.css('[routerlink="/alert"]'));
         navLink.click();
     });
+
+    it('Test of modal route', () => {
+        navLink = element(by.css('[routerlink="/modal"]'));
+        navLink.click();
+    });
+
+      it('Test of tooltip route', () => {
+        navLink = element(by.css('[routerlink="/accordion"]'));
+        navLink.click();
+    });
+   
+    it('Test of alert route', () => {
+        navLink = element(by.css('[routerlink="/alert"]'));
+        navLink.click();
+    });
+
+    it('Test of modal route', () => {
+        navLink = element(by.css('[routerlink="/modal"]'));
+        navLink.click();
+    });
+
+
+  it('Test of tooltip route', () => {
+        navLink = element(by.css('[routerlink="/accordion"]'));
+        navLink.click();
+    });
+   
+    it('Test of alert route', () => {
+        navLink = element(by.css('[routerlink="/alert"]'));
+        navLink.click();
+    });
+
+    it('Test of modal route', () => {
+        navLink = element(by.css('[routerlink="/modal"]'));
+        navLink.click();
+    });
+
+
+
 
 });
