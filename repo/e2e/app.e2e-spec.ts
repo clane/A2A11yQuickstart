@@ -1,5 +1,5 @@
 
-describe('A11y QuickStart E2E Tests',  () => {
+describe('Suite 1',  () => {
     
     browser.get('http://localhost:8080');
 
@@ -43,16 +43,14 @@ describe('A11y QuickStart E2E Tests',  () => {
     });
 
     it('Test of accordion route', () => {
-
         expectedTitle = 'Accordion';
         navLink = element(by.css('[routerlink="/accordion"]'));
         navLink.click();
         browser.getTitle().then((title) => {
-            console.log(title);
-            console.log(expectedTitle);
             expect(expectedTitle).toEqual(title);
         });
-       
     });
+
+    //More browser calls cause specs to timeout
 
 });
