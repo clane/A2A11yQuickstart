@@ -41,6 +41,10 @@ import { ModalDialog } from './modal.component';
       path: 'modal',
       component: ModalComponent,
     },
+    { path: '**', 
+      component: TooltipComponent,
+    },
+
   ]) 
   ],
   declarations: [ TooltipComponent,
