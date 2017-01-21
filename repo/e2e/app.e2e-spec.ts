@@ -44,12 +44,11 @@ describe('A11y QuickStart E2E Tests',  () => {
     let navLink:any;
     //Default route, no activiting any routing links
     expectedTitle = 'Tooltip';
-    it('Test of deault route (Tooltip) and accordion route', () => {
+    it('Test of default route (Tooltip) and accordion route', () => {
         browser.get('http://localhost:8080');
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         }).then(function () {
-
                 expectedTitle = 'Accordion';
                 navLink = element(by.css('[routerlink="/accordion"]'));
                 navLink.click();
@@ -57,10 +56,10 @@ describe('A11y QuickStart E2E Tests',  () => {
                     expect(expectedTitle).toEqual(title);
                 });
 
-             
         });
     });
 
+   
 
 
 });
