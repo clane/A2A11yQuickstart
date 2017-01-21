@@ -33,24 +33,26 @@ describe('A11y QuickStart E2E Tests',  () => {
     //Begin title specs
     let expectedTitle:string;
     let navLink:any;
+   
     //Default route, no activiting any routing links
     expectedTitle = 'Tooltip';
-    it('Test of default route (Tooltip) and accordion route', () => {
-        browser.get('http://localhost:8080');
+    it('Test of default route', () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
-        }).then( () => {
-                expectedTitle = 'Accordion';
-                navLink = element(by.css('[routerlink="/accordion"]'));
-                navLink.click();
-                browser.getTitle().then((title) => {
-                    expect(expectedTitle).toEqual(title);
-                });
-
         });
     });
 
-   
+    it('Test of accordion route', () => {
 
+        expectedTitle = 'Accordion';
+        navLink = element(by.css('[routerlink="/accordion"]'));
+        navLink.click();
+        browser.getTitle().then((title) => {
+            console.log(title);
+            console.log(expectedTitle);
+            expect(expectedTitle).toEqual(title);
+        });
+       
+    });
 
 });
