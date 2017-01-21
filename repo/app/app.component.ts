@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
             (blur)="hideSkipLink()"
             [ngClass]="{'visuallyHidden':  skipLinkHidden }"
             href="#content">Skip to Content</a>
-        <h1>A11y Angular2 Demo</h1>
+        <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
         <nav *ngIf="notModal">
             <a routerLink="/tooltip">Tooltip</a>
             <a routerLink="/accordion">Accordion</a>
