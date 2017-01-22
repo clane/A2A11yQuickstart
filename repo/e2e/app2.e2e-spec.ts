@@ -5,13 +5,20 @@ describe('Suite 2',  () => {
     let expectedTitle:any;
 
     it('Tooltip testing ...', () => {
+        //Check the router link and title
         expectedTitle = 'Tooltip';
         navLink = element(by.css('[routerlink="/tooltip"]'));
         navLink.click();
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-        browser.executeScript('var a = document.getElementById("link"); a.focus();').then();
+        browser.executeScript('document.getElementById("link").focus();').then();
+
+        //Check the ARIA role
+        let tooltipEl:any;
+        tooltipEl = element(by.id('tooltip'));
+        let expectedRole = 'tooltip';
+        expect(tooltipEl.getAttribute('role')).toEqual(expectedRole);
     });
 
     it('Accordion testing ...', () => {
