@@ -11,6 +11,7 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
+        browser.executeScript('var a = document.getElementById("link"); a.focus();').then();
     });
 
     it('Accordion testing ...', () => {
