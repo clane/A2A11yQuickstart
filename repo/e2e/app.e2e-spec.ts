@@ -3,7 +3,8 @@ describe('Suite 1',  () => {
     
     browser.ignoreSynchronization = true;//Needed for tests to work, could be due to the interval used in the alert module
     browser.get('http://localhost:8080');
-
+    console.log("Starting Visual ARIA. Watch for visual feedback while tests are running.");
+    browser.executeScript('runVisualARIA()');
 
     beforeEach(function () {
         //Slows things down for presentation purposes, all tests pass at 41 milliseconds
@@ -16,12 +17,6 @@ describe('Suite 1',  () => {
             return origFn.apply(browser.driver.controlFlow(), args);
         };
     });
-
-
-
-    browser.executeScript('runVisualARIA()');
-
-
 
     //Begin spec for <body> as active element
     it('Test for the tag name of the active element to be "BODY" after the page loads', () => {
