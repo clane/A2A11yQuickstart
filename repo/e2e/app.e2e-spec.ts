@@ -31,7 +31,16 @@ describe('Suite 1',  () => {
     });
     //End lang attribute spec 
 
-    //Begin title specs
+    //Begin testing skip link
+    it('Skip link testing ...', () => {
+         browser.executeScript('var a = document.getElementById("skipLink"); a.focus();')
+         .then( () => {
+             expect(element(by.css('#skipLink')).getAttribute('id')).toEqual('skipLink');
+         });
+    });
+    //End testing skip link
+
+    //Begin title spec
     let expectedTitle:string;
     let navLink:any;
    
