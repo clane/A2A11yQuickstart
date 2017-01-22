@@ -46,6 +46,21 @@ describe('Suite 2',  () => {
         });
     });
 
+    it('Combobox testing ...', () => {
+        
+        expectedTitle = 'Combobox';
+        navLink = element(by.css('[routerlink="/combobox"]'));
+        //console.log(navLink);
+        navLink.click();
+        //browser.pause();
+        /*
+        browser.getTitle().then((title) => {
+            expect(expectedTitle).toEqual(title);
+        });
+        */
+
+    });
+
 
     it('Modal testing...', () => {
         expectedTitle = 'Modal';
@@ -60,11 +75,9 @@ describe('Suite 2',  () => {
             browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
                 if(VisualARIAerrorBorder === dialogBorder){
                     console.log("There is a Visual ARIA error in the modal");
-                    browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
-                    });
+                    browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;');
                 }
             });
-
             browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then(function(VAerror){
                 console.log(VAerror);
                 expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
@@ -72,15 +85,6 @@ describe('Suite 2',  () => {
         }); 
     });
 
-    it('Combobox testing ...', () => {
-        expectedTitle = 'Combobox';
-        navLink = element(by.css('[routerlink="/combobox"]'));
-        navLink.click();
-        browser.getTitle().then((title) => {
-            expect(expectedTitle).toEqual(title);
-        });
-
-    });
 
 
 
