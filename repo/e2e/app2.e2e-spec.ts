@@ -1,9 +1,6 @@
 
 describe('Suite 2',  () => {
     
-    browser.refresh();
-    browser.get('http://localhost:8080');
-
     let navLink:any;
 
     it('Test of tooltip route', () => {
@@ -121,14 +118,10 @@ describe('Suite 2',  () => {
         });
     });
 
-
-
-
-
-
-
-
-
-
+     it('Test of combobox....', () => {
+        navLink = element(by.css('[routerlink="/combobox"]'));
+        navLink.click();
+       console.log('ready to test combobox'); 
+    });
 
 });
