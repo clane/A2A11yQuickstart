@@ -65,10 +65,15 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
+
+        //Activate combobox Button
+        let comboboxButton:any = element(by.css('#statesInput + button'))
+        comboboxButton.click();
     });
 
-    it('Modal testing...', () => {
+    it('Modal testing (route, title, modal button, Visual ARIA)', () => {
 
+        //Check the router link and title
         expectedTitle = 'Modal';
         navLink = element(by.css('[routerlink="/modal"]'));
         navLink.click();
@@ -91,7 +96,6 @@ describe('Suite 2',  () => {
                     });
                 } else { console.log('No Visual ARIA errors')}; 
             });
-           
         }); 
     });
 });
