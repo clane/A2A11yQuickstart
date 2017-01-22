@@ -1,5 +1,6 @@
 
 describe('Suite 2',  () => {
+
     
     let navLink:any;
     let expectedTitle:any;
@@ -12,7 +13,7 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-        browser.executeScript('document.getElementById("link").focus();').then();
+        browser.executeScript('document.getElementById("link").focus();');
 
         //Check the ARIA role
         let tooltipEl:any;
@@ -33,6 +34,7 @@ describe('Suite 2',  () => {
         });
         let accordionLink:any = element(by.id('accLink'));
         accordionLink.click();
+        
     });
 
     it('Alert testing ...', () => {
@@ -44,13 +46,30 @@ describe('Suite 2',  () => {
         });
     });
 
+
     it('Modal testing...', () => {
         expectedTitle = 'Modal';
         navLink = element(by.css('[routerlink="/modal"]'));
         navLink.click();
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
-        });
+        }).then ( () => {
+            let modalOpenButton:any = element(by.id('modalButton'));
+            let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';
+            modalOpenButton.click();
+            browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
+                if(VisualARIAerrorBorder === dialogBorder){
+                    console.log("There is a Visual ARIA error in the modal");
+                    browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
+                    });
+                }
+            });
+
+            browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then(function(VAerror){
+                console.log(VAerror);
+                expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
+            });
+        }); 
     });
 
     it('Combobox testing ...', () => {
@@ -60,10 +79,10 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-        
-        browser.pause();
 
     });
+
+
 
    
 });
