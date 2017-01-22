@@ -17,6 +17,8 @@ describe('Suite 2',  () => {
         //Check the ARIA role
         let tooltipEl:any;
         tooltipEl = element(by.id('tooltip'));
+        let tooltipLink:any = element(by.id('link'));
+        expect(tooltipLink.getAttribute('aria-describedby')).toEqual('tooltip');
         let expectedRole = 'tooltip';
         expect(tooltipEl.getAttribute('role')).toEqual(expectedRole);
     });
