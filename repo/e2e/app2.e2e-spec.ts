@@ -50,17 +50,11 @@ describe('Suite 2',  () => {
         
         expectedTitle = 'Combobox';
         navLink = element(by.css('[routerlink="/combobox"]'));
-        //console.log(navLink);
         navLink.click();
-        //browser.pause();
-        /*
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-        */
-
     });
-
 
     it('Modal testing...', () => {
         expectedTitle = 'Modal';
