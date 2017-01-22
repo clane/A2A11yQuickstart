@@ -18,6 +18,7 @@ describe('Suite 2',  () => {
         let tooltipEl:any;
         tooltipEl = element(by.id('tooltip'));
         let tooltipLink:any = element(by.id('link'));
+        //Check for the
         expect(tooltipLink.getAttribute('aria-describedby')).toEqual('tooltip');
         let expectedRole = 'tooltip';
         expect(tooltipEl.getAttribute('role')).toEqual(expectedRole);
@@ -59,5 +60,9 @@ describe('Suite 2',  () => {
         });
     });
 
+    it('Running Visual ARIA', () => { 
+        browser.executeScript('runVisualARIA()').then();
+        browser.pause();
+    });
   
 });

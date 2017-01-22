@@ -28,10 +28,17 @@
 
   <body>
       <app-component>Loading...</app-component>
-
-    
 			<button id="va">Run Visual ARIA</button>
-		
-         
+	  	<script>
+          function runVisualARIA(){
+              var a=document.createElement('script');
+              a.type='text/javascript';
+              a.src='https://gutterstar.bizland.com/whatsock/training/matrices/visual-aria/roles.js';
+              document.head.appendChild(a);
+           }
+           var visualAriaButton = document.getElementById('ariaButton');
+           visualAriaButton.addEventListener('click', function(){ runVisualARIA(); }, false);             
+     </script>
+
   </body>
 </html>
