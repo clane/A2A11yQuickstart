@@ -1,6 +1,6 @@
 
 describe('Suite 1',  () => {
-    
+
     browser.ignoreSynchronization = true;//Needed for tests to work, could be due to the interval used in the alert module
     browser.get('http://localhost:8080');
     console.log("Starting Visual ARIA. Watch for visual feedback while tests are running.");
@@ -45,7 +45,6 @@ describe('Suite 1',  () => {
     //Begin title spec
     let expectedTitle:string;
     let navLink:any;
-   
     //Default route, no activiting any routing links
     expectedTitle = 'Tooltip';
     it('Test of default route', () => {
@@ -53,7 +52,5 @@ describe('Suite 1',  () => {
             expect(expectedTitle).toEqual(title);
         });
     });
-
-
-
+    
 });
