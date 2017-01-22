@@ -1,7 +1,7 @@
 
 describe('Suite 1',  () => {
     
-    browser.ignoreSynchronization = true;
+    browser.ignoreSynchronization = true;//Needed for tests to work, could be due to the interval used in the alert module
     browser.get('http://localhost:8080');
 
     beforeEach(function () {
@@ -43,15 +43,6 @@ describe('Suite 1',  () => {
         });
     });
 
-    it('Test of accordion route', () => {
-        expectedTitle = 'Accordion';
-        navLink = element(by.css('[routerlink="/accordion"]'));
-        navLink.click();
-        browser.getTitle().then((title) => {
-            expect(expectedTitle).toEqual(title);
-        });
-    });
 
-    //More browser calls cause specs to timeout
 
 });
