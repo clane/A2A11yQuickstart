@@ -31,6 +31,8 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
+        let accordionLink:any = element(by.id('accLink'));
+        accordionLink.click();
     });
 
     it('Alert testing ...', () => {
@@ -58,11 +60,10 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
+        
+        browser.pause();
+
     });
 
-    it('Running Visual ARIA', () => { 
-        browser.executeScript('runVisualARIA()').then();
-        browser.pause();
-    });
-  
+   
 });
