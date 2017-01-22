@@ -113,7 +113,7 @@ describe('Suite 2',  () => {
     });
 
     it('Test of combobox route and title', () => {
-        expectedTitle = 'combobox';
+        expectedTitle = 'Combobox';
         navLink = element(by.css('[routerlink="/combobox"]'));
         navLink.click();
         browser.getTitle().then((title) => {
