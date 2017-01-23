@@ -5,7 +5,7 @@ import { Component,
          EventEmitter, 
          Output, 
          AfterViewInit,
-         Directive } from '@angular/core';
+         } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
