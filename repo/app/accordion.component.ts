@@ -1,16 +1,22 @@
 import { Component, AfterViewInit, Directive, } from '@angular/core';
 import { Title, } from '@angular/platform-browser';
 
-
 @Component({
-  selector: "aria-accordion",
-  template: `
-    <h2>Accordion</h2>
-    <p>Use the following link to toggle the appearance of the accordion's content</p>
-    <button id="accLink" href="#" (click)="toggle()" aria-controls="insertionPoint" [attr.aria-expanded]="expanded"><span class="icon">+</span> Accordion Button</button>
-    <div id="insertionPoint" *ngIf="show">
-        <p>Lorem impsum ...</p>
-    </div>
+    selector: "aria-accordion",
+    template: `
+        <h2>Accordion</h2>
+        <p>Use the following link to toggle the appearance of the accordion's content</p>
+        <button 
+            id="accLink" 
+            href="#" 
+            (click)="toggle()" 
+            aria-controls="insertionPoint" 
+            [attr.aria-expanded]="expanded"
+        >
+        <span class="icon">+</span> Accordion Button</button>
+        <div id="insertionPoint" *ngIf="show">
+            <p>Lorem impsum ...</p>
+        </div>
   `,
   styles:[`
       #accordion { width:500px; margin:50px auto; } 
@@ -22,19 +28,19 @@ import { Title, } from '@angular/platform-browser';
 
 export class AccordionComponent implements AfterViewInit {
 
-  constructor(private titleService: Title){}
+    constructor(private titleService: Title){}
 
-  show: boolean = false;
-  expanded: boolean = false;
+    show: boolean = false;
+    expanded: boolean = false;
 
-  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+    setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
 
-  ngAfterViewInit() { this.setTitle('Accordion'); }
+    ngAfterViewInit() { this.setTitle('Accordion'); }
 
-  toggle() {
-    this.show = !this.show;
-    this.expanded = !this.expanded;
-  }
+    toggle() {
+        this.show = !this.show;
+        this.expanded = !this.expanded;
+    }
   
 }
 
