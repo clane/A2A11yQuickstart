@@ -56,7 +56,7 @@ describe('Suite 2',  () => {
 
     });
 
-    it('Combobox (route, title)', () => {
+    it('Combobox (route, title, activate button)', () => {
 
         //Check the router link and title
         expectedTitle = 'Combobox';
@@ -66,9 +66,15 @@ describe('Suite 2',  () => {
             expect(expectedTitle).toEqual(title);
         });
 
+        //Send keys to the input
+        let input:any = element(by.id('statesInput'));
+        input.sendKeys('c');
+
         //Activate combobox Button
         let comboboxButton:any = element(by.css('#statesInput + button'))
         comboboxButton.click();
+        browser.sleep(5000);
+        
     });
 
     it('Modal testing (route, title, modal button, Visual ARIA)', () => {
