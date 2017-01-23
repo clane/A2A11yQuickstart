@@ -4,7 +4,7 @@ import { Component,
          EventEmitter, 
          Output, 
          AfterViewInit,
-         Directive } from '@angular/core';
+         } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
