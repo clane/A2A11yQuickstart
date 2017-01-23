@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Title, } from '@angular/platform-browser';
 
 @Component({
