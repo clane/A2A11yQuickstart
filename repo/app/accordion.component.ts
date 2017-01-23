@@ -21,7 +21,9 @@ import { Title, } from '@angular/platform-browser';
 })
 
 export class AccordionComponent implements AfterViewInit {
+
   constructor(private titleService: Title){}
+
   show: boolean = false;
   expanded: boolean = false;
 
@@ -33,6 +35,7 @@ export class AccordionComponent implements AfterViewInit {
     this.show = !this.show;
     this.expanded = !this.expanded;
   }
+  
 }
 
 

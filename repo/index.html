@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>A2A11yQuickstart</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <title>A2A11yQuickstart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
 
-    <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
+        <!-- Polyfill(s) for older browsers -->
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/reflect-metadata/Reflect.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
 
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="systemjs.config.js"></script>
 
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
+        <script>
+            System.import('app').catch(function(err){ console.error(err); });
+        </script>
 
-    <!--  base path for local dev environment --> 
-    <base href="/">
+        <!--  base path for local dev environment --> 
+        <base href="/">
 
-    <!-- custom path for live deployment in subdirectory -->
-    <!-- <base href="/a2live/eddie/repo/"> -->
+        <!-- custom path for live deployment in subdirectory -->
+        <!-- <base href="/a2live/eddie/repo/"> -->
     
   </head>
-
   <body>
+
       <app-component>Loading...</app-component>
+
 			<button id="va">Run Visual ARIA</button>
+      
 	  	<script>
           function runVisualARIA(){
               var a=document.createElement('script');
