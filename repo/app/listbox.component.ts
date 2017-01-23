@@ -6,7 +6,7 @@ import { Component,
          EventEmitter, 
          Output, 
          AfterViewInit,
-         Directive } from '@angular/core';
+         } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { State } from './state';
 import { StateService } from './state.service';
@@ -67,7 +67,7 @@ export class ListBoxComponent {
     }
 
     focusPrevOption() {
-        setTimeout( ()=>{ 
+        setTimeout( () => { 
             let optionsLength: number = this.options._results.length;
             if( this.focusIndex === 0){
                 this.focusIndex = optionsLength - 1;
@@ -79,7 +79,7 @@ export class ListBoxComponent {
     }
 
     selectOption(){
-        setTimeout(()=>{ 
+        setTimeout(() => { 
             for(let i = 0; i < this.states.length; i++){ 
                if(i == this.focusIndex){
                    this.onListboxOptionSelected.emit(this.states[i].name); 
@@ -98,7 +98,7 @@ export class ListBoxComponent {
     }
 
     firstCharAlphaFocus(event: any) {
-        setTimeout(()=>{ 
+        setTimeout(() => { 
             let firstCharEntered = event.key;
             for(let i = 0; i < this.states.length; i++){ 
                 if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
