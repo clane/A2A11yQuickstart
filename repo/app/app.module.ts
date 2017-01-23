@@ -10,6 +10,7 @@ import { ListBoxComponent } from './listbox.component';
 import { ModalComponent } from './modal.component';
 import { ModalOpenButton } from './modal.component';
 import { ModalDialog } from './modal.component';
+import { AboutComponent } from './about.component';
 
 @NgModule({
   imports: [ BrowserModule, 
@@ -18,8 +19,12 @@ import { ModalDialog } from './modal.component';
     {
       //A default path is required to prevent routing errors
       path:'',
-      component: TooltipComponent,
+      component: AboutComponent,
 
+    },
+    {
+      path: 'about',
+      component: AboutComponent,
     },
     {
       path: 'tooltip',
@@ -55,7 +60,8 @@ import { ModalDialog } from './modal.component';
                   ModalDialog, 
                   ComboBox, 
                   ListBoxComponent, 
-                  AppComponent],
+                  AppComponent,
+                  AboutComponent],
 
   bootstrap: [ AppComponent]
 })
