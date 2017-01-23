@@ -34,7 +34,6 @@ a[routerLink] {
 } 
 a[routerLink]>span { color:#fff; }
 a[routerLink]:first-of-type { 
-    margin-left:-50px; 
     width:200px; 
     text-align: center; 
     display:inline-block; 
