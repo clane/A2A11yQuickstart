@@ -1,5 +1,5 @@
 /* Master Styles */
-*:focus { outline:3px dotted yellow; }
+*:focus { outline:5px dotted #fff; }
 .offscreenText {
 position: absolute;
 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -18,8 +18,17 @@ white-space: nowrap;
 body { background-color:#000; color: #fff; padding-left:50px; font-size:2.5rem; min-width:900px; } 
 h1, h2 { color:yellow; }
 a { color:#fff;  } 
-a[routerLink] { color:#fff; width:200px; text-align: center; display:inline-block;  } 
-a[routerLink]:first-of-type { margin-left:-50px; color:#fff; width:200px; text-align: center; display:inline-block;  } 
+a[routerLink] { 
+    padding: 20px;
+    background-color:#2d7b93; 
+    width:200px; text-align:center; 
+    display:inline-block;  
+    text-decoration:none; 
+} 
+a[routerLink]>span { color:#fff; }
+
+
+a[routerLink]:first-of-type { margin-left:-50px; width:200px; text-align: center; display:inline-block;  } 
 button { font-size:2rem; }
 input { height:40px; border:none; outline:none; font-size:2rem; } 
 .about { background-color:white; color#000; padding:10px; width:80%; margin-top:20px; }
@@ -28,5 +37,7 @@ input { height:40px; border:none; outline:none; font-size:2rem; }
 .about ul { color:#000; font-size:1.5rem;  }
 .about a { color:#000;  font-size:1.5rem; }
 
-#va { display:none; margin-top:50px; }
+
+
+
 

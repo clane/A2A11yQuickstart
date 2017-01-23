@@ -16,12 +16,12 @@ import { Title } from '@angular/platform-browser';
             </a>
             <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
             <nav *ngIf="notModal">
-                <a routerLink="/about">About</a>
-                <a routerLink="/tooltip">Tooltip</a>
-                <a routerLink="/accordion">Accordion</a>
-                <a routerLink="/alert">Alert</a>
-                <a routerLink="/modal">Modal</a>
-                <a routerLink="/combobox">Combobox</a>
+                <a routerLink="/about"><span>About</span></a>
+                <a routerLink="/tooltip"><span>Tooltip</span></a>
+                <a routerLink="/accordion"><span>Accordion</span></a>
+                <a routerLink="/alert"><span>Alert</span></a>
+                <a routerLink="/modal"><span>Modal</span></a>
+                <a routerLink="/combobox"><span>Combobox</span></a>
             </nav>
         </div>
 
