@@ -17,7 +17,6 @@ import { StateService } from './state.service';
     styles:[`
         div[role="listbox"] { 
             margin-top:10px;
-            border:3px solid yellow;
             height:800px; 
             overflow:scroll;
             width:500px;
@@ -29,9 +28,7 @@ import { StateService } from './state.service';
             margin-top:10px;
             padding:5px;
         }
-        div[role="option"]:focus { 
-            outline:2px dotted #000;
-        }
+       
 `],
 })
 export class ListBoxComponent {
