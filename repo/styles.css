@@ -1,6 +1,7 @@
 /* Master Styles */
 *:focus { outline:5px dotted #fff; }
 [role="option"]:focus { outline:5px dotted #000; }
+[tabindex="-1"]:focus { outline:none; }
 .offscreenText {
     position: absolute;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -31,6 +32,7 @@ a[routerLink] {
     width:200px; text-align:center; 
     display:inline-block;  
     text-decoration:none; 
+    margin-bottom:10px;
 } 
 a[routerLink]>span { color:#fff; }
 a[routerLink]:first-of-type { 
