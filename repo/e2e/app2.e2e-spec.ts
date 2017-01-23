@@ -4,7 +4,7 @@ describe('Suite 2',  () => {
     let navLink:any;
     let expectedTitle:any;
 
-    it('Tooltip testing ...', () => {
+    it('Tooltip (route, title, focus movement to tooltip link)', () => {
 
         //Check the router link and title
         expectedTitle = 'Tooltip';
@@ -85,7 +85,7 @@ describe('Suite 2',  () => {
             let modalOpenButton:any = element(by.id('modalButton'));
             modalOpenButton.click();
 
-            //Look for  a Visual ARIA error 
+            //Look for  a Visual ARIA error by checking the dialog for a 5px ridged border coming Visual ARIA
             let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';
             browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
                 if(VisualARIAerrorBorder === dialogBorder){
