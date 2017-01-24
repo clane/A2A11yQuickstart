@@ -71,6 +71,7 @@ describe('Suite 2',  () => {
 
         //Send keys to the input
         let input:any = element(by.id('statesInput'));
+        input.clear();
         input.sendKeys('c');
 
         //Activate combobox Button
