@@ -34,7 +34,8 @@ import { Title } from '@angular/platform-browser';
        #tooltip { 
            padding:10px; 
            width:500px; 
-           border-radius:10px; 
+           border-radius:10px;
+           border:5px solid #000; 
            background-color:#fff; 
            position:relative; 
            top:-55px; 
