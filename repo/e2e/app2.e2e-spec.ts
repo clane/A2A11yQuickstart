@@ -44,7 +44,7 @@ describe('Suite 2',  () => {
 
     });
 
-    it('Alert testing (route, title)', () => {
+    it('Alert testing (route, title, role="alert")', () => {
 
         //Check the router link and title
         expectedTitle = 'Alerts';
@@ -53,7 +53,10 @@ describe('Suite 2',  () => {
         browser.getTitle().then((title) => {
             expect(expectedTitle).toEqual(title);
         });
-
+        //Check the ARIA role
+        let alertEl:any = element(by.id('alertLiveRegion'));
+        let expectedRole = 'alert';
+        expect(alertEl.getAttribute('role')).toEqual(expectedRole);
     });
 
     it('Combobox (route, title, activate button)', () => {
@@ -87,12 +90,12 @@ describe('Suite 2',  () => {
             expect(expectedTitle).toEqual(title);
         }).then ( () => {
 
-            //Open the modal by activating the modal button
-            let modalOpenButton:any = element(by.id('modalButton'));
-            modalOpenButton.click();
+        //Open the modal by activating the modal button
+        let modalOpenButton:any = element(by.id('modalButton'));
+        modalOpenButton.click();
 
-            //Look for  a Visual ARIA error by checking the dialog for a 5px ridged border coming Visual ARIA
-            let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';
+        //Look for  a Visual ARIA error by checking the dialog for a 5px ridged border coming Visual ARIA
+        let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';
             browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
                 if(VisualARIAerrorBorder === dialogBorder){
                     console.log("There is a Visual ARIA error in the modal");
