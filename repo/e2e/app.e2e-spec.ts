@@ -17,7 +17,17 @@ describe('Suite 1',  () => {
             return origFn.apply(browser.driver.controlFlow(), args);
         };
     });
-
+    
+    /*
+    //Begin spec to test the TAB key on the <body>
+    it('Press the tab key on the body', () => {
+        let body = element(by.name('body'));
+        body.sendKeys(protractor.Key.TAB);
+        browser.sleep(3000); 
+    });
+    //End spec to test the TAB key on the <body>
+    */
+    
     //Begin spec for <body> as active element
     it('Test for the tag name of the active element to be "BODY" after the page loads', () => {
          browser.executeScript('return document.activeElement.tagName').then( (tagName) => {
