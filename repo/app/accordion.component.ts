@@ -20,8 +20,8 @@ import { Title, } from '@angular/platform-browser';
   `,
   styles:[`
       #accordion { width:500px; margin:50px auto; } 
-      #accLink { text-decoration:none; display:block; } 
-      #insertionPoint { background-color:#fff; color:#000; padding:10px; margin-top:10px; } 
+      #accLink { text-decoration:none; display:block; width:40%; text-align:left; } 
+      #insertionPoint { background-color:#fff; color:#000; padding:10px; margin-top:10px; border:5px solid #000; width:40%; } 
       .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
   `],
 })
