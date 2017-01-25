@@ -11,6 +11,7 @@ import { State } from './state';
 import { StateService } from './state.service';
 
 
+
 @Component({
    selector: "combo-box",
    templateUrl: "./app/templates/combobox.html",
@@ -24,6 +25,7 @@ export class ComboBox implements AfterViewInit {
   states: State[];
   @Input() state: State;
   selectedId: number = 0;
+  keyPressCnt:number = 0;
 
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -41,18 +43,23 @@ export class ComboBox implements AfterViewInit {
   }
 
   firstCharAlphaSelect(event: any) {
-    setTimeout(()=>{ 
-      let firstCharEntered = event.key;
-      for(let i = 0; i < this.states.length; i++){ 
-        if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
-          this.selectedId = i;
-          this.onListboxOptionSelected(this.states[i].name); 
-          break;
-        }
+      if (this.keyPressCnt === 0){
+            setTimeout(()=>{ 
+                let firstCharEntered = event.key;
+                for(let i = 0; i < this.states.length; i++){ 
+                    if(firstCharEntered.toUpperCase() == this.states[i].name.charAt(0)){
+                        this.selectedId = i;
+                        this.onListboxOptionSelected(this.states[i].name); 
+                        break;
+                    }
+                }
+            }, 0);
+
+            this.keyPressCnt++;
       }
-    } 
-    , 0);
   }
+
+  resetKeypressCnt(){ this.keyPressCnt = 0; }
 
   onListboxOptionSelected(stateName: string){
       this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
