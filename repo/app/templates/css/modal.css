@@ -5,3 +5,4 @@ a { color:#000; }
 button { font-size:4rem; }
 #closeButtonContainer { text-align: right; }
 *:focus { outline:5px dotted #000; }
+#content { position:absolute; top:-100px; left:-100px; width:3000px; height:3000px; }
