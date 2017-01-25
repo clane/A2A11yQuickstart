@@ -3,6 +3,7 @@
 [role="option"]:focus { outline:5px dotted #000; }
 [tabindex="-1"]:focus { outline:none; }
 [role="listbox"]{ border:5px solid #000; padding:20px; border-radius:5px; }
+[role="combobox"] { padding:10px; }
 .offscreenText {
     position: absolute;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
