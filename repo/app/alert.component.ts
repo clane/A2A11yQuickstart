@@ -12,7 +12,16 @@ import { Title } from '@angular/platform-browser';
   styles:[`
       #alert { width:500px; margin:50px auto; } 
       #alertButton { display:block; margin-top:20px; } 
-      #alertLiveRegion { margin-top:10px; } 
+      #alertLiveRegion {
+          margin-top:10px; 
+          padding:20px; 
+          background-color:red; 
+          color:#fff; 
+          width:70%; 
+          border-radius:5px;
+          text-align:center; 
+        
+    } 
    `],
 })
 
