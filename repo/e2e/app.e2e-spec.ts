@@ -5,14 +5,8 @@ describe('Suite 1',  () => {
     browser.get('http://localhost:8080');
     console.log("Starting Visual ARIA. Watch for visual feedback while tests are running.");
 
-    let runVisualARIA:string = `
-        var a=document.createElement('script');
-        a.type='text/javascript';
-        a.src='https://gutterstar.bizland.com/whatsock/training/matrices/visual-aria/roles.js';
-        document.head.appendChild(a);
-    `;
-        
-    browser.executeScript(runVisualARIA);
+ 
+    browser.executeScript('runVisualARIA();');
 
     beforeEach(function () {
         //Slows things down for presentation purposes, all tests pass at 41 milliseconds
