@@ -23,7 +23,7 @@ import { Title, } from '@angular/platform-browser';
   styles:[`
       #accordion { width:500px; margin:50px auto; } 
       #accLink { text-decoration:none; display:block; width:40%; text-align:left; } 
-      #insertionPoint { padding:10px; margin-top:10px; width:80%; } 
+      #insertionPoint { padding:5px; margin-top:10px; width:90%; background-color:beige; border-radius:10px; } 
       .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
   `],
 })
