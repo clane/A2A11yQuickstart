@@ -55,50 +55,51 @@ export class ComboBox implements AfterViewInit {
   }
 
   onListboxOptionSelected(stateName: string){
-    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
-    this.expanded = false;
-    //Get the id for the state and use it to set the selected id
-    for(let i = 0; i < this.states.length; i++){ 
-      if(stateName == this.states[i].name){
-        this.selectedId = this.states[i].id; 
-      }
-    } 
+      this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+      this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
+      this.expanded = false;
+      //Get the id for the state and use it to set the selected id
+      for(let i = 0; i < this.states.length; i++){ 
+          if(stateName == this.states[i].name){
+              this.selectedId = this.states[i].id; 
+          }
+      } 
   }
 
   selectNextOption(){
-    let stateName: string;
-    if( this.selectedId == (this.states.length - 1)){
-      this.selectedId = 0;
-    } else {
-        this.selectedId = this.selectedId + 1;
-    }
-    stateName = this.states[this.selectedId].name;
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
+      let stateName: string;
+      if( this.selectedId == (this.states.length - 1)){
+          this.selectedId = 0;
+      } else {
+          this.selectedId = this.selectedId + 1;
+      }
+      stateName = this.states[this.selectedId].name;
+      this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
   }
 
   selectPrevOption(){
-    let stateName: string;
-    if( this.selectedId == 0){
-      this.selectedId = this.states.length - 1;
-    } else {
-        this.selectedId = this.selectedId - 1;
-    }
-    stateName = this.states[this.selectedId].name;
-    this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
+      let stateName: string;
+      if( this.selectedId == 0){
+          this.selectedId = this.states.length - 1;
+      } else {
+          this.selectedId = this.selectedId - 1;
+      }
+      stateName = this.states[this.selectedId].name;
+      this.renderer.setElementProperty(this.input.nativeElement, 'value', stateName);
   }
 
   onListboxEscPressed(){
-    this.collapse();
-    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+      this.collapse();
+      this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 
   ngAfterViewInit() {
-    this.getStates();
-    this.setTitle('Combobox');
+      this.getStates();
+      this.setTitle('Combobox');
   }
 
-  setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
+  setTitle(newTitle: string) { this.titleService.setTitle(newTitle); }
+
 }
 
 

@@ -21,10 +21,10 @@ exports.config = {
 getPageTimeout: 70000,
 
 //OSX
-//chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
+chromeDriver: '/usr/local/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.25',
 
 //Windows
-chromeDriver: '.\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe',
+//chromeDriver: '.\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe',
 
 
 
