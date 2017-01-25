@@ -15,13 +15,15 @@ import { Title, } from '@angular/platform-browser';
         >
         <span class="icon">+</span> Accordion Button</button>
         <div id="insertionPoint" *ngIf="show">
-            <p>Lorem impsum ...</p>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
         </div>
   `,
   styles:[`
       #accordion { width:500px; margin:50px auto; } 
       #accLink { text-decoration:none; display:block; width:40%; text-align:left; } 
-      #insertionPoint { background-color:#fff; color:#000; padding:10px; margin-top:10px; border:5px solid #000; width:40%; } 
+      #insertionPoint { padding:10px; margin-top:10px; width:80%; } 
       .icon { font-weight:bold; font-size:1.5rem; text-decoration:none; } 
   `],
 })
