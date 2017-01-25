@@ -4,7 +4,15 @@ describe('Suite 1',  () => {
     browser.ignoreSynchronization = true;//Needed for tests to work, could be due to the interval used in the alert module
     browser.get('http://localhost:8080');
     console.log("Starting Visual ARIA. Watch for visual feedback while tests are running.");
-    browser.executeScript('runVisualARIA()');
+
+    let runVisualARIA:string = `
+        var a=document.createElement('script');
+        a.type='text/javascript';
+        a.src='https://gutterstar.bizland.com/whatsock/training/matrices/visual-aria/roles.js';
+        document.head.appendChild(a);
+    `;
+        
+    browser.executeScript(runVisualARIA);
 
     beforeEach(function () {
         //Slows things down for presentation purposes, all tests pass at 41 milliseconds
@@ -17,15 +25,6 @@ describe('Suite 1',  () => {
             return origFn.apply(browser.driver.controlFlow(), args);
         };
     });
-    
-    /*
-    //Begin spec to test the TAB key>
-    it('Press the tab key', () => {
-        browser.actions().sendKeys(protractor.Key.TAB);
-        //browser.sleep(3000);//makes specs timeout
-    });
-    //End spec to test the TAB key on the <body>
-    */
 
     //Begin spec for <body> as active element
     it('Test for the tag name of the active element to be "BODY" after the page loads', () => {
