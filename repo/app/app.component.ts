@@ -5,15 +5,17 @@ import { Title } from '@angular/platform-browser';
     selector: "app-component",
     template: `
         <div *ngIf="notModal">
-            <a  
-                id="skipLink" 
-                (focus)="showSkipLink()"
-                (blur)="hideSkipLink()"
-                [ngClass]="{'visuallyHidden':  skipLinkHidden }"
-                href="#content"
-            >
-            Skip to Content
-            </a>
+            <div id="skipLinkContainer">
+                <a  
+                    id="skipLink" 
+                    (focus)="showSkipLink()"
+                    (blur)="hideSkipLink()"
+                    [ngClass]="{'offscreenText':  skipLinkHidden }"
+                    href="#content"
+                >
+                Skip to Content
+                </a>
+            </div>
             <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
             <nav *ngIf="notModal">
                 <a routerLink="/about"><span>About</span></a>
