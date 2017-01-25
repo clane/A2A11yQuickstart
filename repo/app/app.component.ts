@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -25,6 +25,7 @@ import { Title } from '@angular/platform-browser';
             </nav>
         </div>
 
+
         <div id="content" tabindex="-1">
             <router-outlet></router-outlet>
         </div>
@@ -45,7 +46,8 @@ export class AppComponent {
     }
 
     docTitle:string;
-    notModal:boolean;
+    notModal:boolean = true;
+    modalTime:boolean = false;
     skipLinkHidden:boolean = true;
   
     ngAfterContentChecked() {
