@@ -30,6 +30,8 @@ import { Title } from '@angular/platform-browser';
             <router-outlet></router-outlet>
         </div>
   `,
+  styles[``],
+
 
 })
 
