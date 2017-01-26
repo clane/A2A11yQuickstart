@@ -96,8 +96,8 @@ describe('Suite 2',  () => {
         modalOpenButton.click();
 
         //Look for  a Visual ARIA error by checking the dialog for a ridged border coming Visual ARIA
-        //let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';
-        let VisualARIAerrorBorder:string  = '3.33333px ridge rgb(255, 0, 0)';//windows
+        //let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';//works on OSX Chrome
+        let VisualARIAerrorBorder:string  = '3.33333px ridge rgb(255, 0, 0)';//works on Windows 7 Chrome
         browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
             console.log(dialogBorder);
             if(VisualARIAerrorBorder === dialogBorder){
