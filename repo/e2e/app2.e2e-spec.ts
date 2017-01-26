@@ -98,13 +98,14 @@ describe('Suite 2',  () => {
             //Look for  a Visual ARIA error by checking the dialog for a ridged border coming Visual ARIA
             //let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';//works on OSX Chrome
             let VisualARIAerrorBorder:string  = '3.33333px ridge rgb(255, 0, 0)';//works on Windows 7 Chrome
-            browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
+            browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then((dialogBorder:string) => {
                 console.log(dialogBorder);
-                if(VisualARIAerrorBorder === dialogBorder){
-                    console.log("There is a Visual ARIA error in the modal");
-                    browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then(function(VAerror){
-                        console.log(VAerror);
-                        expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
+                if(dialogBorder.match(/ridge/)){
+                    browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then((beforeContent:string) => {
+                        console.log(beforeContent);
+                        if(beforeContent.match(/ARIA/)){
+                            expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
+                        }
                     });
                 } else { console.log('No Visual ARIA errors')}; 
             });
