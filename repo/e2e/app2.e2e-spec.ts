@@ -91,23 +91,23 @@ describe('Suite 2',  () => {
             expect(expectedTitle).toEqual(title);
         }).then ( () => {
 
-        //Open the modal by activating the modal button
-        let modalOpenButton:any = element(by.id('modalButton'));
-        modalOpenButton.click();
+            //Open the modal by activating the modal button
+            let modalOpenButton:any = element(by.id('modalButton'));
+            modalOpenButton.click();
 
-        //Look for  a Visual ARIA error by checking the dialog for a ridged border coming Visual ARIA
-        //let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';//works on OSX Chrome
-        let VisualARIAerrorBorder:string  = '3.33333px ridge rgb(255, 0, 0)';//works on Windows 7 Chrome
-        browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
-            console.log(dialogBorder);
-            if(VisualARIAerrorBorder === dialogBorder){
-                console.log("There is a Visual ARIA error in the modal");
-                browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then(function(VAerror){
-                    console.log(VAerror);
-                    expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
-                });
-            } else { console.log('No Visual ARIA errors')}; 
-        });
+            //Look for  a Visual ARIA error by checking the dialog for a ridged border coming Visual ARIA
+            //let VisualARIAerrorBorder:string  = '5px ridge rgb(255, 0, 0)';//works on OSX Chrome
+            let VisualARIAerrorBorder:string  = '3.33333px ridge rgb(255, 0, 0)';//works on Windows 7 Chrome
+            browser.executeScript('return getComputedStyle(document.getElementById("dialog")).border;').then(function(dialogBorder){
+                console.log(dialogBorder);
+                if(VisualARIAerrorBorder === dialogBorder){
+                    console.log("There is a Visual ARIA error in the modal");
+                    browser.executeScript('var el = document.querySelector("#dialog"); var content = window.getComputedStyle(el,":before").content; return content;').then(function(VAerror){
+                        console.log(VAerror);
+                        expect(true).toEqual(false);//now fail the spec since there is a Visual ARIA error
+                    });
+                } else { console.log('No Visual ARIA errors')}; 
+            });
         }); 
     });
 });
