@@ -1,41 +1,38 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'run',
-1 verbose cli   'e2e' ]
-2 info using npm@3.10.9
-3 info using node@v7.1.0
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'e2e' ]
+2 info using npm@3.10.3
+3 info using node@v6.6.0
 4 verbose run-script [ 'pree2e', 'e2e', 'poste2e' ]
 5 info lifecycle angular-quickstart@1.0.0~pree2e: angular-quickstart@1.0.0
 6 verbose lifecycle angular-quickstart@1.0.0~pree2e: unsafe-perm in lifecycle true
-7 verbose lifecycle angular-quickstart@1.0.0~pree2e: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\clane\Desktop\A2A11yQuickstart\repo\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\clane\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;C:\Users\clane\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin
-8 verbose lifecycle angular-quickstart@1.0.0~pree2e: CWD: C:\Users\clane\Desktop\A2A11yQuickstart\repo
-9 silly lifecycle angular-quickstart@1.0.0~pree2e: Args: [ '/d /s /c', 'npm run webdriver:update' ]
+7 verbose lifecycle angular-quickstart@1.0.0~pree2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/repo/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+8 verbose lifecycle angular-quickstart@1.0.0~pree2e: CWD: /Users/developer/Desktop/eddie/repo
+9 silly lifecycle angular-quickstart@1.0.0~pree2e: Args: [ '-c', 'npm run webdriver:update' ]
 10 silly lifecycle angular-quickstart@1.0.0~pree2e: Returned: code: 0  signal: null
 11 info lifecycle angular-quickstart@1.0.0~e2e: angular-quickstart@1.0.0
 12 verbose lifecycle angular-quickstart@1.0.0~e2e: unsafe-perm in lifecycle true
-13 verbose lifecycle angular-quickstart@1.0.0~e2e: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\clane\Desktop\A2A11yQuickstart\repo\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\clane\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;C:\Users\clane\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin
-14 verbose lifecycle angular-quickstart@1.0.0~e2e: CWD: C:\Users\clane\Desktop\A2A11yQuickstart\repo
-15 silly lifecycle angular-quickstart@1.0.0~e2e: Args: [ '/d /s /c',
+13 verbose lifecycle angular-quickstart@1.0.0~e2e: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/developer/Desktop/eddie/repo/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+14 verbose lifecycle angular-quickstart@1.0.0~e2e: CWD: /Users/developer/Desktop/eddie/repo
+15 silly lifecycle angular-quickstart@1.0.0~e2e: Args: [ '-c',
 15 silly lifecycle   'concurrently "npm run tsc:w" "http-server -s" "protractor protractor.config.js" --kill-others --success first' ]
 16 silly lifecycle angular-quickstart@1.0.0~e2e: Returned: code: 1  signal: null
 17 info lifecycle angular-quickstart@1.0.0~e2e: Failed to exec e2e script
 18 verbose stack Error: angular-quickstart@1.0.0 e2e: `concurrently "npm run tsc:w" "http-server -s" "protractor protractor.config.js" --kill-others --success first`
 18 verbose stack Exit status 1
-18 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+18 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
 18 verbose stack     at emitTwo (events.js:106:13)
 18 verbose stack     at EventEmitter.emit (events.js:191:7)
-18 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+18 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 18 verbose stack     at emitTwo (events.js:106:13)
 18 verbose stack     at ChildProcess.emit (events.js:191:7)
-18 verbose stack     at maybeClose (internal/child_process.js:885:16)
+18 verbose stack     at maybeClose (internal/child_process.js:877:16)
 18 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 19 verbose pkgid angular-quickstart@1.0.0
-20 verbose cwd C:\Users\clane\Desktop\A2A11yQuickstart\repo
-21 error Windows_NT 6.1.7601
-22 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "e2e"
-23 error node v7.1.0
-24 error npm  v3.10.9
+20 verbose cwd /Users/developer/Desktop/eddie/repo
+21 error Darwin 15.2.0
+22 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "e2e"
+23 error node v6.6.0
+24 error npm  v3.10.3
 25 error code ELIFECYCLE
 26 error angular-quickstart@1.0.0 e2e: `concurrently "npm run tsc:w" "http-server -s" "protractor protractor.config.js" --kill-others --success first`
 26 error Exit status 1
