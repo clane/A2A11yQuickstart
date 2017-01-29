@@ -70,6 +70,5 @@ export class TooltipComponent implements AfterViewInit {
 
     ngAfterViewInit() { this.setTitle('Tooltip'); }
 
-
 }
 
