@@ -18,7 +18,7 @@ import { Title } from '@angular/platform-browser';
         <a href="http://whatsock.com/training/matrices/visual-aria.htm">Visual ARIA</a>.</p>
         <p>To see these tests in action
         download or clone 
-        <a href="https://github.com/clane/A2A11yQuickstart">A2 A11y Quickstart</a>
+        <a href="https://github.com/clane/A2A11yQuickstart">A2 A11y Quickstart</a> and see the instructions in the README.md file to run the Protractor tests.
         </p>
 
     `,

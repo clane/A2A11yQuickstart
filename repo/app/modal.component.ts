@@ -18,14 +18,24 @@ export class ModalOpenButton {
 
     constructor(private renderer: Renderer, private titleService: Title ) {}
     @ViewChild('modalOpen') openButton: any;
+    //Wiring to let other components know that the open button has been activated
     @Output() onOpenButtonActivated = new EventEmitter<boolean>();
 
     open(){
-        this.onOpenButtonActivated.emit(true);
-        this.titleService.setTitle('MODAL TIME');
+        this.onOpenButtonActivated.emit(true);//let other components know the open button has been activated
+        this.titleService.setTitle('MODAL TIME');//overloading setTitle to manage modal state
     }
 
     focusMe(){
+        //Using elementRef is bad. See http://angularjs.blogspot.com/2016/04/5-rookie-mistakes-to-avoid-with-angular.html
+
+        /*
+        constructor(el: ElementRef) {
+            el.nativeElement.querySelector('input').focus();
+        }
+        */
+
+        //Safe but experimental
         this.renderer.invokeElementMethod(this.openButton.nativeElement, 'focus');
     }
 
