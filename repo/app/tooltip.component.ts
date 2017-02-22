@@ -54,22 +54,27 @@ export class TooltipComponent implements AfterViewInit {
     //bound with the attribute binding [attr.aria-hidden]="ariaHidden"
 
     open() {
+        //show the tooltip
         this.show = true;
         this.ariaHidden = !this.show;
     }
 
     close() {
+        //hide the tooltip
         this.show = false;
         this.ariaHidden = !this.show;
     }
 
     toggle() {
+        //toggle the tooltip
         this.show = !this.show;
         this.ariaHidden = !this.show;
     }
-
+    
+    //For setting the document's Title from inside the component
     setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
-
+    
+    //After the module loads set the title
     ngAfterViewInit() { this.setTitle('Tooltip'); }
 
 }
