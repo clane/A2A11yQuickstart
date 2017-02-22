@@ -50,6 +50,8 @@ export class TooltipComponent implements AfterViewInit {
     constructor(private titleService: Title){}
     show: boolean = false;
     ariaHidden: boolean = !this.show;
+    //When show is true ariaHidden is false
+    //bound with the attribute binding [attr.aria-hidden]="ariaHidden"
 
     open() {
         this.show = true;

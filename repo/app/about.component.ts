@@ -11,6 +11,8 @@ import { Title } from '@angular/platform-browser';
             <li>Keyboard Accessibility</li>
             <li>Focus Management</li>
             <li>ARIA</li>
+            <li>Protractor</li>
+            <li>Breaking the Build with Visual ARIA</li>
         </ol>
         
         <p> It also demonstrates end-to-end testing with 
@@ -28,7 +30,6 @@ export class AboutComponent implements AfterViewInit {
     constructor(private titleService: Title){}
     setTitle( newTitle: string) { this.titleService.setTitle(newTitle); }
     ngAfterViewInit() { this.setTitle('About'); }
-
 
 }
 
