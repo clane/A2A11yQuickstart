@@ -104,7 +104,7 @@ export class ModalComponent {
         setTimeout( ()=>{ this.focusMe(); }, 0);//setTimeout needed for the modalButton to be defined
     }
 
-    onOpenButtonActivated(){ this.notModal = false; }
+    onOpenButtonActivated(){ this.notModal = false; }//will be modal when false
 
 }
 
