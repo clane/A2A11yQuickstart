@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
     selector: 'about',
     template: `
         <h2>About</h2>
-        <p>This Quickstart for Angular 2 is intended to give an example of Angular 2 basics well as 
+        <p>This Quickstart for Angular 2 is intended to give an example of Angular 2 basics as well as 
         examples of techniques and challenges pertinent to accessible web development such as:</p>
         <ol>
             <li>Keyboard Accessibility</li>
