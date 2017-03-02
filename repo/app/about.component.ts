@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
         examples of techniques and challenges pertinent to accessible web development such as:</p>
         <ol>
             <li>Keyboard Accessibility</li>
-            <li>Focus Management</li>
+            <li>Focus Management(component design pattern requires focus management at the component level)</li>
             <li>ARIA</li>
             <li>Protractor</li>
             <li>Breaking the Build with Visual ARIA</li>

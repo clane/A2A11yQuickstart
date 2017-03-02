@@ -51,9 +51,9 @@ export class AppComponent {
     }
 
     docTitle:string;
-    notModal:boolean = true;
-    modalTime:boolean = false;
-    skipLinkHidden:boolean = true;
+    notModal:boolean = true;//modal not showing
+    modalTime:boolean = false;//modal not showing
+    skipLinkHidden:boolean = true;//visible state of skip link
   
     ngAfterContentChecked() {
         //use title to detect modal state

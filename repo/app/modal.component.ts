@@ -68,7 +68,7 @@ export class ModalDialog  {
     }
 
     close(){
-        this.onCloseButtonActivated.emit(true);
+        this.onCloseButtonActivated.emit(true);//let other components know that the close button has been activated
         this.titleService.setTitle('Modal');
     }
 
