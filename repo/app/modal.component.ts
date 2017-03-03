@@ -17,7 +17,7 @@ import { Title } from '@angular/platform-browser';
 export class ModalOpenButton {
 
     constructor(private renderer: Renderer, private titleService: Title ) {}
-    @ViewChild('modalOpen') openButton: any;
+    @ViewChild('modalOpen') openButton: any;//reference to #modalOpen in the template above
     //Wiring to let other components know that the open button has been activated
     @Output() onOpenButtonActivated = new EventEmitter<boolean>();
 
@@ -51,8 +51,8 @@ export class ModalDialog  {
 
     constructor(private renderer: Renderer, private titleService: Title ) {}
 
-    @ViewChild('closeButton') closeButton: any;
-    @ViewChild('actionButton') actionButton: any;
+    @ViewChild('closeButton') closeButton: any; //reference to #closeButton in /app/templates/modal.html
+    @ViewChild('actionButton') actionButton: any;//reference to #actionButton in /app/templates/modal.html
     @Output() onCloseButtonActivated = new EventEmitter<boolean>();
 
     ngAfterViewInit() {
