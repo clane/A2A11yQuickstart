@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: "app-component",
@@ -17,6 +18,8 @@ import { Title } from '@angular/platform-browser';
                 </a>
             </div>
             <h1 *ngIf="notModal">A11y Angular2 Demo</h1>
+
+            <!-- routing similar to tablist behavior -->
             <nav *ngIf="notModal">
                 <a routerLink="/about"><span>About</span></a>
                 <a routerLink="/tooltip"><span>Tooltip</span></a>
@@ -29,6 +32,7 @@ import { Title } from '@angular/platform-browser';
 
 
         <div id="content" tabindex="-1">
+            <!-- router-outlet behaves like a tabpanel -->
             <router-outlet></router-outlet>
         </div>
   `,
@@ -40,7 +44,10 @@ import { Title } from '@angular/platform-browser';
 
 export class AppComponent {
 
-    constructor(private titleService: Title) {}
+    constructor(private titleService: Title, private router: Router) {}
+
+
+    
 
     setTitle(newTitle:string) { this.titleService.setTitle(newTitle); }
 
@@ -54,6 +61,15 @@ export class AppComponent {
     notModal:boolean = true;//modal not showing
     modalTime:boolean = false;//modal not showing
     skipLinkHidden:boolean = true;//visible state of skip link
+
+    ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.focus();
+        });
+    }
   
     ngAfterContentChecked() {
         //use title to detect modal state
